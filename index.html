@@ -31,19 +31,19 @@
         ::-webkit-scrollbar-thumb { background: #FFC800; border-radius: 10px; }
 
         .site-container {
-            max-width: 1200px;
+            max-width: 1400px;
             width: 100%;
             margin: 0 auto;
             background-color: #292929;
         }
         .container {
-            max-width: 1200px;
+            max-width: 1300px;
             width: 100%;
             margin: 0 auto;
             padding: 0 20px;
         }
 
-        /* هدر معمولی */
+        /* هدر */
         .navbar {
             background-color: #1f1f1f;
             border-bottom: 2px solid #FFC800;
@@ -73,11 +73,13 @@
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
+            font-family: 'Vazirmatn', sans-serif;
         }
         .logo-area p {
             font-size: 0.7rem;
             color: #aaa;
             margin-top: 4px;
+            font-family: 'Vazirmatn', sans-serif;
         }
 
         .nav-links {
@@ -123,14 +125,7 @@
             transition: 0.2s;
             font-family: 'Vazirmatn', sans-serif;
         }
-        .cart-icon:hover {
-            background: #353535;
-            border-color: #FFC800;
-        }
-        .cart-icon i {
-            color: #FFC800;
-            font-size: 1.2rem;
-        }
+        .cart-icon i { color: #FFC800; font-size: 1.2rem; }
         #cartCount {
             background: #FFC800;
             color: #121212;
@@ -160,6 +155,7 @@
             font-weight: 800;
             line-height: 1.5;
             margin-bottom: 20px;
+            font-family: 'Vazirmatn', sans-serif;
         }
         .hero-text h2 span {
             color: #FFC800;
@@ -170,6 +166,7 @@
             color: #bcbcbc;
             margin-bottom: 35px;
             line-height: 1.8;
+            font-family: 'Vazirmatn', sans-serif;
         }
         .hero-buttons {
             display: flex;
@@ -177,13 +174,16 @@
             flex-wrap: wrap;
             margin-bottom: 45px;
         }
+        .btn-primary, .btn-outline, .btn-buy, .checkout-btn, .close-modal, .close-cart, .close-payment, .filter-btn {
+            font-family: 'Vazirmatn', sans-serif;
+            font-weight: bold;
+        }
         .btn-primary {
             background-color: #FFC800;
             color: #1f1f1f;
             border: none;
             padding: 12px 28px;
             border-radius: 60px;
-            font-weight: bold;
             cursor: pointer;
             display: inline-flex;
             align-items: center;
@@ -195,7 +195,6 @@
             color: #FFC800;
             padding: 10px 26px;
             border-radius: 60px;
-            font-weight: bold;
             cursor: pointer;
         }
         .hero-stats {
@@ -205,6 +204,7 @@
         .stat h3 {
             color: #FFC800;
             font-size: 1.6rem;
+            font-family: 'Vazirmatn', sans-serif;
         }
         .hero-image {
             flex: 1;
@@ -221,62 +221,57 @@
             display: inline-block;
             padding: 20px 35px;
             border-radius: 50px;
+            font-family: 'Vazirmatn', sans-serif;
         }
-        .font-preview-demo i {
-            color: #FFC800;
-            margin-left: 10px;
-        }
+        .font-preview-demo i { color: #FFC800; margin-left: 10px; }
 
-        /* فیلتر باکس */
-        .filter-wrapper {
-            margin: 35px 0 20px;
+        /* فیلتر باکس - چیدمان بهتر */
+        .filter-main-wrapper {
+            margin: 40px 0 30px;
+        }
+        .filter-box {
             background: #1f1f1f;
             border-radius: 60px;
-            padding: 12px 24px;
-            border: 1px solid #FFC80030;
+            padding: 12px 28px;
+            border: 1px solid #FFC80040;
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-between;
             align-items: center;
+            justify-content: space-between;
             gap: 20px;
         }
-        .filter-title {
+        .filter-label {
             display: flex;
             align-items: center;
             gap: 10px;
-            font-weight: bold;
             color: #FFC800;
+            font-size: 1rem;
+            font-family: 'Vazirmatn', sans-serif;
         }
-        .filter-buttons {
+        .filter-buttons-group {
             display: flex;
-            gap: 18px;
             flex-wrap: wrap;
+            gap: 14px;
         }
         .filter-btn {
             background: #2a2a2a;
             border: none;
-            padding: 8px 18px;
+            padding: 8px 20px;
             border-radius: 40px;
-            font-weight: bold;
-            font-family: 'Vazirmatn', sans-serif;
             color: #e0e0e0;
             cursor: pointer;
-            display: flex;
+            display: inline-flex;
             align-items: center;
             gap: 8px;
             transition: 0.2s;
+            font-size: 0.85rem;
         }
-        .filter-btn i {
-            color: #FFC800;
-            font-size: 0.9rem;
-        }
+        .filter-btn i { color: #FFC800; font-size: 0.85rem; }
         .filter-btn.active, .filter-btn:hover {
             background: #FFC800;
             color: #121212;
         }
-        .filter-btn.active i, .filter-btn:hover i {
-            color: #121212;
-        }
+        .filter-btn.active i, .filter-btn:hover i { color: #121212; }
 
         /* محصولات */
         .products-grid {
@@ -295,19 +290,14 @@
             max-width: 360px;
             width: 100%;
         }
-        .font-card:hover {
-            transform: translateY(-5px);
-            border-color: #FFC80060;
-        }
+        .font-card:hover { transform: translateY(-5px); border-color: #FFC80060; }
         .font-preview img {
             width: 100%;
             aspect-ratio: 1/1;
             object-fit: cover;
             display: block;
         }
-        .font-details {
-            padding: 18px 20px 22px;
-        }
+        .font-details { padding: 18px 20px 22px; }
         .font-title {
             font-size: 1.5rem;
             font-weight: bold;
@@ -316,9 +306,7 @@
             display: flex;
             align-items: center;
             gap: 8px;
-        }
-        .font-title i {
-            font-size: 1.2rem;
+            font-family: 'Vazirmatn', sans-serif;
         }
         .font-cat {
             display: inline-flex;
@@ -329,10 +317,9 @@
             border-radius: 30px;
             font-size: 0.75rem;
             margin-bottom: 12px;
+            font-family: 'Vazirmatn', sans-serif;
         }
-        .font-cat i {
-            color: #FFC800;
-        }
+        .font-cat i { color: #FFC800; }
         .font-desc {
             display: flex;
             align-items: center;
@@ -343,34 +330,44 @@
             padding: 5px 0;
             border-top: 1px dashed #3a3a3a;
             border-bottom: 1px dashed #3a3a3a;
+            font-family: 'Vazirmatn', sans-serif;
         }
-        .price-wrapper {
-            margin: 12px 0;
-        }
+        .price-wrapper { margin: 12px 0; }
         .current-price {
             font-size: 1.7rem;
             font-weight: bold;
             color: #FFC800;
+            font-family: 'Vazirmatn', sans-serif;
         }
         .old-price {
             font-size: 0.9rem;
             text-decoration: line-through;
             color: #777;
             margin-right: 10px;
+            font-family: 'Vazirmatn', sans-serif;
         }
+        /* تایمر زیبا */
         .timer-box {
             background: #2a2a2a;
-            border-radius: 30px;
-            padding: 8px 12px;
+            border-radius: 50px;
+            padding: 8px 16px;
             margin: 12px 0;
             text-align: center;
-            direction: ltr;
+            border: 1px solid #FFC800;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            width: 100%;
+            justify-content: center;
+            font-family: 'Vazirmatn', monospace;
         }
-        .timer-box span {
+        .timer-box i { color: #FFC800; font-size: 1rem; }
+        .timer-box span:last-child {
+            direction: ltr;
             font-family: monospace;
-            font-size: 1.1rem;
             font-weight: bold;
             color: #FFC800;
+            font-size: 1rem;
         }
         .card-actions {
             display: flex;
@@ -383,7 +380,6 @@
             padding: 10px 0;
             width: 100%;
             border-radius: 40px;
-            font-weight: bold;
             color: #111;
             cursor: pointer;
             display: flex;
@@ -417,11 +413,13 @@
             color: #FFC800;
             margin-bottom: 20px;
             font-size: 1.2rem;
+            font-family: 'Vazirmatn', sans-serif;
         }
         .footer-col p, .footer-col a {
             color: #b0b0b0;
             text-decoration: none;
             line-height: 2;
+            font-family: 'Vazirmatn', sans-serif;
         }
         .social-icons {
             display: flex;
@@ -444,6 +442,7 @@
             border-top: 1px solid #2c2c2c;
             font-size: 0.85rem;
             color: #ccc;
+            font-family: 'Vazirmatn', sans-serif;
         }
 
         /* مودال‌ها */
@@ -468,6 +467,7 @@
             border: 2px solid #FFC800;
             max-height: 80vh;
             overflow-y: auto;
+            font-family: 'Vazirmatn', sans-serif;
         }
         .modal-image {
             width: 100%;
@@ -527,16 +527,6 @@
             flex-direction: column;
             gap: 15px;
         }
-        .payment-detail p {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-        .payment-detail i {
-            color: #FFC800;
-            width: 28px;
-        }
         .random-code {
             font-size: 2rem;
             font-weight: 800;
@@ -571,8 +561,9 @@
             .logo-area { position: static; transform: none; margin-bottom: 12px; }
             .nav-flex { flex-direction: column; }
             .nav-links { margin-right: 0; justify-content: center; }
-            .filter-wrapper { flex-direction: column; align-items: stretch; border-radius: 30px; }
-            .filter-buttons { justify-content: center; }
+            .filter-box { flex-direction: column; align-items: stretch; border-radius: 40px; }
+            .filter-buttons-group { justify-content: center; }
+            .hero-text h2 { font-size: 2rem; }
         }
     </style>
 </head>
@@ -625,16 +616,18 @@
         </section>
 
         <div class="container" id="dynamicContent">
-            <!-- فیلتر باکس -->
-            <div class="filter-wrapper">
-                <div class="filter-title"><i class="fas fa-sliders-h"></i> دسته‌بندی فونت:</div>
-                <div class="filter-buttons" id="filterButtons">
-                    <button class="filter-btn active" data-filter="all"><i class="fas fa-border-all"></i> همه</button>
-                    <button class="filter-btn" data-filter="persian"><i class="fas fa-language"></i> فارسی</button>
-                    <button class="filter-btn" data-filter="latin"><i class="fas fa-font"></i> انگلیسی</button>
-                    <button class="filter-btn" data-filter="symbol"><i class="fas fa-hashtag"></i> سمبل</button>
-                    <button class="filter-btn" data-filter="handwritten"><i class="fas fa-pen-fancy"></i> دست‌نویس</button>
-                    <button class="filter-btn" data-filter="display"><i class="fas fa-tv"></i> نمایشی</button>
+            <!-- فیلتر با چیدمان جدید -->
+            <div class="filter-main-wrapper" id="filterWrapper">
+                <div class="filter-box">
+                    <div class="filter-label"><i class="fas fa-filter"></i> دسته‌بندی فونت:</div>
+                    <div class="filter-buttons-group" id="filterButtonsGroup">
+                        <button class="filter-btn active" data-filter="all"><i class="fas fa-border-all"></i> همه</button>
+                        <button class="filter-btn" data-filter="persian"><i class="fas fa-language"></i> فارسی</button>
+                        <button class="filter-btn" data-filter="latin"><i class="fas fa-font"></i> انگلیسی</button>
+                        <button class="filter-btn" data-filter="symbol"><i class="fas fa-hashtag"></i> سمبل</button>
+                        <button class="filter-btn" data-filter="handwritten"><i class="fas fa-pen-fancy"></i> دست‌نویس</button>
+                        <button class="filter-btn" data-filter="display"><i class="fas fa-tv"></i> نمایشی</button>
+                    </div>
                 </div>
             </div>
             <div class="products-grid" id="productsGrid"></div>
@@ -675,7 +668,7 @@
 <div id="paymentModal" class="payment-modal"><div class="payment-modal-content"><h3><i class="fas fa-credit-card"></i> تکمیل سفارش</h3><div id="paymentDetails" class="payment-detail"></div><button class="close-payment" id="closePaymentBtn">بستن</button></div></div>
 
 <script>
-    // اطلاعات فونت‌ها
+    // اطلاعات فونت‌ها با عکس جدید برای فونت منشور
     const fontsData = [
         { 
             id: 1, 
@@ -693,7 +686,7 @@
             category: "persian", 
             price: 360000, 
             oldPrice: 500000, 
-            image: "https://cdn.imgurl.ir/uploads/v790100_mim_non.webp", 
+            image: "https://uploadkon.ir/uploads/431113_26IMG-20260613-165046-564.jpg", 
             description: "یک فونت خفن به درد طراحی برای | پوستر | کاور | میخوره | با قیمت مناسب از میم نون خریداری کنید!",
             icon: "fa-crown",
             timerEnd: new Date(Date.now() + 3*24*60*60*1000)  // 3 روز
@@ -711,7 +704,7 @@
         container.innerHTML = filtered.map(font => {
             let timerHtml = '';
             if(font.timerEnd) {
-                timerHtml = `<div class="timer-box" data-id="${font.id}"><span>⏳ پیشنهاد ویژه: </span> <span class="timer-${font.id}"></span></div>`;
+                timerHtml = `<div class="timer-box" data-id="${font.id}"><i class="fas fa-hourglass-half"></i> <span class="timer-${font.id}"></span></div>`;
             }
             return `
             <div class="font-card">
@@ -740,17 +733,17 @@
                 if(font.timerEnd) {
                     const now = new Date();
                     const diff = font.timerEnd - now;
+                    const el = document.querySelector(`.timer-${font.id}`);
+                    if(!el) return;
                     if(diff <= 0) {
-                        const el = document.querySelector(`.timer-${font.id}`);
-                        if(el) el.innerText = "پیشنهاد تمام شد!";
+                        el.innerText = "پیشنهاد ویژه تمام شد!";
                         return;
                     }
                     const days = Math.floor(diff / (1000*60*60*24));
                     const hours = Math.floor((diff % (86400000)) / 3600000);
                     const mins = Math.floor((diff % 3600000) / 60000);
                     const secs = Math.floor((diff % 60000) / 1000);
-                    const el = document.querySelector(`.timer-${font.id}`);
-                    if(el) el.innerText = `${days}روز ${hours}ساعت ${mins}دقیقه ${secs}ثانیه`;
+                    el.innerText = `${days}d ${hours}h ${mins}m ${secs}s`;
                 }
             });
         }, 1000);
@@ -856,17 +849,20 @@
     document.getElementById('sampleTypeBtn')?.addEventListener('click',()=>{ const f = fontsData[0]; openModal(f.image, f.name); });
     document.getElementById('shopNowBtn')?.addEventListener('click',()=>{ document.querySelector('.products-grid')?.scrollIntoView({ behavior: 'smooth' }); });
 
-    // فیلترها
-    document.querySelectorAll('.filter-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            currentFilter = btn.dataset.filter;
-            renderProducts();
+    // فیلترها (داخلی صفحه اصلی)
+    function initFilters() {
+        const filterBtns = document.querySelectorAll('#filterButtonsGroup .filter-btn');
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                currentFilter = btn.dataset.filter;
+                renderProducts();
+            });
         });
-    });
+    }
 
-    // منو و تب ها
+    // منو و تب‌ها
     const tabs = document.querySelectorAll('.nav-link');
     const dynamicContainer = document.getElementById('dynamicContent');
     const heroSection = document.getElementById('heroSection');
@@ -874,26 +870,24 @@
         tabs.forEach(btn => { if(btn.dataset.tab === tabId) btn.classList.add('active'); else btn.classList.remove('active'); });
         if(tabId === 'home') {
             if(heroSection) heroSection.style.display = '';
-            dynamicContainer.innerHTML = `<div class="filter-wrapper">
-                <div class="filter-title"><i class="fas fa-sliders-h"></i> دسته‌بندی فونت:</div>
-                <div class="filter-buttons" id="filterButtons">
-                    <button class="filter-btn active" data-filter="all"><i class="fas fa-border-all"></i> همه</button>
-                    <button class="filter-btn" data-filter="persian"><i class="fas fa-language"></i> فارسی</button>
-                    <button class="filter-btn" data-filter="latin"><i class="fas fa-font"></i> انگلیسی</button>
-                    <button class="filter-btn" data-filter="symbol"><i class="fas fa-hashtag"></i> سمبل</button>
-                    <button class="filter-btn" data-filter="handwritten"><i class="fas fa-pen-fancy"></i> دست‌نویس</button>
-                    <button class="filter-btn" data-filter="display"><i class="fas fa-tv"></i> نمایشی</button>
+            dynamicContainer.innerHTML = `
+                <div class="filter-main-wrapper">
+                    <div class="filter-box">
+                        <div class="filter-label"><i class="fas fa-filter"></i> دسته‌بندی فونت:</div>
+                        <div class="filter-buttons-group" id="filterButtonsGroup">
+                            <button class="filter-btn active" data-filter="all"><i class="fas fa-border-all"></i> همه</button>
+                            <button class="filter-btn" data-filter="persian"><i class="fas fa-language"></i> فارسی</button>
+                            <button class="filter-btn" data-filter="latin"><i class="fas fa-font"></i> انگلیسی</button>
+                            <button class="filter-btn" data-filter="symbol"><i class="fas fa-hashtag"></i> سمبل</button>
+                            <button class="filter-btn" data-filter="handwritten"><i class="fas fa-pen-fancy"></i> دست‌نویس</button>
+                            <button class="filter-btn" data-filter="display"><i class="fas fa-tv"></i> نمایشی</button>
+                        </div>
+                    </div>
                 </div>
-            </div><div class="products-grid" id="productsGrid"></div>`;
+                <div class="products-grid" id="productsGrid"></div>
+            `;
             renderProducts();
-            document.querySelectorAll('.filter-btn').forEach(btn => {
-                btn.addEventListener('click', () => {
-                    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-                    btn.classList.add('active');
-                    currentFilter = btn.dataset.filter;
-                    renderProducts();
-                });
-            });
+            initFilters();
         } 
         else if(tabId === 'mimnoon') {
             if(heroSection) heroSection.style.display = 'none';
@@ -915,4 +909,4 @@
     updateCartUI();
 </script>
 </body>
-            </html>
+                </html>
