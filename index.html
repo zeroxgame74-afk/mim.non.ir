@@ -6,7 +6,7 @@
     <title>mim.non.ir | فروشگاه تخصصی فونت</title>
     <!-- Font Awesome 6 (Free) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- فونت وزیرمتن با وزن‌های مختلف (بولد اصلی) -->
+    <!-- فونت وزیرمتن -->
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
     <style>
         * {
@@ -18,9 +18,12 @@
         body {
             background-color: #292929;
             font-family: 'Vazirmatn', 'Inter', Tahoma, sans-serif;
-            font-weight: bold;  /* تمام متن‌های بدنه بولد */
+            font-weight: bold;
             color: #e0e0e0;
             line-height: 1.5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         /* اسکرول سفارشی */
@@ -35,7 +38,14 @@
             border-radius: 10px;
         }
 
-        /* کانتینر با عرض ثابت */
+        /* کانتینر اصلی با عرض ثابت و وسط‌چین */
+        .main-wrapper {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
         .container {
             max-width: 1200px;
             width: 100%;
@@ -51,7 +61,7 @@
             position: sticky;
             top: 0;
             z-index: 1000;
-            backdrop-filter: blur(2px);
+            width: 100%;
             box-shadow: 0 5px 20px rgba(0,0,0,0.4);
         }
         .nav-flex {
@@ -64,13 +74,11 @@
         .logo-area h1 {
             font-size: 2rem;
             font-weight: 800;
-            letter-spacing: -0.5px;
             background: linear-gradient(135deg, #FFC800 30%, #ffdd55 80%);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
             font-family: 'Vazirmatn', sans-serif;
-            font-weight: bold;
         }
         .logo-area p {
             font-size: 0.75rem;
@@ -103,6 +111,7 @@
             gap: 10px;
             font-weight: bold;
             border: 1px solid #FFC80040;
+            cursor: pointer;
         }
         .cart-icon i {
             color: #FFC800;
@@ -114,6 +123,7 @@
             background: linear-gradient(125deg, #212121 0%, #292929 100%);
             padding: 70px 0;
             border-bottom: 1px solid #3a3a3a;
+            width: 100%;
         }
         .hero-grid {
             display: flex;
@@ -294,7 +304,6 @@
             font-weight: bold;
             color: white;
             text-shadow: 0 0 6px rgba(0,0,0,0.5);
-            transition: 0.1s;
             word-break: break-word;
         }
         .font-details {
@@ -369,6 +378,7 @@
             margin-top: 60px;
             padding: 50px 0 30px;
             border-top: 2px solid #FFC800;
+            width: 100%;
         }
         .footer-grid {
             display: grid;
@@ -386,7 +396,6 @@
             color: #b0b0b0;
             text-decoration: none;
             line-height: 1.8;
-            transition: 0.2s;
             font-weight: bold;
         }
         .footer-col a:hover {
@@ -466,106 +475,107 @@
     </style>
 </head>
 <body>
-
-<nav class="navbar">
-    <div class="container nav-flex">
-        <div class="logo-area">
-            <h1>mim.non.ir</h1>
-            <p>فروشگاه حرفه‌ای فونت &nbsp;|&nbsp; تایپ‌فیس خاص</p>
-        </div>
-        <div class="nav-links">
-            <a href="#" class="active">خانه</a>
-            <a href="#">فونت‌ها</a>
-            <a href="#">پرفروش‌ها</a>
-            <a href="#">بلاگ</a>
-            <a href="#">تماس</a>
-            <div class="cart-icon">
-                <i class="fas fa-shopping-cart"></i>
-                <span>سبد خرید</span>
-                <span id="cartCount" style="background:#FFC800; color:#121212; padding:0 6px; border-radius:20px;">0</span>
+<div class="main-wrapper">
+    <nav class="navbar">
+        <div class="container nav-flex">
+            <div class="logo-area">
+                <h1>mim.non.ir</h1>
+                <p>فروشگاه حرفه‌ای فونت &nbsp;|&nbsp; تایپ‌فیس خاص</p>
             </div>
-        </div>
-    </div>
-</nav>
-
-<section class="hero">
-    <div class="container hero-grid">
-        <div class="hero-text">
-            <h2>فونت‌های <span>حرفه‌ای و منحصربه‌فرد</span> برای طراحان</h2>
-            <p>مجموعه‌ای از بهترین فونت‌های فارسی و لاتین با کیفیت بالا، مجوز قانونی و طراحی مدرن. همین حالا دانلود کنید.</p>
-            <div>
-                <button class="btn-primary" id="shopNowBtn"><i class="fas fa-arrow-down"></i> مشاهده فونت‌ها</button>
-                <button class="btn-outline" style="margin-right: 16px;"><i class="fas fa-play-circle"></i> نمونه تایپ‌فیس</button>
-            </div>
-            <div class="hero-stats">
-                <div class="stat"><h3>۲۴۰+</h3><span>فونت حرفه‌ای</span></div>
-                <div class="stat"><h3>۷.۲k</h3><span>طراح راضی</span></div>
-                <div class="stat"><h3>⭐ ۴.۹</h3><span>رضایت بالا</span></div>
-            </div>
-        </div>
-        <div class="hero-image">
-            <div class="font-preview-demo">
-                <i class="fas fa-font"></i> سـبـک <span style="color:#FFC800;">مدرن</span>
-            </div>
-            <p style="margin-top: 20px; font-size:0.9rem;">مجموعه Fonts با کیفیت اورجینال</p>
-        </div>
-    </div>
-</section>
-
-<div class="container">
-    <div class="filter-bar">
-        <div class="categories">
-            <div class="cat-btn active" data-cat="all">همه</div>
-            <div class="cat-btn" data-cat="persian">فارسی</div>
-            <div class="cat-btn" data-cat="latin">لاتین</div>
-            <div class="cat-btn" data-cat="handwritten">دست‌نویس</div>
-            <div class="cat-btn" data-cat="display">نمایشی</div>
-        </div>
-        <div class="search-box">
-            <i class="fas fa-search"></i>
-            <input type="text" id="searchInput" placeholder="جستجوی فونت ...">
-        </div>
-    </div>
-
-    <div class="products-grid" id="productsGrid">
-        <!-- محصولات با جاوااسکریپت داینامیک -->
-    </div>
-</div>
-
-<footer>
-    <div class="container">
-        <div class="footer-grid">
-            <div class="footer-col">
-                <h4>mim.non.ir</h4>
-                <p>تنها فروشگاه تخصصی با گارانتی اصالت فونت و پشتیبانی ۲۴ ساعته.</p>
-                <div class="social-icons">
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-telegram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <div class="nav-links">
+                <a href="#" class="active">خانه</a>
+                <a href="#">فونت‌ها</a>
+                <a href="#">پرفروش‌ها</a>
+                <a href="#">بلاگ</a>
+                <a href="#">تماس</a>
+                <div class="cart-icon" id="cartIconBtn">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>سبد خرید</span>
+                    <span id="cartCount" style="background:#FFC800; color:#121212; padding:0 6px; border-radius:20px;">0</span>
                 </div>
             </div>
-            <div class="footer-col">
-                <h4>دسترسی سریع</h4>
-                <p><a href="#">فهرست فونت‌ها</a></p>
-                <p><a href="#">حریم خصوصی</a></p>
-                <p><a href="#">قوانین و مقررات</a></p>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container hero-grid">
+            <div class="hero-text">
+                <h2>فونت‌های <span>حرفه‌ای و منحصربه‌فرد</span> برای طراحان</h2>
+                <p>مجموعه‌ای از بهترین فونت‌های فارسی و لاتین با کیفیت بالا، مجوز قانونی و طراحی مدرن. همین حالا دانلود کنید.</p>
+                <div>
+                    <button class="btn-primary" id="shopNowBtn"><i class="fas fa-arrow-down"></i> مشاهده فونت‌ها</button>
+                    <button class="btn-outline" style="margin-right: 16px;"><i class="fas fa-play-circle"></i> نمونه تایپ‌فیس</button>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat"><h3>۲۴۰+</h3><span>فونت حرفه‌ای</span></div>
+                    <div class="stat"><h3>۷.۲k</h3><span>طراح راضی</span></div>
+                    <div class="stat"><h3>⭐ ۴.۹</h3><span>رضایت بالا</span></div>
+                </div>
             </div>
-            <div class="footer-col">
-                <h4>تماس با ما</h4>
-                <p><i class="fas fa-envelope"></i> support@mim.non.ir</p>
-                <p><i class="fas fa-phone-alt"></i> ۰۲۱-۱۲۳۴۵۶۷۸</p>
+            <div class="hero-image">
+                <div class="font-preview-demo">
+                    <i class="fas fa-font"></i> سـبـک <span style="color:#FFC800;">مدرن</span>
+                </div>
+                <p style="margin-top: 20px; font-size:0.9rem;">مجموعه Fonts با کیفیت اورجینال</p>
             </div>
         </div>
-        <div class="copyright">
-            © ۲۰۲۵ mim.non.ir - تمامی حقوق برای فروشگاه فونت محفوظ است. | طراحی شده با <i class="fas fa-heart" style="color:#FFC800;"></i> و تم رنگی FF C800
+    </section>
+
+    <div class="container">
+        <div class="filter-bar">
+            <div class="categories">
+                <div class="cat-btn active" data-cat="all">همه</div>
+                <div class="cat-btn" data-cat="persian">فارسی</div>
+                <div class="cat-btn" data-cat="latin">لاتین</div>
+                <div class="cat-btn" data-cat="handwritten">دست‌نویس</div>
+                <div class="cat-btn" data-cat="display">نمایشی</div>
+            </div>
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchInput" placeholder="جستجوی فونت ...">
+            </div>
+        </div>
+
+        <div class="products-grid" id="productsGrid">
+            <!-- محصولات با جاوااسکریپت داینامیک -->
         </div>
     </div>
-</footer>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>mim.non.ir</h4>
+                    <p>تنها فروشگاه تخصصی با گارانتی اصالت فونت و پشتیبانی ۲۴ ساعته.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>دسترسی سریع</h4>
+                    <p><a href="#">فهرست فونت‌ها</a></p>
+                    <p><a href="#">حریم خصوصی</a></p>
+                    <p><a href="#">قوانین و مقررات</a></p>
+                </div>
+                <div class="footer-col">
+                    <h4>تماس با ما</h4>
+                    <p><i class="fas fa-envelope"></i> support@mim.non.ir</p>
+                    <p><i class="fas fa-phone-alt"></i> ۰۲۱-۱۲۳۴۵۶۷۸</p>
+                </div>
+            </div>
+            <div class="copyright">
+                © ۲۰۲۵ mim.non.ir - تمامی حقوق برای فروشگاه فونت محفوظ است. | طراحی شده با <i class="fas fa-heart" style="color:#FFC800;"></i> و تم رنگی FF C800
+            </div>
+        </div>
+    </footer>
+</div>
 
 <div id="fontModal" class="modal">
     <div class="modal-content">
         <h3><i class="fas fa-eye"></i> پیش‌نمایش فونت</h3>
-        <div id="modalFontSample" class="modal-font-sample" style="font-family: inherit;">نمونه متن زیبا</div>
+        <div id="modalFontSample" class="modal-font-sample">نمونه متن زیبا</div>
         <button class="close-modal" id="closeModalBtn">بستن</button>
     </div>
 </div>
@@ -645,10 +655,13 @@
 
     function addToCart(item) {
         const exist = cart.find(i => i.id === item.id);
-        if(exist) exist.quantity += 1;
-        else cart.push({ ...item, quantity: 1 });
+        if(exist) {
+            exist.quantity += 1;
+        } else {
+            cart.push({ ...item, quantity: 1 });
+        }
         updateCartUI();
-        showToast(`${item.name} به سبد خرید اضافه شد`);
+        showToast(`${item.name} به سبد خرید اضافه شد ✅`);
     }
 
     function updateCartUI() {
@@ -668,6 +681,7 @@
         toast.style.borderRadius = '40px';
         toast.style.fontWeight = 'bold';
         toast.style.zIndex = '9999';
+        toast.style.fontFamily = "'Vazirmatn', sans-serif";
         document.body.appendChild(toast);
         setTimeout(() => toast.remove(), 2500);
     }
