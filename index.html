@@ -6,8 +6,8 @@
     <title>mim.non.ir | فروشگاه تخصصی فونت</title>
     <!-- Font Awesome 6 (Free) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- گوگل فونت برای متن‌های فارسی (وزن‌های مختلف) -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <!-- فونت وزیرمتن با وزن‌های مختلف (بولد اصلی) -->
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
     <style>
         * {
             margin: 0;
@@ -17,7 +17,8 @@
 
         body {
             background-color: #292929;
-            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Vazirmatn', 'Inter', Tahoma, sans-serif;
+            font-weight: bold;  /* تمام متن‌های بدنه بولد */
             color: #e0e0e0;
             line-height: 1.5;
         }
@@ -34,11 +35,12 @@
             border-radius: 10px;
         }
 
-        /* کانتینر اصلی */
+        /* کانتینر با عرض ثابت */
         .container {
-            max-width: 1300px;
+            max-width: 1200px;
+            width: 100%;
             margin: 0 auto;
-            padding: 0 30px;
+            padding: 0 20px;
         }
 
         /* هدر & نویگیشن */
@@ -67,11 +69,14 @@
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
+            font-family: 'Vazirmatn', sans-serif;
+            font-weight: bold;
         }
         .logo-area p {
             font-size: 0.75rem;
             color: #aaa;
             margin-top: 4px;
+            font-weight: bold;
         }
         .nav-links {
             display: flex;
@@ -81,9 +86,10 @@
         .nav-links a {
             color: #f0f0f0;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: bold;
             transition: 0.2s;
             font-size: 1rem;
+            font-family: 'Vazirmatn', sans-serif;
         }
         .nav-links a:hover, .nav-links a.active {
             color: #FFC800;
@@ -95,7 +101,7 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            font-weight: 700;
+            font-weight: bold;
             border: 1px solid #FFC80040;
         }
         .cart-icon i {
@@ -124,6 +130,7 @@
             font-weight: 800;
             line-height: 1.2;
             margin-bottom: 20px;
+            font-family: 'Vazirmatn', sans-serif;
         }
         .hero-text h2 span {
             color: #FFC800;
@@ -134,6 +141,7 @@
             color: #bcbcbc;
             max-width: 550px;
             margin-bottom: 30px;
+            font-weight: bold;
         }
         .btn-primary {
             background-color: #FFC800;
@@ -141,19 +149,18 @@
             border: none;
             padding: 14px 32px;
             border-radius: 60px;
-            font-weight: 800;
+            font-weight: bold;
             font-size: 1rem;
             cursor: pointer;
-            transition: 0.2s;
             display: inline-flex;
             align-items: center;
             gap: 10px;
             box-shadow: 0 5px 12px rgba(255,200,0,0.3);
+            font-family: 'Vazirmatn', sans-serif;
         }
         .btn-primary:hover {
             background-color: #e6b400;
             transform: scale(1.02);
-            box-shadow: 0 8px 18px rgba(255,200,0,0.4);
         }
         .btn-outline {
             background: transparent;
@@ -161,9 +168,10 @@
             color: #FFC800;
             padding: 12px 28px;
             border-radius: 60px;
-            font-weight: 700;
+            font-weight: bold;
             transition: 0.2s;
             cursor: pointer;
+            font-family: 'Vazirmatn', sans-serif;
         }
         .btn-outline:hover {
             background: #FFC80020;
@@ -179,6 +187,7 @@
         .stat h3 {
             color: #FFC800;
             font-size: 1.6rem;
+            font-weight: bold;
         }
         .hero-image {
             flex: 1;
@@ -191,18 +200,19 @@
         }
         .font-preview-demo {
             font-size: 3.2rem;
-            font-weight: 800;
+            font-weight: bold;
             background: #2e2e2e;
             display: inline-block;
             padding: 20px 40px;
             border-radius: 50px;
+            font-family: 'Vazirmatn', sans-serif;
         }
         .font-preview-demo i {
             color: #FFC800;
             margin-left: 12px;
         }
 
-        /* فیلتر و دسته بندی */
+        /* فیلتر */
         .filter-bar {
             margin: 45px 0 25px;
             display: flex;
@@ -220,10 +230,11 @@
             background: #222;
             padding: 8px 22px;
             border-radius: 40px;
-            font-weight: 500;
+            font-weight: bold;
             cursor: pointer;
             transition: all 0.2s;
             border: 1px solid #3b3b3b;
+            font-family: 'Vazirmatn', sans-serif;
         }
         .cat-btn.active, .cat-btn:hover {
             background: #FFC800;
@@ -246,12 +257,14 @@
             font-size: 0.9rem;
             width: 220px;
             outline: none;
+            font-family: 'Vazirmatn', sans-serif;
+            font-weight: bold;
         }
         .search-box i {
             color: #FFC800;
         }
 
-        /* محصولات - کارت فونت */
+        /* محصولات */
         .products-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -269,7 +282,6 @@
         .font-card:hover {
             transform: translateY(-6px);
             border-color: #FFC80060;
-            box-shadow: 0 20px 30px -12px rgba(0,0,0,0.5);
         }
         .font-preview {
             background: #0c0c0c;
@@ -279,7 +291,7 @@
         }
         .sample-text {
             font-size: 2rem;
-            font-weight: 700;
+            font-weight: bold;
             color: white;
             text-shadow: 0 0 6px rgba(0,0,0,0.5);
             transition: 0.1s;
@@ -290,9 +302,10 @@
         }
         .font-title {
             font-size: 1.4rem;
-            font-weight: 800;
+            font-weight: bold;
             margin-bottom: 6px;
             color: #FFC800;
+            font-family: 'Vazirmatn', sans-serif;
         }
         .font-cat {
             font-size: 0.75rem;
@@ -302,10 +315,11 @@
             background: #2b2b2b;
             padding: 2px 12px;
             border-radius: 20px;
+            font-weight: bold;
         }
         .font-price {
             font-size: 1.7rem;
-            font-weight: 800;
+            font-weight: bold;
             color: #FFC800;
             margin: 14px 0;
         }
@@ -326,7 +340,7 @@
             padding: 10px 0;
             width: 100%;
             border-radius: 40px;
-            font-weight: 800;
+            font-weight: bold;
             color: #111;
             cursor: pointer;
             transition: 0.2s;
@@ -334,6 +348,7 @@
             align-items: center;
             justify-content: center;
             gap: 8px;
+            font-family: 'Vazirmatn', sans-serif;
         }
         .btn-preview {
             background: #2c2c2c;
@@ -348,7 +363,7 @@
             background: #e0b000;
         }
 
-        /* فوتر زیبا */
+        /* فوتر */
         footer {
             background: #121212;
             margin-top: 60px;
@@ -365,12 +380,14 @@
             color: #FFC800;
             margin-bottom: 20px;
             font-size: 1.2rem;
+            font-weight: bold;
         }
         .footer-col p, .footer-col a {
             color: #b0b0b0;
             text-decoration: none;
             line-height: 1.8;
             transition: 0.2s;
+            font-weight: bold;
         }
         .footer-col a:hover {
             color: #FFC800;
@@ -396,9 +413,10 @@
             border-top: 1px solid #2c2c2c;
             font-size: 0.8rem;
             color: #777;
+            font-weight: bold;
         }
 
-        /* مودال پیش‌نمایش فونت */
+        /* مودال */
         .modal {
             display: none;
             position: fixed;
@@ -422,6 +440,7 @@
         .modal-content h3 {
             font-size: 2rem;
             color: #FFC800;
+            font-weight: bold;
         }
         .modal-font-sample {
             font-size: 2.5rem;
@@ -429,6 +448,7 @@
             background: #00000044;
             border-radius: 32px;
             margin: 20px 0;
+            font-weight: bold;
         }
         .close-modal {
             background: #FFC800;
@@ -508,7 +528,7 @@
     </div>
 
     <div class="products-grid" id="productsGrid">
-        <!-- محصولات با جاوااسکریپت داینامیک رندر می‌شوند -->
+        <!-- محصولات با جاوااسکریپت داینامیک -->
     </div>
 </div>
 
@@ -551,7 +571,6 @@
 </div>
 
 <script>
-    // ----- مجموعه داده فونت‌ها (فروش فونت) -----
     const fontsData = [
         { id: 1, name: "آرام بولد", category: "persian", price: 89000, oldPrice: 149000, sample: "سلام دنیای طراحی!", fontFamily: "'Vazirmatn', 'Segoe UI', sans-serif", desc: "فونت مدرن فارسی" },
         { id: 2, name: "Neue Machina", category: "latin", price: 129000, oldPrice: 199000, sample: "Design is intelligence", fontFamily: "'Inter', 'Poppins', sans-serif", desc: "فونت لاتین صنعتی" },
@@ -567,7 +586,6 @@
     let activeCategory = "all";
     let searchQuery = "";
 
-    // رندر محصولات بر اساس فیلتر
     function renderProducts() {
         const container = document.getElementById("productsGrid");
         let filtered = fontsData.filter(font => {
@@ -603,7 +621,6 @@
             </div>
         `).join("");
 
-        // افزودن رویداد به دکمه خرید جدید
         document.querySelectorAll('.btn-buy').forEach(btn => {
             btn.addEventListener('click', (e) => {
                 const id = parseInt(btn.getAttribute('data-id'));
@@ -612,13 +629,11 @@
                 addToCart({ id, name, price });
             });
         });
-        // دکمه پیش‌نمایش
         document.querySelectorAll('.btn-preview').forEach(btn => {
             btn.addEventListener('click', () => {
                 const fontFamily = btn.getAttribute('data-fontfamily');
                 const sampleText = btn.getAttribute('data-sample');
-                const fontName = btn.getAttribute('data-name');
-                openModal(fontFamily, sampleText, fontName);
+                openModal(fontFamily, sampleText);
             });
         });
     }
@@ -630,11 +645,8 @@
 
     function addToCart(item) {
         const exist = cart.find(i => i.id === item.id);
-        if(exist) {
-            exist.quantity += 1;
-        } else {
-            cart.push({ ...item, quantity: 1 });
-        }
+        if(exist) exist.quantity += 1;
+        else cart.push({ ...item, quantity: 1 });
         updateCartUI();
         showToast(`${item.name} به سبد خرید اضافه شد`);
     }
@@ -656,27 +668,20 @@
         toast.style.borderRadius = '40px';
         toast.style.fontWeight = 'bold';
         toast.style.zIndex = '9999';
-        toast.style.boxShadow = '0 8px 20px black';
         document.body.appendChild(toast);
         setTimeout(() => toast.remove(), 2500);
     }
 
-    // مودال پیش‌نمایش فونت
     const modal = document.getElementById('fontModal');
     const modalSample = document.getElementById('modalFontSample');
-    function openModal(fontFamily, sampleText, fontName) {
+    function openModal(fontFamily, sampleText) {
         modalSample.style.fontFamily = fontFamily;
         modalSample.innerText = sampleText;
         modal.style.display = 'flex';
     }
-    document.getElementById('closeModalBtn').addEventListener('click', () => {
-        modal.style.display = 'none';
-    });
-    window.addEventListener('click', (e) => {
-        if(e.target === modal) modal.style.display = 'none';
-    });
+    document.getElementById('closeModalBtn').addEventListener('click', () => modal.style.display = 'none');
+    window.addEventListener('click', (e) => { if(e.target === modal) modal.style.display = 'none'; });
 
-    // فیلترها
     document.querySelectorAll('.cat-btn').forEach(btn => {
         btn.addEventListener('click', () => {
             document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
@@ -685,8 +690,7 @@
             renderProducts();
         });
     });
-    const searchInput = document.getElementById('searchInput');
-    searchInput.addEventListener('input', (e) => {
+    document.getElementById('searchInput').addEventListener('input', (e) => {
         searchQuery = e.target.value;
         renderProducts();
     });
@@ -694,9 +698,8 @@
         document.querySelector('.products-grid').scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
 
-    // رندر اولیه
     renderProducts();
     updateCartUI();
 </script>
 </body>
-  </html>
+</html>
