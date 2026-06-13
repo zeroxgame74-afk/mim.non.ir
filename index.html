@@ -247,7 +247,6 @@
             margin-left: 12px;
         }
 
-        /* محصولات - فاصله کم شده */
         .products-grid {
             display: flex;
             justify-content: center;
@@ -260,7 +259,7 @@
             transition: transform 0.25s ease, box-shadow 0.2s;
             border: 1px solid #2d2d2d;
             box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-            max-width: 350px;
+            max-width: 360px;
             width: 100%;
         }
         .font-card:hover {
@@ -270,16 +269,15 @@
         }
         .font-preview {
             background: #0c0c0c;
-            padding: 20px;
+            padding: 0;
             text-align: center;
             border-bottom: 1px solid #FFC80030;
         }
         .font-preview img {
             width: 100%;
             aspect-ratio: 1 / 1;
-            object-fit: contain;
-            border-radius: 20px;
-            margin-bottom: 0;
+            object-fit: cover;
+            display: block;
         }
         .font-details {
             padding: 18px 20px 22px;
@@ -287,37 +285,64 @@
         .font-title {
             font-size: 1.5rem;
             font-weight: bold;
-            margin-bottom: 6px;
+            margin-bottom: 8px;
             color: #FFC800;
             line-height: 1.3;
             font-family: 'Vazirmatn', sans-serif;
         }
         .font-cat {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
             font-size: 0.75rem;
             color: #aaa;
             margin-bottom: 12px;
-            display: inline-block;
             background: #2b2b2b;
-            padding: 3px 12px;
-            border-radius: 20px;
+            padding: 4px 14px;
+            border-radius: 30px;
             font-weight: bold;
         }
-        .font-price {
-            font-size: 1.6rem;
-            font-weight: bold;
+        .font-cat i {
             color: #FFC800;
+            font-size: 0.7rem;
+        }
+        .font-desc {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            color: #bcbcbc;
+            margin-bottom: 15px;
+            padding: 5px 0;
+            border-top: 1px dashed #3a3a3a;
+            border-bottom: 1px dashed #3a3a3a;
+        }
+        .font-desc i {
+            color: #FFC800;
+            font-size: 0.8rem;
+            width: 20px;
+            text-align: center;
+        }
+        .price-wrapper {
             margin: 12px 0;
         }
-        .price-old {
-            font-size: 0.85rem;
+        .current-price {
+            font-size: 1.7rem;
+            font-weight: bold;
+            color: #FFC800;
+            display: inline-block;
+        }
+        .old-price {
+            font-size: 0.9rem;
             text-decoration: line-through;
             color: #777;
             margin-right: 10px;
+            display: inline-block;
         }
         .card-actions {
             display: flex;
             gap: 12px;
-            margin-top: 15px;
+            margin-top: 18px;
         }
         .btn-buy {
             background: #FFC800;
@@ -441,14 +466,14 @@
             margin-bottom: 15px;
             font-weight: bold;
         }
-        .modal-font-sample {
-            font-size: 2.5rem;
-            padding: 45px 20px;
-            background: #00000044;
-            border-radius: 32px;
-            margin: 25px 0;
-            line-height: 1.4;
-            font-weight: bold;
+        .modal-image {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: contain;
+            border-radius: 24px;
+            margin: 20px 0;
+            background: #0c0c0c;
+            padding: 10px;
         }
         .close-modal, .close-cart {
             background: #FFC800;
@@ -631,7 +656,7 @@
 <div id="fontModal" class="modal">
     <div class="modal-content">
         <h3><i class="fas fa-eye"></i> پیش‌نمایش فونت</h3>
-        <div id="modalFontSample" class="modal-font-sample">نمونه متن زیبا</div>
+        <img id="modalImage" class="modal-image" src="" alt="پیش‌نمایش فونت">
         <button class="close-modal" id="closeModalBtn">بستن</button>
     </div>
 </div>
@@ -648,7 +673,15 @@
 
 <script>
     const fontsData = [
-        { id: 1, name: "فونت شفیق", category: "persian", price: 120000, oldPrice: 250000, sample: "فونت شفیق - خاص و زیبا", fontFamily: "'Vazirmatn'", image: "https://cdn.imgurl.ir/uploads/v790100_mim_non.webp" }
+        { 
+            id: 1, 
+            name: "فونت شفیق", 
+            category: "persian", 
+            price: 120000, 
+            oldPrice: 250000, 
+            image: "https://cdn.imgurl.ir/uploads/v790100_mim_non.webp",
+            description: "فونت شفیق با طراحی منحصربه‌فرد و خوانایی بالا، مناسب برای طراحی‌های لوکس و مدرن"
+        }
     ];
 
     let cart = [];
@@ -663,14 +696,21 @@
                 </div>
                 <div class="font-details">
                     <div class="font-title">${font.name}</div>
-                    <div class="font-cat">${categoryTranslate(font.category)}</div>
-                    <div class="font-price">
-                        ${font.price.toLocaleString()} تومان
-                        ${font.oldPrice ? `<span class="price-old">${font.oldPrice.toLocaleString()} تومان</span>` : ''}
+                    <div class="font-cat">
+                        <i class="fas fa-tag"></i>
+                        <span>${categoryTranslate(font.category)}</span>
+                    </div>
+                    <div class="font-desc">
+                        <i class="fas fa-info-circle"></i>
+                        <span>${font.description}</span>
+                    </div>
+                    <div class="price-wrapper">
+                        <span class="current-price">${font.price.toLocaleString()} تومان</span>
+                        ${font.oldPrice ? `<span class="old-price">${font.oldPrice.toLocaleString()} تومان</span>` : ''}
                     </div>
                     <div class="card-actions">
                         <button class="btn-buy" data-id="${font.id}" data-name="${font.name}" data-price="${font.price}"><i class="fas fa-shopping-bag"></i> خرید</button>
-                        <button class="btn-preview" data-fontfamily="${font.fontFamily}" data-sample="${font.sample}"><i class="fas fa-eye"></i></button>
+                        <button class="btn-preview" data-image="${font.image}" data-name="${font.name}"><i class="fas fa-eye"></i></button>
                     </div>
                 </div>
             </div>
@@ -687,7 +727,9 @@
 
         document.querySelectorAll('.btn-preview').forEach(btn => {
             btn.addEventListener('click', () => {
-                openModal(btn.dataset.fontfamily, btn.dataset.sample);
+                const imageUrl = btn.dataset.image;
+                const fontName = btn.dataset.name;
+                openModal(imageUrl, fontName);
             });
         });
     }
@@ -768,10 +810,10 @@
     }
 
     const modal = document.getElementById('fontModal');
-    const modalSample = document.getElementById('modalFontSample');
-    function openModal(fontFamily, sampleText) {
-        modalSample.style.fontFamily = fontFamily;
-        modalSample.innerText = sampleText;
+    const modalImage = document.getElementById('modalImage');
+    function openModal(imageUrl, fontName) {
+        modalImage.src = imageUrl;
+        modalImage.alt = `پیش‌نمایش فونت ${fontName}`;
         modal.style.display = 'flex';
     }
     document.getElementById('closeModalBtn').onclick = () => modal.style.display = 'none';
@@ -793,7 +835,8 @@
     };
 
     document.getElementById('sampleTypeBtn').onclick = () => {
-        openModal("'Vazirmatn'", "فونت شفیق\nطراحی حرفه‌ای و خاص");
+        const font = fontsData[0];
+        openModal(font.image, font.name);
     };
 
     document.getElementById('shopNowBtn').onclick = () => {
@@ -804,4 +847,4 @@
     updateCartUI();
 </script>
 </body>
-    </html>
+</html>
