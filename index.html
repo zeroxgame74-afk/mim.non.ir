@@ -51,6 +51,7 @@
             padding: 0 20px;
         }
 
+        /* هدر */
         .navbar {
             background-color: #1f1f1f;
             border-bottom: 2px solid #FFC800;
@@ -138,6 +139,7 @@
             color: #FFC800;
         }
 
+        /* بنر */
         .hero {
             background: linear-gradient(125deg, #212121 0%, #292929 100%);
             padding: 80px 0;
@@ -247,6 +249,7 @@
             margin-left: 12px;
         }
 
+        /* محصولات */
         .products-grid {
             display: flex;
             justify-content: center;
@@ -379,10 +382,11 @@
             background: #3a3a3a;
         }
 
+        /* فوتر جدید */
         footer {
             background: #121212;
             margin-top: 70px;
-            padding: 55px 0 35px;
+            padding: 40px 0 30px;
             border-top: 2px solid #FFC800;
             width: 100%;
         }
@@ -390,7 +394,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
             gap: 50px;
-            margin-bottom: 50px;
+            margin-bottom: 40px;
         }
         .footer-col h4 {
             color: #FFC800;
@@ -430,15 +434,16 @@
         }
         .copyright {
             text-align: center;
-            padding-top: 35px;
+            padding-top: 25px;
             border-top: 1px solid #2c2c2c;
-            font-size: 0.85rem;
-            color: #777;
-            line-height: 1.6;
+            font-size: 0.9rem;
+            color: #ccc;
             font-weight: bold;
+            letter-spacing: 1px;
         }
 
-        .modal, .cart-modal {
+        /* مودال‌ها */
+        .modal, .cart-modal, .payment-modal {
             display: none;
             position: fixed;
             top: 0; left: 0;
@@ -449,7 +454,7 @@
             justify-content: center;
             z-index: 2000;
         }
-        .modal-content, .cart-modal-content {
+        .modal-content, .cart-modal-content, .payment-modal-content {
             background: #1e1e1e;
             max-width: 550px;
             width: 90%;
@@ -460,7 +465,7 @@
             max-height: 80vh;
             overflow-y: auto;
         }
-        .modal-content h3, .cart-modal-content h3 {
+        .modal-content h3, .cart-modal-content h3, .payment-modal-content h3 {
             font-size: 2rem;
             color: #FFC800;
             margin-bottom: 15px;
@@ -475,7 +480,37 @@
             background: #0c0c0c;
             padding: 10px;
         }
-        .close-modal, .close-cart {
+        .payment-detail {
+            background: #2a2a2a;
+            padding: 20px;
+            border-radius: 30px;
+            margin: 20px 0;
+            text-align: right;
+        }
+        .payment-detail p {
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1rem;
+        }
+        .payment-detail i {
+            color: #FFC800;
+            width: 28px;
+            font-size: 1.2rem;
+        }
+        .random-code {
+            font-size: 2rem;
+            font-weight: 800;
+            background: #FFC800;
+            display: inline-block;
+            padding: 8px 24px;
+            border-radius: 60px;
+            color: #121212;
+            letter-spacing: 4px;
+            margin: 15px 0;
+        }
+        .close-modal, .close-cart, .close-payment {
             background: #FFC800;
             border: none;
             padding: 10px 25px;
@@ -647,7 +682,7 @@
                 </div>
             </div>
             <div class="copyright">
-                © ۲۰۲۵ mim.non.ir - تمامی حقوق محفوظ است | طراحی با <i class="fas fa-heart" style="color:#FFC800;"></i> و تم FF C800
+                mim.non.ir 2026 | تمامی حقوق میم نون محفوظ است
             </div>
         </div>
     </footer>
@@ -668,6 +703,14 @@
         <div id="cartTotal" class="cart-total"></div>
         <button class="checkout-btn" id="checkoutBtn">پرداخت نهایی</button>
         <button class="close-cart" id="closeCartBtn">بستن</button>
+    </div>
+</div>
+
+<div id="paymentModal" class="payment-modal">
+    <div class="payment-modal-content">
+        <h3><i class="fas fa-credit-card"></i> تکمیل سفارش</h3>
+        <div id="paymentDetails" class="payment-detail"></div>
+        <button class="close-payment" id="closePaymentBtn">بستن</button>
     </div>
 </div>
 
@@ -809,6 +852,55 @@
         cartModal.style.display = 'flex';
     }
 
+    // تابع تولید کد تصادفی ۳ رقمی
+    function generateRandomCode() {
+        return Math.floor(100 + Math.random() * 900).toString();
+    }
+
+    function showPaymentModal() {
+        if(cart.length === 0) {
+            alert('سبد خرید شما خالی است!');
+            return;
+        }
+        
+        const paymentModal = document.getElementById('paymentModal');
+        const paymentDetailsDiv = document.getElementById('paymentDetails');
+        const randomCode = generateRandomCode();
+        
+        let itemsHtml = '';
+        cart.forEach(item => {
+            itemsHtml += `<p><i class="fas fa-font"></i> ${item.name} (${item.quantity} عدد)</p>`;
+        });
+        
+        const totalPrice = cart.reduce((sum, i) => sum + (i.price * i.quantity), 0);
+        
+        paymentDetailsDiv.innerHTML = `
+            <p><i class="fas fa-phone-alt"></i> <strong>شماره تماس:</strong> ۰۹۱۵۷۹۳۰۵۱۸</p>
+            <p><i class="fas fa-shopping-bag"></i> <strong>محصولات:</strong></p>
+            <div style="margin-right: 28px; margin-bottom: 10px;">${itemsHtml}</div>
+            <p><i class="fas fa-wallet"></i> <strong>مبلغ قابل پرداخت:</strong> ${totalPrice.toLocaleString()} تومان</p>
+            <p><i class="fas fa-code"></i> <strong>کد سفارش:</strong></p>
+            <div class="random-code">${randomCode}</div>
+            <p style="margin-top: 15px;"><i class="fas fa-info-circle"></i> این کد را به فروشنده بدهید و پس از تماس، فونت را تحویل بگیرید.</p>
+        `;
+        
+        paymentModal.style.display = 'flex';
+        
+        // بعد از نمایش مودال، سبد خرید خالی می‌شود (اختیاری، ولی برای تجربه بهتر می‌گذاریم خالی شود)
+        // ولی چون کاربر ممکن است دوباره بخرد، نیازی نیست همین الان خالی شود. فقط وقتی پرداخت رو تایید کرد خالی شود.
+        // ما اینجا سبد را خالی نمی‌کنیم تا اگر مودال را بست، هنوز سبد داشته باشد.
+        // اما طبق درخواست: بعد از کلیک روی "پرداخت نهایی" باید مودال جدید باز شود.
+    }
+
+    // رویداد پرداخت نهایی
+    document.getElementById('checkoutBtn').addEventListener('click', () => {
+        if(cart.length > 0) {
+            showPaymentModal();
+        } else {
+            alert('سبد خرید شما خالی است!');
+        }
+    });
+
     const modal = document.getElementById('fontModal');
     const modalImage = document.getElementById('modalImage');
     function openModal(imageUrl, fontName) {
@@ -819,19 +911,12 @@
     document.getElementById('closeModalBtn').onclick = () => modal.style.display = 'none';
     document.getElementById('cartIconBtn').onclick = () => openCartModal();
     document.getElementById('closeCartBtn').onclick = () => document.getElementById('cartModal').style.display = 'none';
-    document.getElementById('checkoutBtn').onclick = () => {
-        if(cart.length > 0) {
-            alert(`✅ سفارش شما با موفقیت ثبت شد!\nمجموع: ${cart.reduce((s,i)=>s+(i.price*i.quantity),0).toLocaleString()} تومان`);
-            cart = [];
-            updateCartUI();
-            document.getElementById('cartModal').style.display = 'none';
-        } else {
-            alert('سبد خرید شما خالی است!');
-        }
-    };
+    document.getElementById('closePaymentBtn').onclick = () => document.getElementById('paymentModal').style.display = 'none';
+    
     window.onclick = (e) => { 
         if(e.target === modal) modal.style.display = 'none';
         if(e.target === document.getElementById('cartModal')) document.getElementById('cartModal').style.display = 'none';
+        if(e.target === document.getElementById('paymentModal')) document.getElementById('paymentModal').style.display = 'none';
     };
 
     document.getElementById('sampleTypeBtn').onclick = () => {
