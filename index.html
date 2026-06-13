@@ -43,7 +43,7 @@
             padding: 0 20px;
         }
 
-        /* هدر معمولی (بدون sticky) */
+        /* هدر معمولی */
         .navbar {
             background-color: #1f1f1f;
             border-bottom: 2px solid #FFC800;
@@ -73,13 +73,11 @@
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            font-family: 'Vazirmatn', sans-serif;
         }
         .logo-area p {
             font-size: 0.7rem;
             color: #aaa;
             margin-top: 4px;
-            font-family: 'Vazirmatn', sans-serif;
         }
 
         .nav-links {
@@ -143,7 +141,7 @@
             text-align: center;
         }
 
-        /* بنر اصلی */
+        /* بنر */
         .hero {
             background: linear-gradient(125deg, #212121 0%, #292929 100%);
             padding: 70px 0;
@@ -162,7 +160,6 @@
             font-weight: 800;
             line-height: 1.5;
             margin-bottom: 20px;
-            font-family: 'Vazirmatn', sans-serif;
         }
         .hero-text h2 span {
             color: #FFC800;
@@ -173,7 +170,6 @@
             color: #bcbcbc;
             margin-bottom: 35px;
             line-height: 1.8;
-            font-family: 'Vazirmatn', sans-serif;
         }
         .hero-buttons {
             display: flex;
@@ -192,7 +188,6 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            font-family: 'Vazirmatn', sans-serif;
         }
         .btn-outline {
             background: transparent;
@@ -202,7 +197,6 @@
             border-radius: 60px;
             font-weight: bold;
             cursor: pointer;
-            font-family: 'Vazirmatn', sans-serif;
         }
         .hero-stats {
             display: flex;
@@ -211,10 +205,6 @@
         .stat h3 {
             color: #FFC800;
             font-size: 1.6rem;
-            font-family: 'Vazirmatn', sans-serif;
-        }
-        .stat span {
-            font-family: 'Vazirmatn', sans-serif;
         }
         .hero-image {
             flex: 1;
@@ -231,18 +221,70 @@
             display: inline-block;
             padding: 20px 35px;
             border-radius: 50px;
-            font-family: 'Vazirmatn', sans-serif;
         }
         .font-preview-demo i {
             color: #FFC800;
             margin-left: 10px;
         }
 
-        /* کارت محصول */
+        /* فیلتر باکس */
+        .filter-wrapper {
+            margin: 35px 0 20px;
+            background: #1f1f1f;
+            border-radius: 60px;
+            padding: 12px 24px;
+            border: 1px solid #FFC80030;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+        .filter-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: bold;
+            color: #FFC800;
+        }
+        .filter-buttons {
+            display: flex;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+        .filter-btn {
+            background: #2a2a2a;
+            border: none;
+            padding: 8px 18px;
+            border-radius: 40px;
+            font-weight: bold;
+            font-family: 'Vazirmatn', sans-serif;
+            color: #e0e0e0;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: 0.2s;
+        }
+        .filter-btn i {
+            color: #FFC800;
+            font-size: 0.9rem;
+        }
+        .filter-btn.active, .filter-btn:hover {
+            background: #FFC800;
+            color: #121212;
+        }
+        .filter-btn.active i, .filter-btn:hover i {
+            color: #121212;
+        }
+
+        /* محصولات */
         .products-grid {
             display: flex;
+            flex-wrap: wrap;
             justify-content: center;
-            margin: 50px 0 70px;
+            gap: 35px;
+            margin: 40px 0 70px;
         }
         .font-card {
             background: #1f1f1f;
@@ -271,7 +313,12 @@
             font-weight: bold;
             color: #FFC800;
             margin-bottom: 6px;
-            font-family: 'Vazirmatn', sans-serif;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .font-title i {
+            font-size: 1.2rem;
         }
         .font-cat {
             display: inline-flex;
@@ -282,7 +329,6 @@
             border-radius: 30px;
             font-size: 0.75rem;
             margin-bottom: 12px;
-            font-family: 'Vazirmatn', sans-serif;
         }
         .font-cat i {
             color: #FFC800;
@@ -297,7 +343,6 @@
             padding: 5px 0;
             border-top: 1px dashed #3a3a3a;
             border-bottom: 1px dashed #3a3a3a;
-            font-family: 'Vazirmatn', sans-serif;
         }
         .price-wrapper {
             margin: 12px 0;
@@ -306,14 +351,26 @@
             font-size: 1.7rem;
             font-weight: bold;
             color: #FFC800;
-            font-family: 'Vazirmatn', sans-serif;
         }
         .old-price {
             font-size: 0.9rem;
             text-decoration: line-through;
             color: #777;
             margin-right: 10px;
-            font-family: 'Vazirmatn', sans-serif;
+        }
+        .timer-box {
+            background: #2a2a2a;
+            border-radius: 30px;
+            padding: 8px 12px;
+            margin: 12px 0;
+            text-align: center;
+            direction: ltr;
+        }
+        .timer-box span {
+            font-family: monospace;
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #FFC800;
         }
         .card-actions {
             display: flex;
@@ -333,7 +390,6 @@
             align-items: center;
             justify-content: center;
             gap: 8px;
-            font-family: 'Vazirmatn', sans-serif;
         }
         .btn-preview {
             background: #2c2c2c;
@@ -344,7 +400,6 @@
             cursor: pointer;
         }
 
-        /* فوتر */
         footer {
             background: #121212;
             margin-top: 60px;
@@ -362,13 +417,11 @@
             color: #FFC800;
             margin-bottom: 20px;
             font-size: 1.2rem;
-            font-family: 'Vazirmatn', sans-serif;
         }
         .footer-col p, .footer-col a {
             color: #b0b0b0;
             text-decoration: none;
             line-height: 2;
-            font-family: 'Vazirmatn', sans-serif;
         }
         .social-icons {
             display: flex;
@@ -391,7 +444,6 @@
             border-top: 1px solid #2c2c2c;
             font-size: 0.85rem;
             color: #ccc;
-            font-family: 'Vazirmatn', sans-serif;
         }
 
         /* مودال‌ها */
@@ -417,11 +469,6 @@
             max-height: 80vh;
             overflow-y: auto;
         }
-        .modal-content h3, .cart-modal-content h3, .payment-modal-content h3 {
-            font-family: 'Vazirmatn', sans-serif;
-            font-size: 1.8rem;
-            color: #FFC800;
-        }
         .modal-image {
             width: 100%;
             aspect-ratio: 1/1;
@@ -441,7 +488,6 @@
             border-radius: 24px;
             text-align: right;
             border-right: 3px solid #FFC800;
-            font-family: 'Vazirmatn', sans-serif;
         }
         .cart-item-info {
             display: flex;
@@ -471,7 +517,6 @@
             padding: 12px 0;
             font-size: 1.3rem;
             border-top: 2px solid #FFC800;
-            font-family: 'Vazirmatn', sans-serif;
         }
         .payment-detail {
             background: #2a2a2a;
@@ -481,7 +526,6 @@
             display: flex;
             flex-direction: column;
             gap: 15px;
-            font-family: 'Vazirmatn', sans-serif;
         }
         .payment-detail p {
             display: flex;
@@ -502,8 +546,6 @@
             border-radius: 50px;
             color: #121212;
             letter-spacing: 3px;
-            text-align: center;
-            margin: 5px 0;
         }
         .checkout-btn, .close-modal, .close-cart, .close-payment {
             background: #FFC800;
@@ -514,7 +556,6 @@
             cursor: pointer;
             width: 100%;
             margin-top: 15px;
-            font-family: 'Vazirmatn', sans-serif;
         }
         .coming-soon-box {
             text-align: center;
@@ -524,15 +565,14 @@
             margin: 40px 0;
             border: 1px dashed #FFC800;
         }
-        .coming-soon-box i { font-size: 2.5rem; color: #FFC800; margin-bottom: 15px; }
-        .coming-soon-box h3 { color: #FFC800; margin-bottom: 10px; font-family: 'Vazirmatn', sans-serif; }
-        .empty-cart { text-align: center; padding: 30px; color: #aaa; font-family: 'Vazirmatn', sans-serif; }
+        .empty-cart { text-align: center; padding: 30px; color: #aaa; }
 
         @media (max-width: 850px) {
             .logo-area { position: static; transform: none; margin-bottom: 12px; }
             .nav-flex { flex-direction: column; }
             .nav-links { margin-right: 0; justify-content: center; }
-            .hero-text h2 { font-size: 2rem; line-height: 1.4; }
+            .filter-wrapper { flex-direction: column; align-items: stretch; border-radius: 30px; }
+            .filter-buttons { justify-content: center; }
         }
     </style>
 </head>
@@ -566,7 +606,7 @@
             <div class="container hero-grid">
                 <div class="hero-text">
                     <h2>فونت‌های حرفه‌ای و<br><span>منحصر به‌فرد برای طراحان</span></h2>
-                    <p>مجموعه‌ای از بهترین فونت‌های فارسی و لاتین با کیفیت بالا، مجوز قانونی و طراحی مدرن. همین حالا دانلود کنید.</p>
+                    <p>مجموعه‌ای از بهترین فونت‌های فارسی و لاتین با کیفیت بالا، مجوز قانونی و طراحی مدرن.</p>
                     <div class="hero-buttons">
                         <button class="btn-primary" id="shopNowBtn"><i class="fas fa-arrow-down"></i> مشاهده فونت‌ها</button>
                         <button class="btn-outline" id="sampleTypeBtn"><i class="fas fa-play-circle"></i> نمونه تایپ‌فیس</button>
@@ -585,6 +625,18 @@
         </section>
 
         <div class="container" id="dynamicContent">
+            <!-- فیلتر باکس -->
+            <div class="filter-wrapper">
+                <div class="filter-title"><i class="fas fa-sliders-h"></i> دسته‌بندی فونت:</div>
+                <div class="filter-buttons" id="filterButtons">
+                    <button class="filter-btn active" data-filter="all"><i class="fas fa-border-all"></i> همه</button>
+                    <button class="filter-btn" data-filter="persian"><i class="fas fa-language"></i> فارسی</button>
+                    <button class="filter-btn" data-filter="latin"><i class="fas fa-font"></i> انگلیسی</button>
+                    <button class="filter-btn" data-filter="symbol"><i class="fas fa-hashtag"></i> سمبل</button>
+                    <button class="filter-btn" data-filter="handwritten"><i class="fas fa-pen-fancy"></i> دست‌نویس</button>
+                    <button class="filter-btn" data-filter="display"><i class="fas fa-tv"></i> نمایشی</button>
+                </div>
+            </div>
             <div class="products-grid" id="productsGrid"></div>
         </div>
     </main>
@@ -623,31 +675,90 @@
 <div id="paymentModal" class="payment-modal"><div class="payment-modal-content"><h3><i class="fas fa-credit-card"></i> تکمیل سفارش</h3><div id="paymentDetails" class="payment-detail"></div><button class="close-payment" id="closePaymentBtn">بستن</button></div></div>
 
 <script>
+    // اطلاعات فونت‌ها
     const fontsData = [
-        { id: 1, name: "فونت شفیق", category: "persian", price: 120000, oldPrice: 250000, image: "https://cdn.imgurl.ir/uploads/v790100_mim_non.webp", description: "طراحی منحصربه‌فرد، مناسب پروژه‌های لوکس" }
+        { 
+            id: 1, 
+            name: "فونت شفیق", 
+            category: "persian", 
+            price: 120000, 
+            oldPrice: 250000, 
+            image: "https://cdn.imgurl.ir/uploads/v790100_mim_non.webp", 
+            description: "طراحی منحصربه‌فرد، مناسب پروژه‌های لوکس",
+            icon: "fa-star"
+        },
+        { 
+            id: 2, 
+            name: "فونت منشــور!", 
+            category: "persian", 
+            price: 360000, 
+            oldPrice: 500000, 
+            image: "https://cdn.imgurl.ir/uploads/v790100_mim_non.webp", 
+            description: "یک فونت خفن به درد طراحی برای | پوستر | کاور | میخوره | با قیمت مناسب از میم نون خریداری کنید!",
+            icon: "fa-crown",
+            timerEnd: new Date(Date.now() + 3*24*60*60*1000)  // 3 روز
+        }
     ];
+
     let cart = [];
-    let activeTab = "home";
+    let currentFilter = "all";
+    let timerInterval = null;
 
     function renderProducts() {
         const container = document.getElementById("productsGrid");
         if(!container) return;
-        container.innerHTML = fontsData.map(font => `
+        let filtered = fontsData.filter(f => currentFilter === "all" || f.category === currentFilter);
+        container.innerHTML = filtered.map(font => {
+            let timerHtml = '';
+            if(font.timerEnd) {
+                timerHtml = `<div class="timer-box" data-id="${font.id}"><span>⏳ پیشنهاد ویژه: </span> <span class="timer-${font.id}"></span></div>`;
+            }
+            return `
             <div class="font-card">
                 <div class="font-preview"><img src="${font.image}" alt="${font.name}" onerror="this.src='https://placehold.co/600x600/2a2a2a/FFC800?text=Font'"></div>
                 <div class="font-details">
-                    <div class="font-title">${font.name}</div>
-                    <div class="font-cat"><i class="fas fa-tag"></i> فارسی</div>
+                    <div class="font-title"><i class="fas ${font.icon}"></i> ${font.name}</div>
+                    <div class="font-cat"><i class="fas fa-tag"></i> ${categoryTranslate(font.category)}</div>
                     <div class="font-desc"><i class="fas fa-info-circle"></i> ${font.description}</div>
                     <div class="price-wrapper"><span class="current-price">${font.price.toLocaleString()} تومان</span><span class="old-price">${font.oldPrice.toLocaleString()} تومان</span></div>
+                    ${timerHtml}
                     <div class="card-actions">
                         <button class="btn-buy" data-id="${font.id}" data-name="${font.name}" data-price="${font.price}"><i class="fas fa-shopping-bag"></i> خرید</button>
                         <button class="btn-preview" data-image="${font.image}" data-name="${font.name}"><i class="fas fa-eye"></i></button>
                     </div>
                 </div>
             </div>
-        `).join("");
+        `}).join("");
         attachProductEvents();
+        startTimers();
+    }
+
+    function startTimers() {
+        if(timerInterval) clearInterval(timerInterval);
+        timerInterval = setInterval(() => {
+            fontsData.forEach(font => {
+                if(font.timerEnd) {
+                    const now = new Date();
+                    const diff = font.timerEnd - now;
+                    if(diff <= 0) {
+                        const el = document.querySelector(`.timer-${font.id}`);
+                        if(el) el.innerText = "پیشنهاد تمام شد!";
+                        return;
+                    }
+                    const days = Math.floor(diff / (1000*60*60*24));
+                    const hours = Math.floor((diff % (86400000)) / 3600000);
+                    const mins = Math.floor((diff % 3600000) / 60000);
+                    const secs = Math.floor((diff % 60000) / 1000);
+                    const el = document.querySelector(`.timer-${font.id}`);
+                    if(el) el.innerText = `${days}روز ${hours}ساعت ${mins}دقیقه ${secs}ثانیه`;
+                }
+            });
+        }, 1000);
+    }
+
+    function categoryTranslate(cat) {
+        const map = { persian: "فارسی", latin: "انگلیسی", symbol: "سمبل", handwritten: "دست‌نویس", display: "نمایشی" };
+        return map[cat] || cat;
     }
 
     function attachProductEvents() {
@@ -745,17 +856,44 @@
     document.getElementById('sampleTypeBtn')?.addEventListener('click',()=>{ const f = fontsData[0]; openModal(f.image, f.name); });
     document.getElementById('shopNowBtn')?.addEventListener('click',()=>{ document.querySelector('.products-grid')?.scrollIntoView({ behavior: 'smooth' }); });
 
+    // فیلترها
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            currentFilter = btn.dataset.filter;
+            renderProducts();
+        });
+    });
+
     // منو و تب ها
     const tabs = document.querySelectorAll('.nav-link');
     const dynamicContainer = document.getElementById('dynamicContent');
     const heroSection = document.getElementById('heroSection');
     function setActiveTab(tabId) {
         tabs.forEach(btn => { if(btn.dataset.tab === tabId) btn.classList.add('active'); else btn.classList.remove('active'); });
-        activeTab = tabId;
         if(tabId === 'home') {
             if(heroSection) heroSection.style.display = '';
-            dynamicContainer.innerHTML = `<div class="products-grid" id="productsGrid"></div>`;
+            dynamicContainer.innerHTML = `<div class="filter-wrapper">
+                <div class="filter-title"><i class="fas fa-sliders-h"></i> دسته‌بندی فونت:</div>
+                <div class="filter-buttons" id="filterButtons">
+                    <button class="filter-btn active" data-filter="all"><i class="fas fa-border-all"></i> همه</button>
+                    <button class="filter-btn" data-filter="persian"><i class="fas fa-language"></i> فارسی</button>
+                    <button class="filter-btn" data-filter="latin"><i class="fas fa-font"></i> انگلیسی</button>
+                    <button class="filter-btn" data-filter="symbol"><i class="fas fa-hashtag"></i> سمبل</button>
+                    <button class="filter-btn" data-filter="handwritten"><i class="fas fa-pen-fancy"></i> دست‌نویس</button>
+                    <button class="filter-btn" data-filter="display"><i class="fas fa-tv"></i> نمایشی</button>
+                </div>
+            </div><div class="products-grid" id="productsGrid"></div>`;
             renderProducts();
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    currentFilter = btn.dataset.filter;
+                    renderProducts();
+                });
+            });
         } 
         else if(tabId === 'mimnoon') {
             if(heroSection) heroSection.style.display = 'none';
@@ -777,4 +915,4 @@
     updateCartUI();
 </script>
 </body>
-                                                                                                                      </html>
+            </html>
