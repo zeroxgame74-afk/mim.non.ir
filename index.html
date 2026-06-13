@@ -43,7 +43,6 @@
             padding: 0 20px;
         }
 
-        /* ========== هدر ========== */
         .navbar {
             background-color: #1f1f1f;
             border-bottom: 2px solid #FFC800;
@@ -76,13 +75,11 @@
             color: transparent;
             font-family: 'Vazirmatn', sans-serif;
             margin-bottom: 2px;
-            letter-spacing: -0.5px;
         }
         .logo-area p {
             font-size: 0.75rem;
             font-weight: 800;
             color: #ccc;
-            margin-top: 0;
             font-family: 'Vazirmatn', sans-serif;
         }
 
@@ -108,13 +105,8 @@
             border: none;
             font-family: 'Vazirmatn', sans-serif;
         }
-        .nav-link i {
-            color: #FFC800;
-            font-size: 1rem;
-        }
-        .nav-link:hover, .nav-link.active {
-            color: #FFC800;
-        }
+        .nav-link i { color: #FFC800; font-size: 1rem; }
+        .nav-link:hover, .nav-link.active { color: #FFC800; }
 
         .cart-icon {
             background: #2a2a2a;
@@ -126,7 +118,6 @@
             font-weight: 800;
             border: 1px solid #FFC80040;
             cursor: pointer;
-            transition: 0.2s;
             font-family: 'Vazirmatn', sans-serif;
         }
         .cart-icon i { color: #FFC800; font-size: 1.2rem; }
@@ -140,7 +131,6 @@
             text-align: center;
         }
 
-        /* ========== بنر ========== */
         .hero {
             background: linear-gradient(125deg, #212121 0%, #292929 100%);
             padding: 70px 0;
@@ -170,7 +160,6 @@
             font-weight: 700;
             color: #bcbcbc;
             margin-bottom: 35px;
-            line-height: 1.8;
             font-family: 'Vazirmatn', sans-serif;
         }
         .hero-buttons {
@@ -189,7 +178,6 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            font-size: 1rem;
             font-weight: 800;
             font-family: 'Vazirmatn', sans-serif;
         }
@@ -200,7 +188,6 @@
             padding: 10px 26px;
             border-radius: 60px;
             cursor: pointer;
-            font-size: 1rem;
             font-weight: 800;
             font-family: 'Vazirmatn', sans-serif;
         }
@@ -214,10 +201,6 @@
             font-weight: 900;
             font-family: 'Vazirmatn', sans-serif;
         }
-        .stat span {
-            font-weight: 700;
-            font-family: 'Vazirmatn', sans-serif;
-        }
         .hero-image {
             flex: 1;
             background: #1f1f1f;
@@ -226,31 +209,21 @@
             text-align: center;
             border: 1px solid #FFC80030;
         }
-        .font-preview-demo {
-            font-size: 2.5rem;
-            font-weight: 900;
-            background: #2e2e2e;
-            display: inline-block;
-            padding: 20px 35px;
-            border-radius: 50px;
-            font-family: 'Vazirmatn', sans-serif;
-        }
-        .font-preview-demo i { color: #FFC800; margin-left: 10px; }
 
-        /* ========== فیلتر باکس ========== */
+        /* فیلتر باکس */
         .filter-main-wrapper {
             margin: 30px 0 20px;
         }
         .filter-box {
             background: #1f1f1f;
             border-radius: 60px;
-            padding: 12px 28px;
+            padding: 14px 28px;
             border: 1px solid #FFC80040;
             display: flex;
             flex-wrap: wrap;
             align-items: center;
             justify-content: space-between;
-            gap: 20px;
+            gap: 15px;
         }
         .filter-label {
             display: inline-flex;
@@ -265,7 +238,7 @@
         .filter-buttons-group {
             display: flex;
             flex-wrap: wrap;
-            gap: 12px;
+            gap: 10px;
             justify-content: flex-start;
         }
         .filter-btn {
@@ -290,7 +263,7 @@
         }
         .filter-btn.active i, .filter-btn:hover i { color: #121212; }
 
-        /* ========== محصولات ========== */
+        /* محصولات */
         .products-grid {
             display: flex;
             flex-wrap: wrap;
@@ -325,19 +298,33 @@
             gap: 8px;
             font-family: 'Vazirmatn', sans-serif;
         }
-        .font-cat {
+        .tags-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+        .font-cat, .offer-tag {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            background: #2b2b2b;
+            gap: 6px;
             padding: 4px 14px;
             border-radius: 30px;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             font-weight: 700;
-            margin-bottom: 12px;
             font-family: 'Vazirmatn', sans-serif;
         }
+        .font-cat {
+            background: #2b2b2b;
+            color: #e0e0e0;
+        }
         .font-cat i { color: #FFC800; }
+        .offer-tag {
+            background: #FFC80020;
+            border: 1px solid #FFC800;
+            color: #FFC800;
+        }
+        .offer-tag i { color: #FFC800; }
         .font-desc {
             display: flex;
             align-items: center;
@@ -366,7 +353,6 @@
             font-weight: 600;
             font-family: 'Vazirmatn', sans-serif;
         }
-        /* تایمر ساده */
         .timer-box {
             background: #2a2a2a;
             border-radius: 50px;
@@ -399,7 +385,6 @@
             font-weight: 900;
             color: #FFC800;
             font-size: 1rem;
-            letter-spacing: 1px;
         }
         .card-actions {
             display: flex;
@@ -430,7 +415,6 @@
             cursor: pointer;
         }
 
-        /* ========== فوتر ========== */
         footer {
             background: #121212;
             margin-top: 60px;
@@ -484,7 +468,7 @@
             font-family: 'Vazirmatn', sans-serif;
         }
 
-        /* ========== مودال‌ها ========== */
+        /* مودال‌ها */
         .modal, .cart-modal, .payment-modal {
             display: none;
             position: fixed;
@@ -663,8 +647,7 @@
                     </div>
                 </div>
                 <div class="hero-image">
-                    <div class="font-preview-demo"><i class="fas fa-font"></i> سـبـک <span style="color:#FFC800;">مدرن</span></div>
-                    <p style="margin-top: 20px;">مجموعه Fonts با کیفیت اورجینال</p>
+                    <!-- حذف عبارت اضافی "سـبـک مدرن / مجموعه Fonts..." -->
                 </div>
             </div>
         </section>
@@ -700,24 +683,13 @@
     </footer>
 </div>
 
-<!-- مودال‌ها -->
 <div id="fontModal" class="modal"><div class="modal-content"><h3><i class="fas fa-eye"></i> پیش‌نمایش فونت</h3><img id="modalImage" class="modal-image"><button class="close-modal" id="closeModalBtn">بستن</button></div></div>
 <div id="cartModal" class="cart-modal"><div class="cart-modal-content"><h3><i class="fas fa-shopping-cart"></i> سبد خرید</h3><div id="cartItemsList" class="cart-items-list"></div><div id="cartTotal" class="cart-total"></div><button class="checkout-btn" id="checkoutBtn">پرداخت نهایی</button><button class="close-cart" id="closeCartBtn">بستن</button></div></div>
 <div id="paymentModal" class="payment-modal"><div class="payment-modal-content"><h3><i class="fas fa-credit-card"></i> تکمیل سفارش</h3><div id="paymentDetails" class="payment-detail"></div><button class="close-payment" id="closePaymentBtn">بستن</button></div></div>
 
 <script>
-    // ========== دیتای فونت‌ها ==========
+    // ========== دیتای فونت‌ها (کاملاً حفظ شده) ==========
     const fontsData = [
-        { 
-            id: 1, 
-            name: "فونت شفیق", 
-            category: "persian", 
-            price: 120000, 
-            oldPrice: 250000, 
-            image: "https://cdn.imgurl.ir/uploads/v790100_mim_non.webp", 
-            description: "طراحی منحصربه‌فرد، مناسب پروژه‌های لوکس",
-            icon: "fa-star"
-        },
         { 
             id: 2, 
             name: "فونت منشــور!", 
@@ -727,50 +699,108 @@
             image: "https://uploadkon.ir/uploads/431113_26IMG-20260613-165046-564.jpg", 
             description: "یک فونت خفن به درد طراحی برای | پوستر | کاور | میخوره | با قیمت مناسب از میم نون خریداری کنید!",
             icon: "fa-crown",
-            timerEnd: new Date(Date.now() + 3*24*60*60*1000)
+            hasOffer: true,
+            offerEnds: new Date(Date.now() + 3*24*60*60*1000)  // 3 روز
+        },
+        { 
+            id: 1, 
+            name: "فونت شفیق", 
+            category: "persian", 
+            price: 120000, 
+            oldPrice: 250000, 
+            image: "https://cdn.imgurl.ir/uploads/v790100_mim_non.webp", 
+            description: "طراحی منحصربه‌فرد، مناسب پروژه‌های لوکس",
+            icon: "fa-star",
+            hasOffer: false
         }
     ];
+
+    // ذخیره زمان پایان در localStorage برای پایداری تایمر
+    function initTimerEnd() {
+        const stored = localStorage.getItem('mimnon_timer_end');
+        if(stored) {
+            const endTime = new Date(parseInt(stored));
+            if(endTime > new Date()) {
+                fontsData[0].offerEnds = endTime;
+            } else {
+                fontsData[0].hasOffer = false;
+                localStorage.removeItem('mimnon_timer_end');
+            }
+        } else {
+            if(fontsData[0].hasOffer) {
+                localStorage.setItem('mimnon_timer_end', fontsData[0].offerEnds.getTime());
+            }
+        }
+    }
+    initTimerEnd();
 
     let cart = [];
     let currentFilter = "all";
     let timerInterval = null;
 
-    // ========== رندر محصولات ==========
     function renderProducts() {
         const container = document.getElementById("productsGrid");
         if(!container) return;
         let filtered = fontsData.filter(f => currentFilter === "all" || f.category === currentFilter);
-        container.innerHTML = filtered.map(font => `
+        // مرتب‌سازی: فونت منشور بالاتر (id 2 اول)
+        filtered.sort((a,b) => b.id - a.id);
+        
+        container.innerHTML = filtered.map(font => {
+            let isOfferActive = font.hasOffer && font.offerEnds && font.offerEnds > new Date();
+            let displayPrice = isOfferActive ? font.price : font.oldPrice;
+            let displayOldPrice = isOfferActive ? font.oldPrice : null;
+            let timerHtml = '';
+            let offerTagHtml = '';
+            
+            if(font.hasOffer) {
+                if(isOfferActive) {
+                    timerHtml = `<div class="timer-box" data-id="${font.id}"><i class="fas fa-hourglass-half"></i> <span class="timer-${font.id}"></span></div>`;
+                    offerTagHtml = `<div class="offer-tag"><i class="fas fa-bolt"></i> پیشنهاد ویژه 🔥</div>`;
+                } else {
+                    offerTagHtml = `<div class="offer-tag" style="background:#2a2a2a; color:#888; border-color:#555;"><i class="fas fa-clock"></i> پیشنهاد به پایان رسید</div>`;
+                }
+            }
+            
+            return `
             <div class="font-card">
                 <div class="font-preview"><img src="${font.image}" alt="${font.name}" onerror="this.src='https://placehold.co/600x600/2a2a2a/FFC800?text=Font'"></div>
                 <div class="font-details">
                     <div class="font-title"><i class="fas ${font.icon}"></i> ${font.name}</div>
-                    <div class="font-cat"><i class="fas fa-tag"></i> فارسی</div>
+                    <div class="tags-row">
+                        <div class="font-cat"><i class="fas fa-tag"></i> فارسی</div>
+                        ${offerTagHtml}
+                    </div>
                     <div class="font-desc"><i class="fas fa-info-circle"></i> ${font.description}</div>
-                    <div class="price-wrapper"><span class="current-price">${font.price.toLocaleString()} تومان</span><span class="old-price">${font.oldPrice.toLocaleString()} تومان</span></div>
-                    ${font.timerEnd ? `<div class="timer-box" data-id="${font.id}"><i class="fas fa-hourglass-half"></i> <span class="timer-${font.id}"></span></div>` : ''}
+                    <div class="price-wrapper">
+                        <span class="current-price">${displayPrice.toLocaleString()} تومان</span>
+                        ${displayOldPrice ? `<span class="old-price">${displayOldPrice.toLocaleString()} تومان</span>` : ''}
+                    </div>
+                    ${timerHtml}
                     <div class="card-actions">
-                        <button class="btn-buy" data-id="${font.id}" data-name="${font.name}" data-price="${font.price}"><i class="fas fa-shopping-bag"></i> خرید</button>
+                        <button class="btn-buy" data-id="${font.id}" data-name="${font.name}" data-price="${displayPrice}"><i class="fas fa-shopping-bag"></i> خرید</button>
                         <button class="btn-preview" data-image="${font.image}" data-name="${font.name}"><i class="fas fa-eye"></i></button>
                     </div>
                 </div>
             </div>
-        `).join("");
+        `}).join("");
         attachProductEvents();
         startTimers();
     }
 
-    // ========== تایمر ==========
     function startTimers() {
         if(timerInterval) clearInterval(timerInterval);
         timerInterval = setInterval(() => {
             fontsData.forEach(font => {
-                if(font.timerEnd) {
-                    const diff = font.timerEnd - new Date();
+                if(font.hasOffer && font.offerEnds) {
+                    const diff = font.offerEnds - new Date();
                     const el = document.querySelector(`.timer-${font.id}`);
                     if(!el) return;
                     if(diff <= 0) {
-                        el.innerText = "Expired";
+                        if(font.hasOffer) {
+                            font.hasOffer = false;
+                            localStorage.removeItem('mimnon_timer_end');
+                            renderProducts();
+                        }
                         return;
                     }
                     const days = Math.floor(diff / (1000*60*60*24));
@@ -804,7 +834,6 @@
         openModal(btn.dataset.image, btn.dataset.name);
     }
 
-    // ========== سبد خرید ==========
     function addToCart(item) {
         const exist = cart.find(i => i.id === item.id);
         if(exist) exist.quantity++;
@@ -860,7 +889,6 @@
         cartModal.style.display = 'flex';
     }
 
-    // ========== پرداخت ==========
     function generateRandomCode() {
         return Math.floor(100 + Math.random() * 900).toString();
     }
@@ -892,7 +920,6 @@
         showToast('✅ سفارش ثبت شد، سبد خالی شد');
     }
 
-    // ========== مودال عکس ==========
     const modal = document.getElementById('fontModal');
     const modalImage = document.getElementById('modalImage');
     function openModal(img, name) {
@@ -901,7 +928,6 @@
         modal.style.display = 'flex';
     }
 
-    // ========== دکمه‌ها ==========
     document.getElementById('closeModalBtn').onclick = () => modal.style.display = 'none';
     document.getElementById('cartIconBtn').onclick = openCartModal;
     document.getElementById('closeCartBtn').onclick = () => document.getElementById('cartModal').style.display = 'none';
@@ -916,13 +942,12 @@
         if(e.target === document.getElementById('paymentModal')) clearCartAndClosePayment();
     };
     document.getElementById('sampleTypeBtn')?.addEventListener('click', () => {
-        openModal(fontsData[0].image, fontsData[0].name);
+        openModal(fontsData[1].image, fontsData[1].name);
     });
     document.getElementById('shopNowBtn')?.addEventListener('click', () => {
         document.querySelector('.products-grid')?.scrollIntoView({ behavior: 'smooth' });
     });
 
-    // ========== فیلترها ==========
     function initFilters() {
         const filterBtns = document.querySelectorAll('#filterButtonsGroup .filter-btn');
         filterBtns.forEach(btn => {
@@ -935,7 +960,6 @@
         });
     }
 
-    // ========== منو و تب‌ها ==========
     const dynamicContainer = document.getElementById('dynamicContent');
     const heroSection = document.getElementById('heroSection');
 
@@ -996,9 +1020,8 @@
         });
     });
 
-    // ========== اجرای اولیه ==========
     setActiveTab('home');
     updateCartUI();
 </script>
 </body>
-                </html>
+    </html>
