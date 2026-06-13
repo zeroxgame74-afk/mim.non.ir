@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>mim.non.ir | فروشگاه تخصصی فونت</title>
-    <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- فونت وزیرمتن -->
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
     <style>
         * {
@@ -17,7 +15,7 @@
 
         body {
             background-color: #292929;
-            font-family: 'Vazirmatn', Tahoma, sans-serif;
+            font-family: 'Vazirmatn', 'Tahoma', sans-serif;
             font-weight: bold;
             color: #e0e0e0;
             line-height: 1.7;
@@ -28,6 +26,7 @@
             justify-content: flex-start;
         }
 
+        /* اسکرول */
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #1f1f1f; }
         ::-webkit-scrollbar-thumb { background: #FFC800; border-radius: 10px; }
@@ -38,7 +37,6 @@
             margin: 0 auto;
             background-color: #292929;
         }
-
         .container {
             max-width: 1200px;
             width: 100%;
@@ -57,7 +55,6 @@
             width: 100%;
             box-shadow: 0 6px 18px rgba(0,0,0,0.4);
         }
-
         .nav-flex {
             display: flex;
             align-items: center;
@@ -66,7 +63,6 @@
             gap: 26px;
             position: relative;
         }
-
         .logo-area {
             text-align: center;
             position: absolute;
@@ -81,12 +77,13 @@
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            line-height: 1.3;
+            font-family: 'Vazirmatn', sans-serif;
         }
         .logo-area p {
             font-size: 0.7rem;
             color: #aaa;
             margin-top: 4px;
+            font-family: 'Vazirmatn', sans-serif;
         }
 
         .nav-links {
@@ -96,7 +93,6 @@
             flex-wrap: wrap;
             margin-right: auto;
         }
-
         .nav-link {
             display: flex;
             align-items: center;
@@ -115,13 +111,9 @@
         .nav-link i {
             color: #FFC800;
             font-size: 1rem;
-            transition: 0.2s;
         }
         .nav-link:hover, .nav-link.active {
             color: #FFC800;
-        }
-        .nav-link:hover i, .nav-link.active i {
-            transform: scale(1.1);
         }
 
         .cart-icon {
@@ -135,7 +127,7 @@
             border: 1px solid #FFC80040;
             cursor: pointer;
             transition: 0.2s;
-            margin-left: 0;
+            font-family: 'Vazirmatn', sans-serif;
         }
         .cart-icon:hover {
             background: #353535;
@@ -155,7 +147,7 @@
             text-align: center;
         }
 
-        /* بنر */
+        /* بنر اصلی */
         .hero {
             background: linear-gradient(125deg, #212121 0%, #292929 100%);
             padding: 70px 0;
@@ -172,8 +164,9 @@
         .hero-text h2 {
             font-size: 2.7rem;
             font-weight: 800;
-            line-height: 1.4;
+            line-height: 1.5;
             margin-bottom: 20px;
+            font-family: 'Vazirmatn', sans-serif;
         }
         .hero-text h2 span {
             color: #FFC800;
@@ -184,6 +177,7 @@
             color: #bcbcbc;
             margin-bottom: 35px;
             line-height: 1.8;
+            font-family: 'Vazirmatn', sans-serif;
         }
         .hero-buttons {
             display: flex;
@@ -202,7 +196,7 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            transition: 0.2s;
+            font-family: 'Vazirmatn', sans-serif;
         }
         .btn-outline {
             background: transparent;
@@ -212,6 +206,7 @@
             border-radius: 60px;
             font-weight: bold;
             cursor: pointer;
+            font-family: 'Vazirmatn', sans-serif;
         }
         .hero-stats {
             display: flex;
@@ -220,6 +215,10 @@
         .stat h3 {
             color: #FFC800;
             font-size: 1.6rem;
+            font-family: 'Vazirmatn', sans-serif;
+        }
+        .stat span {
+            font-family: 'Vazirmatn', sans-serif;
         }
         .hero-image {
             flex: 1;
@@ -236,13 +235,14 @@
             display: inline-block;
             padding: 20px 35px;
             border-radius: 50px;
+            font-family: 'Vazirmatn', sans-serif;
         }
         .font-preview-demo i {
             color: #FFC800;
             margin-left: 10px;
         }
 
-        /* محصول */
+        /* کارت محصول */
         .products-grid {
             display: flex;
             justify-content: center;
@@ -275,6 +275,7 @@
             font-weight: bold;
             color: #FFC800;
             margin-bottom: 6px;
+            font-family: 'Vazirmatn', sans-serif;
         }
         .font-cat {
             display: inline-flex;
@@ -285,6 +286,7 @@
             border-radius: 30px;
             font-size: 0.75rem;
             margin-bottom: 12px;
+            font-family: 'Vazirmatn', sans-serif;
         }
         .font-cat i {
             color: #FFC800;
@@ -299,6 +301,7 @@
             padding: 5px 0;
             border-top: 1px dashed #3a3a3a;
             border-bottom: 1px dashed #3a3a3a;
+            font-family: 'Vazirmatn', sans-serif;
         }
         .price-wrapper {
             margin: 12px 0;
@@ -307,12 +310,14 @@
             font-size: 1.7rem;
             font-weight: bold;
             color: #FFC800;
+            font-family: 'Vazirmatn', sans-serif;
         }
         .old-price {
             font-size: 0.9rem;
             text-decoration: line-through;
             color: #777;
             margin-right: 10px;
+            font-family: 'Vazirmatn', sans-serif;
         }
         .card-actions {
             display: flex;
@@ -332,6 +337,7 @@
             align-items: center;
             justify-content: center;
             gap: 8px;
+            font-family: 'Vazirmatn', sans-serif;
         }
         .btn-preview {
             background: #2c2c2c;
@@ -360,11 +366,13 @@
             color: #FFC800;
             margin-bottom: 20px;
             font-size: 1.2rem;
+            font-family: 'Vazirmatn', sans-serif;
         }
         .footer-col p, .footer-col a {
             color: #b0b0b0;
             text-decoration: none;
             line-height: 2;
+            font-family: 'Vazirmatn', sans-serif;
         }
         .social-icons {
             display: flex;
@@ -387,6 +395,7 @@
             border-top: 1px solid #2c2c2c;
             font-size: 0.85rem;
             color: #ccc;
+            font-family: 'Vazirmatn', sans-serif;
         }
 
         /* مودال‌ها */
@@ -412,14 +421,17 @@
             max-height: 80vh;
             overflow-y: auto;
         }
+        .modal-content h3, .cart-modal-content h3, .payment-modal-content h3 {
+            font-family: 'Vazirmatn', sans-serif;
+            font-size: 1.8rem;
+            color: #FFC800;
+        }
         .modal-image {
             width: 100%;
             aspect-ratio: 1/1;
             object-fit: contain;
             border-radius: 24px;
             margin: 15px 0;
-            background: #0c0c0c;
-            padding: 8px;
         }
         .cart-items-list {
             display: flex;
@@ -433,6 +445,7 @@
             border-radius: 24px;
             text-align: right;
             border-right: 3px solid #FFC800;
+            font-family: 'Vazirmatn', sans-serif;
         }
         .cart-item-info {
             display: flex;
@@ -462,6 +475,7 @@
             padding: 12px 0;
             font-size: 1.3rem;
             border-top: 2px solid #FFC800;
+            font-family: 'Vazirmatn', sans-serif;
         }
         .payment-detail {
             background: #2a2a2a;
@@ -470,7 +484,18 @@
             text-align: right;
             display: flex;
             flex-direction: column;
+            gap: 15px;
+            font-family: 'Vazirmatn', sans-serif;
+        }
+        .payment-detail p {
+            display: flex;
+            align-items: center;
             gap: 12px;
+            flex-wrap: wrap;
+        }
+        .payment-detail i {
+            color: #FFC800;
+            width: 28px;
         }
         .random-code {
             font-size: 2rem;
@@ -481,6 +506,8 @@
             border-radius: 50px;
             color: #121212;
             letter-spacing: 3px;
+            text-align: center;
+            margin: 5px 0;
         }
         .checkout-btn, .close-modal, .close-cart, .close-payment {
             background: #FFC800;
@@ -491,28 +518,25 @@
             cursor: pointer;
             width: 100%;
             margin-top: 15px;
+            font-family: 'Vazirmatn', sans-serif;
         }
-        /* تب جدید "گروه میم نون" */
         .coming-soon-box {
             text-align: center;
-            padding: 30px 20px;
+            padding: 40px 20px;
             background: #1f1f1f;
-            border-radius: 32px;
-            margin: 30px 0;
+            border-radius: 36px;
+            margin: 40px 0;
             border: 1px dashed #FFC800;
         }
-        .coming-soon-box i {
-            font-size: 2.2rem;
-            color: #FFC800;
-            margin-bottom: 12px;
-            display: inline-block;
-        }
-        .empty-cart { text-align: center; padding: 30px; color: #aaa; }
-        
+        .coming-soon-box i { font-size: 2.5rem; color: #FFC800; margin-bottom: 15px; }
+        .coming-soon-box h3 { color: #FFC800; margin-bottom: 10px; font-family: 'Vazirmatn', sans-serif; }
+        .empty-cart { text-align: center; padding: 30px; color: #aaa; font-family: 'Vazirmatn', sans-serif; }
+
         @media (max-width: 850px) {
             .logo-area { position: static; transform: none; margin-bottom: 12px; }
             .nav-flex { flex-direction: column; }
             .nav-links { margin-right: 0; justify-content: center; }
+            .hero-text h2 { font-size: 2rem; line-height: 1.4; }
         }
     </style>
 </head>
@@ -542,12 +566,11 @@
     </nav>
 
     <main id="mainContent">
-        <!-- محتوای پیش‌فرض (خانه) -->
         <section class="hero" id="heroSection">
             <div class="container hero-grid">
                 <div class="hero-text">
-                    <h2>فونت‌های <span>حرفه‌ای و منحصربه‌فرد</span> برای طراحان</h2>
-                    <p>مجموعه‌ای از بهترین فونت‌های فارسی و لاتین با کیفیت بالا، مجوز قانونی و طراحی مدرن.</p>
+                    <h2>فونت‌های <span>حرفه‌ای و منحصربه‌فرد</span><br> برای طراحان</h2>
+                    <p>مجموعه‌ای از بهترین فونت‌های فارسی و لاتین با کیفیت بالا، مجوز قانونی و طراحی مدرن. همین حالا دانلود کنید.</p>
                     <div class="hero-buttons">
                         <button class="btn-primary" id="shopNowBtn"><i class="fas fa-arrow-down"></i> مشاهده فونت‌ها</button>
                         <button class="btn-outline" id="sampleTypeBtn"><i class="fas fa-play-circle"></i> نمونه تایپ‌فیس</button>
@@ -604,14 +627,12 @@
 <div id="paymentModal" class="payment-modal"><div class="payment-modal-content"><h3><i class="fas fa-credit-card"></i> تکمیل سفارش</h3><div id="paymentDetails" class="payment-detail"></div><button class="close-payment" id="closePaymentBtn">بستن</button></div></div>
 
 <script>
-    // فونت‌ها
     const fontsData = [
         { id: 1, name: "فونت شفیق", category: "persian", price: 120000, oldPrice: 250000, image: "https://cdn.imgurl.ir/uploads/v790100_mim_non.webp", description: "طراحی منحصربه‌فرد، مناسب پروژه‌های لوکس" }
     ];
     let cart = [];
     let activeTab = "home";
 
-    // رندر محصولات
     function renderProducts() {
         const container = document.getElementById("productsGrid");
         if(!container) return;
@@ -728,7 +749,7 @@
     document.getElementById('sampleTypeBtn')?.addEventListener('click',()=>{ const f = fontsData[0]; openModal(f.image, f.name); });
     document.getElementById('shopNowBtn')?.addEventListener('click',()=>{ document.querySelector('.products-grid')?.scrollIntoView({ behavior: 'smooth' }); });
 
-    // مدیریت تب منو + نمایش گروه میم نون
+    // منو و تب ها
     const tabs = document.querySelectorAll('.nav-link');
     const dynamicContainer = document.getElementById('dynamicContent');
     const heroSection = document.getElementById('heroSection');
@@ -742,11 +763,11 @@
         } 
         else if(tabId === 'mimnoon') {
             if(heroSection) heroSection.style.display = 'none';
-            dynamicContainer.innerHTML = `<div class="coming-soon-box"><i class="fas fa-users"></i><h3 style="color:#FFC800; margin:10px 0;">گروه میم نون</h3><p style="color:#ccc;">به زودی...</p><p style="font-size:0.85rem;">با امکانات ویژه و تازه‌های دنیای فونت</p></div>`;
+            dynamicContainer.innerHTML = `<div class="coming-soon-box"><i class="fas fa-users"></i><h3>گروه میم نون</h3><p>به زودی...</p><p style="font-size:0.85rem;">با امکانات ویژه و تازه‌های دنیای فونت</p></div>`;
         }
         else {
             if(heroSection) heroSection.style.display = 'none';
-            dynamicContainer.innerHTML = `<div class="coming-soon-box"><i class="fas fa-tools"></i><h3 style="color:#FFC800;">در حال به‌روزرسانی</h3><p>به زودی محتوای این بخش قرار می‌گیرد</p></div>`;
+            dynamicContainer.innerHTML = `<div class="coming-soon-box"><i class="fas fa-tools"></i><h3>در حال به‌روزرسانی</h3><p>به زودی محتوای این بخش قرار می‌گیرد</p></div>`;
         }
     }
     tabs.forEach(btn => {
