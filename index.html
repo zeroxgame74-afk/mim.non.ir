@@ -65,6 +65,7 @@
             left: 50%;
             transform: translateX(-50%);
             white-space: nowrap;
+            line-height: 1.2;
         }
         .logo-area h1 {
             font-size: 1.9rem;
@@ -74,11 +75,12 @@
             background-clip: text;
             color: transparent;
             font-family: 'Vazirmatn', sans-serif;
+            margin-bottom: 2px;
         }
         .logo-area p {
             font-size: 0.7rem;
             color: #aaa;
-            margin-top: 4px;
+            margin-top: 0;
             font-family: 'Vazirmatn', sans-serif;
         }
 
@@ -225,9 +227,9 @@
         }
         .font-preview-demo i { color: #FFC800; margin-left: 10px; }
 
-        /* فیلتر باکس - چیدمان بهتر */
+        /* فیلتر با چیدمان بهتر و بالاتر */
         .filter-main-wrapper {
-            margin: 40px 0 30px;
+            margin: 30px 0 20px;
         }
         .filter-box {
             background: #1f1f1f;
@@ -346,7 +348,7 @@
             margin-right: 10px;
             font-family: 'Vazirmatn', sans-serif;
         }
-        /* تایمر زیبا */
+        /* تایمر با انیمیشن و فارسی */
         .timer-box {
             background: #2a2a2a;
             border-radius: 50px;
@@ -360,8 +362,21 @@
             width: 100%;
             justify-content: center;
             font-family: 'Vazirmatn', monospace;
+            animation: timerPop 0.6s ease-in-out;
         }
-        .timer-box i { color: #FFC800; font-size: 1rem; }
+        @keyframes timerPop {
+            0% { transform: scale(0.95); opacity: 0.7; letter-spacing: 0px; }
+            50% { transform: scale(1.02); background: #3a3a3a; border-color: #FFC800; box-shadow: 0 0 8px #FFC800; }
+            100% { transform: scale(1); opacity: 1; letter-spacing: normal; }
+        }
+        .timer-box i { color: #FFC800; font-size: 1rem; animation: shake 0.4s ease; }
+        @keyframes shake {
+            0% { transform: rotate(0deg); }
+            25% { transform: rotate(10deg); }
+            50% { transform: rotate(-10deg); }
+            75% { transform: rotate(5deg); }
+            100% { transform: rotate(0deg); }
+        }
         .timer-box span:last-child {
             direction: ltr;
             font-family: monospace;
@@ -616,7 +631,6 @@
         </section>
 
         <div class="container" id="dynamicContent">
-            <!-- فیلتر با چیدمان جدید -->
             <div class="filter-main-wrapper" id="filterWrapper">
                 <div class="filter-box">
                     <div class="filter-label"><i class="fas fa-filter"></i> دسته‌بندی فونت:</div>
@@ -668,7 +682,6 @@
 <div id="paymentModal" class="payment-modal"><div class="payment-modal-content"><h3><i class="fas fa-credit-card"></i> تکمیل سفارش</h3><div id="paymentDetails" class="payment-detail"></div><button class="close-payment" id="closePaymentBtn">بستن</button></div></div>
 
 <script>
-    // اطلاعات فونت‌ها با عکس جدید برای فونت منشور
     const fontsData = [
         { 
             id: 1, 
@@ -689,7 +702,7 @@
             image: "https://uploadkon.ir/uploads/431113_26IMG-20260613-165046-564.jpg", 
             description: "یک فونت خفن به درد طراحی برای | پوستر | کاور | میخوره | با قیمت مناسب از میم نون خریداری کنید!",
             icon: "fa-crown",
-            timerEnd: new Date(Date.now() + 3*24*60*60*1000)  // 3 روز
+            timerEnd: new Date(Date.now() + 3*24*60*60*1000)
         }
     ];
 
@@ -743,7 +756,20 @@
                     const hours = Math.floor((diff % (86400000)) / 3600000);
                     const mins = Math.floor((diff % 3600000) / 60000);
                     const secs = Math.floor((diff % 60000) / 1000);
-                    el.innerText = `${days}d ${hours}h ${mins}m ${secs}s`;
+                    el.innerText = `${days} روز ${hours} ساعت ${mins} دقیقه ${secs} ثانیه`;
+                    // انیمیشن تایمر: هر بار که ثانیه تغییر می‌کند، کل باکس تایمر یک آنی میشن + ریزش شن و برعکس
+                    const timerBox = el.closest('.timer-box');
+                    if(timerBox) {
+                        timerBox.style.animation = 'none';
+                        timerBox.offsetHeight; // force reflow
+                        timerBox.style.animation = 'timerPop 0.6s ease-in-out';
+                        const icon = timerBox.querySelector('i');
+                        if(icon) {
+                            icon.style.animation = 'none';
+                            icon.offsetHeight;
+                            icon.style.animation = 'shake 0.4s ease';
+                        }
+                    }
                 }
             });
         }, 1000);
@@ -849,7 +875,6 @@
     document.getElementById('sampleTypeBtn')?.addEventListener('click',()=>{ const f = fontsData[0]; openModal(f.image, f.name); });
     document.getElementById('shopNowBtn')?.addEventListener('click',()=>{ document.querySelector('.products-grid')?.scrollIntoView({ behavior: 'smooth' }); });
 
-    // فیلترها (داخلی صفحه اصلی)
     function initFilters() {
         const filterBtns = document.querySelectorAll('#filterButtonsGroup .filter-btn');
         filterBtns.forEach(btn => {
@@ -862,7 +887,6 @@
         });
     }
 
-    // منو و تب‌ها
     const tabs = document.querySelectorAll('.nav-link');
     const dynamicContainer = document.getElementById('dynamicContent');
     const heroSection = document.getElementById('heroSection');
@@ -909,4 +933,4 @@
     updateCartUI();
 </script>
 </body>
-                </html>
+    </html>
