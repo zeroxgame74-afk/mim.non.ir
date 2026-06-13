@@ -18,7 +18,7 @@
             font-family: 'Vazirmatn', Tahoma, sans-serif;
             font-weight: bold;
             color: #e0e0e0;
-            line-height: 1.8;  /* افزایش فاصله خطوط */
+            line-height: 1.8;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -51,7 +51,7 @@
             padding: 0 20px;
         }
 
-        /* هدر */
+        /* هدر - لوگو وسط */
         .navbar {
             background-color: #1f1f1f;
             border-bottom: 2px solid #FFC800;
@@ -65,9 +65,16 @@
         .nav-flex {
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            justify-content: center;
             flex-wrap: wrap;
-            gap: 20px;
+            gap: 30px;
+            position: relative;
+        }
+        .logo-area {
+            text-align: center;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
         }
         .logo-area h1 {
             font-size: 2rem;
@@ -88,17 +95,7 @@
             gap: 32px;
             align-items: center;
             flex-wrap: wrap;
-        }
-        .nav-links a {
-            color: #f0f0f0;
-            text-decoration: none;
-            font-weight: bold;
-            transition: 0.2s;
-            font-size: 1rem;
-            padding: 8px 0;
-        }
-        .nav-links a:hover, .nav-links a.active {
-            color: #FFC800;
+            margin-right: auto;
         }
         .cart-icon {
             background: #2a2a2a;
@@ -111,6 +108,7 @@
             border: 1px solid #FFC80040;
             cursor: pointer;
             transition: 0.2s;
+            margin-left: 0;
         }
         .cart-icon:hover {
             background: #353535;
@@ -128,6 +126,17 @@
             font-weight: bold;
             min-width: 28px;
             text-align: center;
+        }
+        .nav-links a {
+            color: #f0f0f0;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.2s;
+            font-size: 1rem;
+            padding: 8px 0;
+        }
+        .nav-links a:hover, .nav-links a.active {
+            color: #FFC800;
         }
 
         /* بنر */
@@ -152,6 +161,7 @@
             font-weight: 800;
             line-height: 1.4;
             margin-bottom: 25px;
+            font-family: 'Vazirmatn', sans-serif;
         }
         .hero-text h2 span {
             color: #FFC800;
@@ -163,6 +173,7 @@
             max-width: 550px;
             margin-bottom: 35px;
             line-height: 1.8;
+            font-weight: bold;
         }
         .btn-primary {
             background-color: #FFC800;
@@ -178,6 +189,7 @@
             gap: 10px;
             box-shadow: 0 5px 12px rgba(255,200,0,0.3);
             transition: 0.2s;
+            font-family: 'Vazirmatn', sans-serif;
         }
         .btn-primary:hover {
             background-color: #e6b400;
@@ -193,6 +205,7 @@
             cursor: pointer;
             margin-right: 16px;
             transition: 0.2s;
+            font-family: 'Vazirmatn', sans-serif;
         }
         .btn-outline:hover {
             background: #FFC80020;
@@ -206,6 +219,7 @@
             color: #FFC800;
             font-size: 1.8rem;
             margin-bottom: 5px;
+            font-weight: bold;
         }
         .hero-image {
             flex: 1;
@@ -222,6 +236,7 @@
             display: inline-block;
             padding: 25px 45px;
             border-radius: 50px;
+            font-family: 'Vazirmatn', sans-serif;
         }
         .font-preview-demo i {
             color: #FFC800;
@@ -250,6 +265,7 @@
             cursor: pointer;
             border: 1px solid #3b3b3b;
             transition: 0.2s;
+            font-family: 'Vazirmatn', sans-serif;
         }
         .cat-btn.active, .cat-btn:hover {
             background: #FFC800;
@@ -273,6 +289,7 @@
             width: 240px;
             outline: none;
             font-weight: bold;
+            font-family: 'Vazirmatn', sans-serif;
         }
         .search-box i {
             color: #FFC800;
@@ -301,17 +318,29 @@
         }
         .font-preview {
             background: #0c0c0c;
-            padding: 45px 20px;
+            padding: 20px;
             text-align: center;
             border-bottom: 1px solid #FFC80030;
         }
+        .font-preview img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 20px;
+            margin-bottom: 15px;
+            transition: transform 0.3s ease;
+        }
+        .font-card:hover .font-preview img {
+            transform: scale(1.02);
+        }
         .sample-text {
-            font-size: 2rem;
+            font-size: 1.5rem;
             font-weight: bold;
             color: white;
             text-shadow: 0 0 6px rgba(0,0,0,0.5);
             word-break: break-word;
             line-height: 1.4;
+            font-family: 'Vazirmatn', sans-serif;
         }
         .font-details {
             padding: 22px 20px 26px;
@@ -322,6 +351,7 @@
             margin-bottom: 8px;
             color: #FFC800;
             line-height: 1.3;
+            font-family: 'Vazirmatn', sans-serif;
         }
         .font-cat {
             font-size: 0.8rem;
@@ -331,6 +361,7 @@
             background: #2b2b2b;
             padding: 4px 14px;
             border-radius: 20px;
+            font-weight: bold;
         }
         .font-price {
             font-size: 1.8rem;
@@ -364,6 +395,7 @@
             gap: 10px;
             font-size: 0.95rem;
             transition: 0.2s;
+            font-family: 'Vazirmatn', sans-serif;
         }
         .btn-buy:hover {
             background: #e0b000;
@@ -401,11 +433,13 @@
             color: #FFC800;
             margin-bottom: 22px;
             font-size: 1.3rem;
+            font-weight: bold;
         }
         .footer-col p, .footer-col a {
             color: #b0b0b0;
             text-decoration: none;
             line-height: 2;
+            font-weight: bold;
         }
         .footer-col a:hover {
             color: #FFC800;
@@ -438,10 +472,11 @@
             font-size: 0.85rem;
             color: #777;
             line-height: 1.6;
+            font-weight: bold;
         }
 
-        /* مودال محصول */
-        .modal {
+        /* مودال‌ها */
+        .modal, .cart-modal {
             display: none;
             position: fixed;
             top: 0; left: 0;
@@ -452,7 +487,7 @@
             justify-content: center;
             z-index: 2000;
         }
-        .modal-content {
+        .modal-content, .cart-modal-content {
             background: #1e1e1e;
             max-width: 550px;
             width: 90%;
@@ -460,11 +495,14 @@
             padding: 35px;
             text-align: center;
             border: 2px solid #FFC800;
+            max-height: 80vh;
+            overflow-y: auto;
         }
-        .modal-content h3 {
+        .modal-content h3, .cart-modal-content h3 {
             font-size: 2rem;
             color: #FFC800;
             margin-bottom: 15px;
+            font-weight: bold;
         }
         .modal-font-sample {
             font-size: 2.5rem;
@@ -473,8 +511,9 @@
             border-radius: 32px;
             margin: 25px 0;
             line-height: 1.4;
+            font-weight: bold;
         }
-        .close-modal {
+        .close-modal, .close-cart {
             background: #FFC800;
             border: none;
             padding: 10px 25px;
@@ -482,35 +521,8 @@
             font-weight: bold;
             cursor: pointer;
             font-size: 1rem;
-        }
-
-        /* مودال سبد خرید */
-        .cart-modal {
-            display: none;
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: rgba(0,0,0,0.85);
-            backdrop-filter: blur(6px);
-            align-items: center;
-            justify-content: center;
-            z-index: 2001;
-        }
-        .cart-modal-content {
-            background: #1e1e1e;
-            max-width: 500px;
-            width: 90%;
-            border-radius: 48px;
-            padding: 30px;
-            border: 2px solid #FFC800;
-            max-height: 80vh;
-            overflow-y: auto;
-        }
-        .cart-modal-content h3 {
-            color: #FFC800;
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-            text-align: center;
+            margin-top: 15px;
+            font-family: 'Vazirmatn', sans-serif;
         }
         .cart-item {
             display: flex;
@@ -521,6 +533,7 @@
         }
         .cart-item-info {
             flex: 1;
+            text-align: right;
         }
         .cart-item-name {
             font-weight: bold;
@@ -557,10 +570,10 @@
             font-size: 1.3rem;
             border-top: 2px solid #FFC800;
             margin-top: 15px;
+            font-weight: bold;
         }
         .cart-total span {
             color: #FFC800;
-            font-weight: bold;
         }
         .checkout-btn {
             background: #FFC800;
@@ -573,26 +586,21 @@
             font-size: 1rem;
             cursor: pointer;
             margin-top: 15px;
+            font-family: 'Vazirmatn', sans-serif;
         }
         .empty-cart {
             text-align: center;
             padding: 40px;
             color: #aaa;
-        }
-        .close-cart {
-            background: #2a2a2a;
-            border: none;
-            padding: 8px 20px;
-            border-radius: 40px;
-            color: white;
-            cursor: pointer;
-            margin-top: 15px;
-            width: 100%;
+            font-weight: bold;
         }
 
         @media (max-width: 768px) {
             .hero-text h2 { font-size: 2rem; }
             .nav-flex { flex-direction: column; }
+            .logo-area { position: static; transform: none; margin-bottom: 15px; }
+            .nav-links { margin-right: 0; justify-content: center; }
+            .cart-icon { margin-left: 0; }
             .hero-stats { gap: 20px; }
             .stat h3 { font-size: 1.4rem; }
         }
@@ -613,11 +621,11 @@
                 <a href="#">پرفروش‌ها</a>
                 <a href="#">بلاگ</a>
                 <a href="#">تماس</a>
-                <div class="cart-icon" id="cartIconBtn">
-                    <i class="fas fa-shopping-cart"></i>
-                    <span>سبد خرید</span>
-                    <span id="cartCount">0</span>
-                </div>
+            </div>
+            <div class="cart-icon" id="cartIconBtn">
+                <i class="fas fa-shopping-cart"></i>
+                <span>سبد خرید</span>
+                <span id="cartCount">0</span>
             </div>
         </div>
     </nav>
@@ -717,14 +725,16 @@
 
 <script>
     const fontsData = [
-        { id: 1, name: "آرام بولد", category: "persian", price: 89000, oldPrice: 149000, sample: "سلام دنیای طراحی!", fontFamily: "'Vazirmatn'", desc: "فونت مدرن فارسی" },
-        { id: 2, name: "Neue Machina", category: "latin", price: 129000, oldPrice: 199000, sample: "Design is intelligence", fontFamily: "'Inter'", desc: "فونت لاتین صنعتی" },
-        { id: 3, name: "شقایق دست‌نویس", category: "handwritten", price: 69000, oldPrice: 99000, sample: "دلنوشته‌های قشنگ", fontFamily: "cursive", desc: "حسی صمیمی" },
-        { id: 4, name: "Glyph Display", category: "display", price: 159000, oldPrice: 259000, sample: "EYE CATCHING", fontFamily: "'Impact'", desc: "مناسب تیتر" },
-        { id: 5, name: "پارس استایل", category: "persian", price: 99000, oldPrice: 129000, sample: "طراحی تایپوگرافی", fontFamily: "'Vazirmatn'", desc: "فونت رسمی" },
-        { id: 6, name: "Cursive Script", category: "handwritten", price: 79000, oldPrice: 110000, sample: "Creative Flow", fontFamily: "cursive", desc: "دستخط لوکس" },
-        { id: 7, name: "Mono Code", category: "latin", price: 109000, oldPrice: 0, sample: "monospace clean", fontFamily: "monospace", desc: "برنامه‌نویسان" },
-        { id: 8, name: "شکسته نستعلیق", category: "persian", price: 119000, oldPrice: 169000, sample: "عشق و خطاطی", fontFamily: "'Vazirmatn'", desc: "شکسته نستعلیق" }
+        { id: 1, name: "آرام بولد", category: "persian", price: 89000, oldPrice: 149000, sample: "سلام دنیای طراحی!", fontFamily: "'Vazirmatn'", image: "https://placehold.co/400x300/2a2a2a/FFC800?text=Font+1" },
+        { id: 2, name: "Neue Machina", category: "latin", price: 129000, oldPrice: 199000, sample: "Design is intelligence", fontFamily: "'Inter'", image: "https://placehold.co/400x300/2a2a2a/FFC800?text=Font+2" },
+        { id: 3, name: "شقایق دست‌نویس", category: "handwritten", price: 69000, oldPrice: 99000, sample: "دلنوشته‌های قشنگ", fontFamily: "cursive", image: "https://placehold.co/400x300/2a2a2a/FFC800?text=Font+3" },
+        { id: 4, name: "Glyph Display", category: "display", price: 159000, oldPrice: 259000, sample: "EYE CATCHING", fontFamily: "'Impact'", image: "https://placehold.co/400x300/2a2a2a/FFC800?text=Font+4" },
+        { id: 5, name: "پارس استایل", category: "persian", price: 99000, oldPrice: 129000, sample: "طراحی تایپوگرافی", fontFamily: "'Vazirmatn'", image: "https://placehold.co/400x300/2a2a2a/FFC800?text=Font+5" },
+        { id: 6, name: "Cursive Script", category: "handwritten", price: 79000, oldPrice: 110000, sample: "Creative Flow", fontFamily: "cursive", image: "https://placehold.co/400x300/2a2a2a/FFC800?text=Font+6" },
+        { id: 7, name: "Mono Code", category: "latin", price: 109000, oldPrice: 0, sample: "monospace clean", fontFamily: "monospace", image: "https://placehold.co/400x300/2a2a2a/FFC800?text=Font+7" },
+        { id: 8, name: "شکسته نستعلیق", category: "persian", price: 119000, oldPrice: 169000, sample: "عشق و خطاطی", fontFamily: "'Vazirmatn'", image: "https://placehold.co/400x300/2a2a2a/FFC800?text=Font+8" },
+        // فونت جدید شفیق
+        { id: 9, name: "فونت شفیق", category: "persian", price: 120000, oldPrice: 250000, sample: "به نام خالق زیبایی", fontFamily: "'Vazirmatn'", image: "https://cdn.imgurl.ir/uploads/v790100_mim_non.webp" }
     ];
 
     let cart = [];
@@ -736,7 +746,7 @@
         let filtered = fontsData.filter(font => {
             if (activeCategory !== "all" && font.category !== activeCategory) return false;
             if (searchQuery.trim()) {
-                return font.name.toLowerCase().includes(searchQuery.toLowerCase()) || font.desc.toLowerCase().includes(searchQuery.toLowerCase());
+                return font.name.toLowerCase().includes(searchQuery.toLowerCase()) || font.sample.toLowerCase().includes(searchQuery.toLowerCase());
             }
             return true;
         });
@@ -749,6 +759,7 @@
         container.innerHTML = filtered.map(font => `
             <div class="font-card">
                 <div class="font-preview">
+                    <img src="${font.image}" alt="${font.name}" onerror="this.src='https://placehold.co/400x300/2a2a2a/FFC800?text=No+Image'">
                     <div class="sample-text" style="font-family: ${font.fontFamily};">${font.sample}</div>
                 </div>
                 <div class="font-details">
@@ -865,8 +876,6 @@
         modal.style.display = 'flex';
     }
     document.getElementById('closeModalBtn').onclick = () => modal.style.display = 'none';
-    window.onclick = (e) => { if(e.target === modal) modal.style.display = 'none'; };
-
     document.getElementById('cartIconBtn').onclick = () => openCartModal();
     document.getElementById('closeCartBtn').onclick = () => document.getElementById('cartModal').style.display = 'none';
     document.getElementById('checkoutBtn').onclick = () => {
@@ -880,9 +889,8 @@
         }
     };
     window.onclick = (e) => { 
-        if(e.target === document.getElementById('cartModal')) {
-            document.getElementById('cartModal').style.display = 'none';
-        }
+        if(e.target === modal) modal.style.display = 'none';
+        if(e.target === document.getElementById('cartModal')) document.getElementById('cartModal').style.display = 'none';
     };
 
     document.querySelectorAll('.cat-btn').forEach(btn => {
@@ -907,4 +915,4 @@
     updateCartUI();
 </script>
 </body>
-    </html>
+                    </html>
