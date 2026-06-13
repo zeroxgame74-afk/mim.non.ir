@@ -18,7 +18,7 @@
             font-family: 'Vazirmatn', Tahoma, sans-serif;
             font-weight: bold;
             color: #e0e0e0;
-            line-height: 1.8;
+            line-height: 1.6;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -51,7 +51,6 @@
             padding: 0 20px;
         }
 
-        /* هدر - لوگو وسط */
         .navbar {
             background-color: #1f1f1f;
             border-bottom: 2px solid #FFC800;
@@ -139,7 +138,6 @@
             color: #FFC800;
         }
 
-        /* بنر */
         .hero {
             background: linear-gradient(125deg, #212121 0%, #292929 100%);
             padding: 80px 0;
@@ -249,73 +247,20 @@
             margin-left: 12px;
         }
 
-        /* فیلتر - مخفی شده چون فقط یک فونت داریم ولی ساختارش موند */
-        .filter-bar {
-            margin: 55px 0 35px;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: center;
-            gap: 20px;
-        }
-        .categories {
-            display: flex;
-            gap: 18px;
-            flex-wrap: wrap;
-        }
-        .cat-btn {
-            background: #222;
-            padding: 10px 26px;
-            border-radius: 40px;
-            font-weight: bold;
-            cursor: pointer;
-            border: 1px solid #3b3b3b;
-            transition: 0.2s;
-            font-family: 'Vazirmatn', sans-serif;
-        }
-        .cat-btn.active, .cat-btn:hover {
-            background: #FFC800;
-            color: #121212;
-            border-color: #FFC800;
-        }
-        .search-box {
-            background: #222;
-            border-radius: 60px;
-            padding: 6px 16px;
-            display: flex;
-            align-items: center;
-            border: 1px solid #3f3f3f;
-        }
-        .search-box input {
-            background: transparent;
-            border: none;
-            padding: 12px 10px;
-            color: white;
-            font-size: 0.95rem;
-            width: 240px;
-            outline: none;
-            font-weight: bold;
-            font-family: 'Vazirmatn', sans-serif;
-        }
-        .search-box i {
-            color: #FFC800;
-            font-size: 1.1rem;
-        }
-
-        /* محصولات - فقط یک کارت بزرگتر */
+        /* محصولات - فاصله کم شده */
         .products-grid {
             display: flex;
             justify-content: center;
-            margin: 60px 0 80px;
+            margin: 50px 0 70px;
         }
         .font-card {
             background: #1f1f1f;
-            border-radius: 40px;
+            border-radius: 30px;
             overflow: hidden;
             transition: transform 0.25s ease, box-shadow 0.2s;
             border: 1px solid #2d2d2d;
             box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-            max-width: 400px;
+            max-width: 350px;
             width: 100%;
         }
         .font-card:hover {
@@ -325,79 +270,69 @@
         }
         .font-preview {
             background: #0c0c0c;
-            padding: 25px;
+            padding: 20px;
             text-align: center;
             border-bottom: 1px solid #FFC80030;
         }
         .font-preview img {
             width: 100%;
             aspect-ratio: 1 / 1;
-            object-fit: cover;
-            border-radius: 24px;
-            margin-bottom: 20px;
-        }
-        .sample-text {
-            font-size: 1.6rem;
-            font-weight: bold;
-            color: white;
-            text-shadow: 0 0 6px rgba(0,0,0,0.5);
-            word-break: break-word;
-            line-height: 1.4;
-            font-family: 'Vazirmatn', sans-serif;
-            margin-top: 10px;
+            object-fit: contain;
+            border-radius: 20px;
+            margin-bottom: 0;
         }
         .font-details {
-            padding: 25px 25px 30px;
+            padding: 18px 20px 22px;
         }
         .font-title {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             font-weight: bold;
-            margin-bottom: 10px;
+            margin-bottom: 6px;
             color: #FFC800;
             line-height: 1.3;
             font-family: 'Vazirmatn', sans-serif;
         }
         .font-cat {
-            font-size: 0.9rem;
+            font-size: 0.75rem;
             color: #aaa;
-            margin-bottom: 18px;
+            margin-bottom: 12px;
             display: inline-block;
             background: #2b2b2b;
-            padding: 5px 16px;
-            border-radius: 30px;
+            padding: 3px 12px;
+            border-radius: 20px;
             font-weight: bold;
         }
         .font-price {
-            font-size: 2rem;
+            font-size: 1.6rem;
             font-weight: bold;
             color: #FFC800;
-            margin: 20px 0;
+            margin: 12px 0;
         }
         .price-old {
-            font-size: 1rem;
+            font-size: 0.85rem;
             text-decoration: line-through;
             color: #777;
-            margin-right: 12px;
+            margin-right: 10px;
         }
         .card-actions {
             display: flex;
-            gap: 18px;
-            margin-top: 25px;
+            gap: 12px;
+            margin-top: 15px;
         }
         .btn-buy {
             background: #FFC800;
             border: none;
-            padding: 14px 0;
+            padding: 10px 0;
             width: 100%;
-            border-radius: 60px;
+            border-radius: 40px;
             font-weight: bold;
             color: #111;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 12px;
-            font-size: 1.05rem;
+            gap: 8px;
+            font-size: 0.9rem;
             transition: 0.2s;
             font-family: 'Vazirmatn', sans-serif;
         }
@@ -408,18 +343,17 @@
         .btn-preview {
             background: #2c2c2c;
             border: none;
-            width: 54px;
-            border-radius: 60px;
+            width: 46px;
+            border-radius: 40px;
             color: #FFC800;
             cursor: pointer;
-            font-size: 1.2rem;
+            font-size: 1rem;
             transition: 0.2s;
         }
         .btn-preview:hover {
             background: #3a3a3a;
         }
 
-        /* فوتر */
         footer {
             background: #121212;
             margin-top: 70px;
@@ -479,7 +413,6 @@
             font-weight: bold;
         }
 
-        /* مودال‌ها */
         .modal, .cart-modal {
             display: none;
             position: fixed;
@@ -608,7 +541,7 @@
             .hero-stats { gap: 25px; }
             .stat h3 { font-size: 1.4rem; }
             .hero-buttons { gap: 15px; justify-content: center; }
-            .font-card { max-width: 350px; }
+            .font-card { max-width: 320px; }
         }
     </style>
 </head>
@@ -661,18 +594,6 @@
     </section>
 
     <div class="container">
-        <!-- فیلترها رو مخفی کردم چون فقط یه فونت داریم ولی اگر خواستی دوباره فعال کنم بگو -->
-        <div style="display: none;" class="filter-bar">
-            <div class="categories">
-                <div class="cat-btn active" data-cat="all">همه</div>
-                <div class="cat-btn" data-cat="persian">فارسی</div>
-            </div>
-            <div class="search-box">
-                <i class="fas fa-search"></i>
-                <input type="text" id="searchInput" placeholder="جستجوی فونت ...">
-            </div>
-        </div>
-
         <div class="products-grid" id="productsGrid"></div>
     </div>
 
@@ -707,16 +628,14 @@
     </footer>
 </div>
 
-<!-- مودال پیش‌نمایش فونت -->
 <div id="fontModal" class="modal">
     <div class="modal-content">
         <h3><i class="fas fa-eye"></i> پیش‌نمایش فونت</h3>
-        <div id="modalFontSample" class="modal-font-sample">به نام خالق زیبایی</div>
+        <div id="modalFontSample" class="modal-font-sample">نمونه متن زیبا</div>
         <button class="close-modal" id="closeModalBtn">بستن</button>
     </div>
 </div>
 
-<!-- مودال سبد خرید -->
 <div id="cartModal" class="cart-modal">
     <div class="cart-modal-content">
         <h3><i class="fas fa-shopping-cart"></i> سبد خرید</h3>
@@ -728,35 +647,19 @@
 </div>
 
 <script>
-    // فقط فونت شفیق مونده
     const fontsData = [
-        { id: 1, name: "فونت شفیق", category: "persian", price: 120000, oldPrice: 250000, sample: "به نام خالق زیبایی", fontFamily: "'Vazirmatn'", image: "https://cdn.imgurl.ir/uploads/v790100_mim_non.webp" }
+        { id: 1, name: "فونت شفیق", category: "persian", price: 120000, oldPrice: 250000, sample: "فونت شفیق - خاص و زیبا", fontFamily: "'Vazirmatn'", image: "https://cdn.imgurl.ir/uploads/v790100_mim_non.webp" }
     ];
 
     let cart = [];
-    let activeCategory = "all";
-    let searchQuery = "";
 
     function renderProducts() {
         const container = document.getElementById("productsGrid");
-        let filtered = fontsData.filter(font => {
-            if (activeCategory !== "all" && font.category !== activeCategory) return false;
-            if (searchQuery.trim()) {
-                return font.name.toLowerCase().includes(searchQuery.toLowerCase()) || font.sample.toLowerCase().includes(searchQuery.toLowerCase());
-            }
-            return true;
-        });
-
-        if(filtered.length === 0) {
-            container.innerHTML = `<div style="text-align:center; grid-column:1/-1; padding:70px;">😕 فونتی با این مشخصات یافت نشد.</div>`;
-            return;
-        }
-
-        container.innerHTML = filtered.map(font => `
+        
+        container.innerHTML = fontsData.map(font => `
             <div class="font-card">
                 <div class="font-preview">
                     <img src="${font.image}" alt="${font.name}" onerror="this.src='https://placehold.co/600x600/2a2a2a/FFC800?text=Font+Shafigh'">
-                    <div class="sample-text" style="font-family: ${font.fontFamily};">${font.sample}</div>
                 </div>
                 <div class="font-details">
                     <div class="font-title">${font.name}</div>
@@ -889,9 +792,8 @@
         if(e.target === document.getElementById('cartModal')) document.getElementById('cartModal').style.display = 'none';
     };
 
-    // دکمه نمونه تایپ‌فیس
     document.getElementById('sampleTypeBtn').onclick = () => {
-        openModal("'Vazirmatn'", "به نام خالق زیبایی\nطراحی حرفه‌ای با فونت شفیق");
+        openModal("'Vazirmatn'", "فونت شفیق\nطراحی حرفه‌ای و خاص");
     };
 
     document.getElementById('shopNowBtn').onclick = () => {
