@@ -204,13 +204,13 @@
         .hero-image {
             flex: 1;
             background: #1f1f1f;
-            padding: 35px 20px;
             border-radius: 36px;
-            text-align: center;
             border: 1px solid #FFC80030;
+            min-height: 200px;
         }
+        /* حذف کامل عبارت اضافی */
 
-        /* فیلتر باکس */
+        /* فیلتر باکس - کاملاً درست */
         .filter-main-wrapper {
             margin: 30px 0 20px;
         }
@@ -224,6 +224,7 @@
             align-items: center;
             justify-content: space-between;
             gap: 15px;
+            width: 100%;
         }
         .filter-label {
             display: inline-flex;
@@ -468,7 +469,6 @@
             font-family: 'Vazirmatn', sans-serif;
         }
 
-        /* مودال‌ها */
         .modal, .cart-modal, .payment-modal {
             display: none;
             position: fixed;
@@ -646,9 +646,7 @@
                         <div class="stat"><h3>⭐ ۴.۹</h3><span>رضایت بالا</span></div>
                     </div>
                 </div>
-                <div class="hero-image">
-                    <!-- حذف عبارت اضافی "سـبـک مدرن / مجموعه Fonts..." -->
-                </div>
+                <div class="hero-image"></div>
             </div>
         </section>
 
@@ -688,103 +686,37 @@
 <div id="paymentModal" class="payment-modal"><div class="payment-modal-content"><h3><i class="fas fa-credit-card"></i> تکمیل سفارش</h3><div id="paymentDetails" class="payment-detail"></div><button class="close-payment" id="closePaymentBtn">بستن</button></div></div>
 
 <script>
-    // ========== دیتای فونت‌ها (کاملاً حفظ شده) ==========
     const fontsData = [
-        { 
-            id: 2, 
-            name: "فونت منشــور!", 
-            category: "persian", 
-            price: 360000, 
-            oldPrice: 500000, 
-            image: "https://uploadkon.ir/uploads/431113_26IMG-20260613-165046-564.jpg", 
-            description: "یک فونت خفن به درد طراحی برای | پوستر | کاور | میخوره | با قیمت مناسب از میم نون خریداری کنید!",
-            icon: "fa-crown",
-            hasOffer: true,
-            offerEnds: new Date(Date.now() + 3*24*60*60*1000)  // 3 روز
-        },
-        { 
-            id: 1, 
-            name: "فونت شفیق", 
-            category: "persian", 
-            price: 120000, 
-            oldPrice: 250000, 
-            image: "https://cdn.imgurl.ir/uploads/v790100_mim_non.webp", 
-            description: "طراحی منحصربه‌فرد، مناسب پروژه‌های لوکس",
-            icon: "fa-star",
-            hasOffer: false
-        }
+        { id: 2, name: "فونت منشــور!", category: "persian", price: 360000, oldPrice: 500000, image: "https://uploadkon.ir/uploads/431113_26IMG-20260613-165046-564.jpg", description: "یک فونت خفن به درد طراحی برای | پوستر | کاور | میخوره | با قیمت مناسب از میم نون خریداری کنید!", icon: "fa-crown", hasOffer: true, offerEnds: new Date(Date.now() + 3*24*60*60*1000) },
+        { id: 1, name: "فونت شفیق", category: "persian", price: 120000, oldPrice: 250000, image: "https://cdn.imgurl.ir/uploads/v790100_mim_non.webp", description: "طراحی منحصربه‌فرد، مناسب پروژه‌های لوکس", icon: "fa-star", hasOffer: false }
     ];
 
-    // ذخیره زمان پایان در localStorage برای پایداری تایمر
     function initTimerEnd() {
         const stored = localStorage.getItem('mimnon_timer_end');
-        if(stored) {
-            const endTime = new Date(parseInt(stored));
-            if(endTime > new Date()) {
-                fontsData[0].offerEnds = endTime;
-            } else {
-                fontsData[0].hasOffer = false;
-                localStorage.removeItem('mimnon_timer_end');
-            }
-        } else {
-            if(fontsData[0].hasOffer) {
-                localStorage.setItem('mimnon_timer_end', fontsData[0].offerEnds.getTime());
-            }
-        }
+        if(stored) { let endTime = new Date(parseInt(stored)); if(endTime > new Date()) fontsData[0].offerEnds = endTime; else { fontsData[0].hasOffer = false; localStorage.removeItem('mimnon_timer_end'); } }
+        else if(fontsData[0].hasOffer) localStorage.setItem('mimnon_timer_end', fontsData[0].offerEnds.getTime());
     }
     initTimerEnd();
 
-    let cart = [];
-    let currentFilter = "all";
-    let timerInterval = null;
+    let cart = [], currentFilter = "all", timerInterval = null;
 
     function renderProducts() {
         const container = document.getElementById("productsGrid");
         if(!container) return;
         let filtered = fontsData.filter(f => currentFilter === "all" || f.category === currentFilter);
-        // مرتب‌سازی: فونت منشور بالاتر (id 2 اول)
         filtered.sort((a,b) => b.id - a.id);
-        
         container.innerHTML = filtered.map(font => {
             let isOfferActive = font.hasOffer && font.offerEnds && font.offerEnds > new Date();
             let displayPrice = isOfferActive ? font.price : font.oldPrice;
             let displayOldPrice = isOfferActive ? font.oldPrice : null;
-            let timerHtml = '';
-            let offerTagHtml = '';
-            
+            let timerHtml = '', offerTagHtml = '';
             if(font.hasOffer) {
-                if(isOfferActive) {
-                    timerHtml = `<div class="timer-box" data-id="${font.id}"><i class="fas fa-hourglass-half"></i> <span class="timer-${font.id}"></span></div>`;
-                    offerTagHtml = `<div class="offer-tag"><i class="fas fa-bolt"></i> پیشنهاد ویژه 🔥</div>`;
-                } else {
-                    offerTagHtml = `<div class="offer-tag" style="background:#2a2a2a; color:#888; border-color:#555;"><i class="fas fa-clock"></i> پیشنهاد به پایان رسید</div>`;
-                }
+                if(isOfferActive) { timerHtml = `<div class="timer-box" data-id="${font.id}"><i class="fas fa-hourglass-half"></i> <span class="timer-${font.id}"></span></div>`; offerTagHtml = `<div class="offer-tag"><i class="fas fa-fire"></i> پیشنهاد ویژه 🔥</div>`; }
+                else offerTagHtml = `<div class="offer-tag" style="background:#2a2a2a; color:#888; border-color:#555;"><i class="fas fa-clock"></i> پیشنهاد به پایان رسید</div>`;
             }
-            
-            return `
-            <div class="font-card">
-                <div class="font-preview"><img src="${font.image}" alt="${font.name}" onerror="this.src='https://placehold.co/600x600/2a2a2a/FFC800?text=Font'"></div>
-                <div class="font-details">
-                    <div class="font-title"><i class="fas ${font.icon}"></i> ${font.name}</div>
-                    <div class="tags-row">
-                        <div class="font-cat"><i class="fas fa-tag"></i> فارسی</div>
-                        ${offerTagHtml}
-                    </div>
-                    <div class="font-desc"><i class="fas fa-info-circle"></i> ${font.description}</div>
-                    <div class="price-wrapper">
-                        <span class="current-price">${displayPrice.toLocaleString()} تومان</span>
-                        ${displayOldPrice ? `<span class="old-price">${displayOldPrice.toLocaleString()} تومان</span>` : ''}
-                    </div>
-                    ${timerHtml}
-                    <div class="card-actions">
-                        <button class="btn-buy" data-id="${font.id}" data-name="${font.name}" data-price="${displayPrice}"><i class="fas fa-shopping-bag"></i> خرید</button>
-                        <button class="btn-preview" data-image="${font.image}" data-name="${font.name}"><i class="fas fa-eye"></i></button>
-                    </div>
-                </div>
-            </div>
-        `}).join("");
-        attachProductEvents();
-        startTimers();
+            return `<div class="font-card"><div class="font-preview"><img src="${font.image}" onerror="this.src='https://placehold.co/600x600/2a2a2a/FFC800?text=Font'"></div><div class="font-details"><div class="font-title"><i class="fas ${font.icon}"></i> ${font.name}</div><div class="tags-row"><div class="font-cat"><i class="fas fa-tag"></i> فارسی</div>${offerTagHtml}</div><div class="font-desc"><i class="fas fa-info-circle"></i> ${font.description}</div><div class="price-wrapper"><span class="current-price">${displayPrice.toLocaleString()} تومان</span>${displayOldPrice ? `<span class="old-price">${displayOldPrice.toLocaleString()} تومان</span>` : ''}</div>${timerHtml}<div class="card-actions"><button class="btn-buy" data-id="${font.id}" data-name="${font.name}" data-price="${displayPrice}"><i class="fas fa-shopping-bag"></i> خرید</button><button class="btn-preview" data-image="${font.image}" data-name="${font.name}"><i class="fas fa-eye"></i></button></div></div></div>`;
+        }).join("");
+        attachProductEvents(); startTimers();
     }
 
     function startTimers() {
@@ -792,21 +724,10 @@
         timerInterval = setInterval(() => {
             fontsData.forEach(font => {
                 if(font.hasOffer && font.offerEnds) {
-                    const diff = font.offerEnds - new Date();
-                    const el = document.querySelector(`.timer-${font.id}`);
+                    let diff = font.offerEnds - new Date(), el = document.querySelector(`.timer-${font.id}`);
                     if(!el) return;
-                    if(diff <= 0) {
-                        if(font.hasOffer) {
-                            font.hasOffer = false;
-                            localStorage.removeItem('mimnon_timer_end');
-                            renderProducts();
-                        }
-                        return;
-                    }
-                    const days = Math.floor(diff / (1000*60*60*24));
-                    const hours = Math.floor((diff % 86400000) / 3600000);
-                    const mins = Math.floor((diff % 3600000) / 60000);
-                    const secs = Math.floor((diff % 60000) / 1000);
+                    if(diff <= 0) { if(font.hasOffer) { font.hasOffer = false; localStorage.removeItem('mimnon_timer_end'); renderProducts(); } return; }
+                    let days = Math.floor(diff / (1000*60*60*24)), hours = Math.floor((diff % 86400000) / 3600000), mins = Math.floor((diff % 3600000) / 60000), secs = Math.floor((diff % 60000) / 1000);
                     el.innerText = `${days}d ${hours}h ${mins}m ${secs}s`;
                 }
             });
@@ -814,214 +735,40 @@
     }
 
     function attachProductEvents() {
-        document.querySelectorAll('.btn-buy').forEach(btn => {
-            btn.removeEventListener('click', buyHandler);
-            btn.addEventListener('click', buyHandler);
-        });
-        document.querySelectorAll('.btn-preview').forEach(btn => {
-            btn.removeEventListener('click', previewHandler);
-            btn.addEventListener('click', previewHandler);
-        });
+        document.querySelectorAll('.btn-buy').forEach(btn => { btn.removeEventListener('click', buyHandler); btn.addEventListener('click', buyHandler); });
+        document.querySelectorAll('.btn-preview').forEach(btn => { btn.removeEventListener('click', previewHandler); btn.addEventListener('click', previewHandler); });
     }
-
-    function buyHandler(e) {
-        const btn = e.currentTarget;
-        addToCart({ id: parseInt(btn.dataset.id), name: btn.dataset.name, price: parseInt(btn.dataset.price) });
-    }
-
-    function previewHandler(e) {
-        const btn = e.currentTarget;
-        openModal(btn.dataset.image, btn.dataset.name);
-    }
-
-    function addToCart(item) {
-        const exist = cart.find(i => i.id === item.id);
-        if(exist) exist.quantity++;
-        else cart.push({ ...item, quantity: 1 });
-        updateCartUI();
-        showToast(`${item.name} به سبد اضافه شد 🛒`);
-    }
-
-    function updateCartUI() {
-        const total = cart.reduce((s, i) => s + i.quantity, 0);
-        document.getElementById('cartCount').innerText = total;
-    }
-
-    function showToast(msg) {
-        let t = document.createElement('div');
-        t.innerText = msg;
-        t.style.cssText = 'position:fixed; bottom:20px; right:20px; background:#FFC800; color:#121212; padding:10px 20px; border-radius:40px; font-weight:bold; z-index:9999; font-family:Vazirmatn';
-        document.body.appendChild(t);
-        setTimeout(() => t.remove(), 2500);
-    }
-
-    function openCartModal() {
-        const cartModal = document.getElementById('cartModal');
-        const cartItemsList = document.getElementById('cartItemsList');
-        const cartTotalDiv = document.getElementById('cartTotal');
-        if(cart.length === 0) {
-            cartItemsList.innerHTML = '<div class="empty-cart">سبد خرید خالی است</div>';
-            cartTotalDiv.innerHTML = '';
-        } else {
-            cartItemsList.innerHTML = cart.map(item => `
-                <div class="cart-item">
-                    <div class="cart-item-info"><span class="cart-item-name">${item.name}</span><span>${item.price.toLocaleString()} تومان</span></div>
-                    <div class="cart-item-quantity"><button class="cart-qty-btn" data-id="${item.id}" data-change="-1">-</button><span>تعداد: ${item.quantity}</span><button class="cart-qty-btn" data-id="${item.id}" data-change="1">+</button></div>
-                    <div>جمع: ${(item.price * item.quantity).toLocaleString()} تومان</div>
-                </div>
-            `).join('');
-            const totalPrice = cart.reduce((s, i) => s + (i.price * i.quantity), 0);
-            cartTotalDiv.innerHTML = `مجموع سبد: <span>${totalPrice.toLocaleString()} تومان</span>`;
-            document.querySelectorAll('.cart-qty-btn').forEach(btn => {
-                btn.addEventListener('click', () => {
-                    const id = parseInt(btn.dataset.id);
-                    const change = parseInt(btn.dataset.change);
-                    const itm = cart.find(i => i.id === id);
-                    if(itm) {
-                        itm.quantity += change;
-                        if(itm.quantity <= 0) cart = cart.filter(i => i.id !== id);
-                        updateCartUI();
-                        openCartModal();
-                    }
-                });
-            });
-        }
-        cartModal.style.display = 'flex';
-    }
-
-    function generateRandomCode() {
-        return Math.floor(100 + Math.random() * 900).toString();
-    }
-
-    function showPaymentModal() {
-        if(cart.length === 0) {
-            alert('سبد خرید خالی است');
-            return;
-        }
-        const itemsHtml = cart.map(i => `<p><i class="fas fa-font"></i> ${i.name} (تعداد: ${i.quantity})</p>`).join('');
-        const totalPrice = cart.reduce((s, i) => s + (i.price * i.quantity), 0);
-        const code = generateRandomCode();
-        document.getElementById('paymentDetails').innerHTML = `
-            <p><i class="fas fa-phone-alt"></i> <strong>شماره تماس:</strong> ۰۹۱۵۷۹۳۰۵۱۸</p>
-            <p><i class="fas fa-shopping-bag"></i> <strong>محصولات:</strong></p>
-            <div style="margin-right:28px">${itemsHtml}</div>
-            <p><i class="fas fa-wallet"></i> <strong>مبلغ:</strong> ${totalPrice.toLocaleString()} تومان</p>
-            <p><i class="fas fa-code"></i> <strong>کد سفارش:</strong></p>
-            <div class="random-code">${code}</div>
-            <p><i class="fas fa-info-circle"></i> این کد را به فروشنده بدهید</p>
-        `;
-        document.getElementById('paymentModal').style.display = 'flex';
-    }
-
-    function clearCartAndClosePayment() {
-        cart = [];
-        updateCartUI();
-        document.getElementById('paymentModal').style.display = 'none';
-        showToast('✅ سفارش ثبت شد، سبد خالی شد');
-    }
-
-    const modal = document.getElementById('fontModal');
-    const modalImage = document.getElementById('modalImage');
-    function openModal(img, name) {
-        modalImage.src = img;
-        modalImage.alt = name;
-        modal.style.display = 'flex';
-    }
-
+    function buyHandler(e) { let btn = e.currentTarget; addToCart({ id: parseInt(btn.dataset.id), name: btn.dataset.name, price: parseInt(btn.dataset.price) }); }
+    function previewHandler(e) { let btn = e.currentTarget; openModal(btn.dataset.image, btn.dataset.name); }
+    function addToCart(item) { let exist = cart.find(i => i.id === item.id); if(exist) exist.quantity++; else cart.push({ ...item, quantity: 1 }); updateCartUI(); showToast(`${item.name} به سبد اضافه شد 🛒`); }
+    function updateCartUI() { document.getElementById('cartCount').innerText = cart.reduce((s,i)=> s + i.quantity, 0); }
+    function showToast(msg) { let t = document.createElement('div'); t.innerText = msg; t.style.cssText = 'position:fixed; bottom:20px; right:20px; background:#FFC800; color:#121212; padding:10px 20px; border-radius:40px; font-weight:bold; z-index:9999; font-family:Vazirmatn'; document.body.appendChild(t); setTimeout(() => t.remove(), 2500); }
+    function openCartModal() { let cartModal = document.getElementById('cartModal'), itemsDiv = document.getElementById('cartItemsList'), totalDiv = document.getElementById('cartTotal'); if(!cart.length) { itemsDiv.innerHTML = '<div class="empty-cart">سبد خرید خالی است</div>'; totalDiv.innerHTML = ''; } else { itemsDiv.innerHTML = cart.map(i => `<div class="cart-item"><div class="cart-item-info"><span class="cart-item-name">${i.name}</span><span>${i.price.toLocaleString()} تومان</span></div><div class="cart-item-quantity"><button class="cart-qty-btn" data-id="${i.id}" data-change="-1">-</button><span>تعداد: ${i.quantity}</span><button class="cart-qty-btn" data-id="${i.id}" data-change="1">+</button></div><div>جمع: ${(i.price*i.quantity).toLocaleString()} تومان</div></div>`).join(''); totalDiv.innerHTML = `مجموع سبد: <span>${cart.reduce((s,i)=> s + (i.price*i.quantity),0).toLocaleString()} تومان</span>`; document.querySelectorAll('.cart-qty-btn').forEach(btn => { btn.addEventListener('click', () => { let id = parseInt(btn.dataset.id), change = parseInt(btn.dataset.change), itm = cart.find(i=>i.id===id); if(itm) { itm.quantity += change; if(itm.quantity<=0) cart = cart.filter(i=>i.id!==id); updateCartUI(); openCartModal(); } }); }); } cartModal.style.display = 'flex'; }
+    function generateRandomCode() { return Math.floor(100 + Math.random() * 900).toString(); }
+    function showPaymentModal() { if(!cart.length) { alert('سبد خرید خالی'); return; } let itemsHtml = cart.map(i=>`<p><i class="fas fa-font"></i> ${i.name} (تعداد: ${i.quantity})</p>`).join(''); let totalPrice = cart.reduce((s,i)=> s + (i.price*i.quantity),0); let code = generateRandomCode(); document.getElementById('paymentDetails').innerHTML = `<p><i class="fas fa-phone-alt"></i> <strong>شماره تماس:</strong> ۰۹۱۵۷۹۳۰۵۱۸</p><p><i class="fas fa-shopping-bag"></i> <strong>محصولات:</strong></p><div style="margin-right:28px">${itemsHtml}</div><p><i class="fas fa-wallet"></i> <strong>مبلغ:</strong> ${totalPrice.toLocaleString()} تومان</p><p><i class="fas fa-code"></i> <strong>کد سفارش:</strong></p><div class="random-code">${code}</div><p><i class="fas fa-info-circle"></i> این کد را به فروشنده بدهید</p>`; document.getElementById('paymentModal').style.display = 'flex'; }
+    function clearCartAndClosePayment() { cart = []; updateCartUI(); document.getElementById('paymentModal').style.display = 'none'; showToast('✅ سفارش ثبت شد، سبد خالی شد'); }
+    const modal = document.getElementById('fontModal'), modalImage = document.getElementById('modalImage');
+    function openModal(img, name) { modalImage.src = img; modalImage.alt = name; modal.style.display = 'flex'; }
     document.getElementById('closeModalBtn').onclick = () => modal.style.display = 'none';
     document.getElementById('cartIconBtn').onclick = openCartModal;
     document.getElementById('closeCartBtn').onclick = () => document.getElementById('cartModal').style.display = 'none';
-    document.getElementById('checkoutBtn').onclick = () => {
-        if(cart.length) showPaymentModal();
-        else alert('سبد خرید خالی');
-    };
+    document.getElementById('checkoutBtn').onclick = () => { if(cart.length) showPaymentModal(); else alert('سبد خرید خالی'); };
     document.getElementById('closePaymentBtn').onclick = clearCartAndClosePayment;
-    window.onclick = (e) => {
-        if(e.target === modal) modal.style.display = 'none';
-        if(e.target === document.getElementById('cartModal')) document.getElementById('cartModal').style.display = 'none';
-        if(e.target === document.getElementById('paymentModal')) clearCartAndClosePayment();
-    };
-    document.getElementById('sampleTypeBtn')?.addEventListener('click', () => {
-        openModal(fontsData[1].image, fontsData[1].name);
-    });
-    document.getElementById('shopNowBtn')?.addEventListener('click', () => {
-        document.querySelector('.products-grid')?.scrollIntoView({ behavior: 'smooth' });
-    });
+    window.onclick = (e) => { if(e.target === modal) modal.style.display = 'none'; if(e.target === document.getElementById('cartModal')) document.getElementById('cartModal').style.display = 'none'; if(e.target === document.getElementById('paymentModal')) clearCartAndClosePayment(); };
+    document.getElementById('sampleTypeBtn')?.addEventListener('click', () => { openModal(fontsData[1].image, fontsData[1].name); });
+    document.getElementById('shopNowBtn')?.addEventListener('click', () => { document.querySelector('.products-grid')?.scrollIntoView({ behavior: 'smooth' }); });
 
-    function initFilters() {
-        const filterBtns = document.querySelectorAll('#filterButtonsGroup .filter-btn');
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                filterBtns.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                currentFilter = btn.dataset.filter;
-                renderProducts();
-            });
-        });
-    }
-
-    const dynamicContainer = document.getElementById('dynamicContent');
-    const heroSection = document.getElementById('heroSection');
-
+    function initFilters() { document.querySelectorAll('#filterButtonsGroup .filter-btn').forEach(btn => { btn.addEventListener('click', () => { document.querySelectorAll('#filterButtonsGroup .filter-btn').forEach(b => b.classList.remove('active')); btn.classList.add('active'); currentFilter = btn.dataset.filter; renderProducts(); }); }); }
+    const dynamicContainer = document.getElementById('dynamicContent'), heroSection = document.getElementById('heroSection');
     function setActiveTab(tabId) {
-        document.querySelectorAll('.nav-link').forEach(btn => {
-            if(btn.dataset.tab === tabId) btn.classList.add('active');
-            else btn.classList.remove('active');
-        });
-
-        if(tabId === 'home') {
-            if(heroSection) heroSection.style.display = '';
-            dynamicContainer.innerHTML = `
-                <div class="filter-main-wrapper">
-                    <div class="filter-box">
-                        <div class="filter-label"><i class="fas fa-filter"></i> دسته‌بندی فونت:</div>
-                        <div class="filter-buttons-group" id="filterButtonsGroup">
-                            <button class="filter-btn active" data-filter="all"><i class="fas fa-border-all"></i> همه</button>
-                            <button class="filter-btn" data-filter="persian"><i class="fas fa-language"></i> فارسی</button>
-                            <button class="filter-btn" data-filter="latin"><i class="fas fa-font"></i> انگلیسی</button>
-                            <button class="filter-btn" data-filter="symbol"><i class="fas fa-hashtag"></i> سمبل</button>
-                            <button class="filter-btn" data-filter="handwritten"><i class="fas fa-pen-fancy"></i> دست‌نویس</button>
-                            <button class="filter-btn" data-filter="display"><i class="fas fa-tv"></i> نمایشی</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="products-grid" id="productsGrid"></div>
-            `;
-            renderProducts();
-            initFilters();
-        }
-        else if(tabId === 'mimnoon') {
-            if(heroSection) heroSection.style.display = 'none';
-            dynamicContainer.innerHTML = `
-                <div class="coming-soon-box">
-                    <i class="fas fa-users"></i>
-                    <h3>گروه میم نون</h3>
-                    <p>به زودی...</p>
-                    <p style="font-size:0.85rem;">با امکانات ویژه و تازه‌های دنیای فونت</p>
-                </div>
-            `;
-        }
-        else {
-            if(heroSection) heroSection.style.display = 'none';
-            dynamicContainer.innerHTML = `
-                <div class="coming-soon-box">
-                    <i class="fas fa-tools"></i>
-                    <h3>در حال به‌روزرسانی</h3>
-                    <p>به زودی محتوای این بخش قرار می‌گیرد</p>
-                </div>
-            `;
-        }
+        document.querySelectorAll('.nav-link').forEach(btn => { if(btn.dataset.tab === tabId) btn.classList.add('active'); else btn.classList.remove('active'); });
+        if(tabId === 'home') { if(heroSection) heroSection.style.display = ''; dynamicContainer.innerHTML = `<div class="filter-main-wrapper"><div class="filter-box"><div class="filter-label"><i class="fas fa-filter"></i> دسته‌بندی فونت:</div><div class="filter-buttons-group" id="filterButtonsGroup"><button class="filter-btn active" data-filter="all"><i class="fas fa-border-all"></i> همه</button><button class="filter-btn" data-filter="persian"><i class="fas fa-language"></i> فارسی</button><button class="filter-btn" data-filter="latin"><i class="fas fa-font"></i> انگلیسی</button><button class="filter-btn" data-filter="symbol"><i class="fas fa-hashtag"></i> سمبل</button><button class="filter-btn" data-filter="handwritten"><i class="fas fa-pen-fancy"></i> دست‌نویس</button><button class="filter-btn" data-filter="display"><i class="fas fa-tv"></i> نمایشی</button></div></div></div><div class="products-grid" id="productsGrid"></div>`; renderProducts(); initFilters(); }
+        else if(tabId === 'mimnoon') { if(heroSection) heroSection.style.display = 'none'; dynamicContainer.innerHTML = `<div class="coming-soon-box"><i class="fas fa-users"></i><h3>گروه میم نون</h3><p>به زودی...</p><p style="font-size:0.85rem;">با امکانات ویژه و تازه‌های دنیای فونت</p></div>`; }
+        else { if(heroSection) heroSection.style.display = 'none'; dynamicContainer.innerHTML = `<div class="coming-soon-box"><i class="fas fa-tools"></i><h3>در حال به‌روزرسانی</h3><p>به زودی محتوای این بخش قرار می‌گیرد</p></div>`; }
     }
-
-    document.querySelectorAll('.nav-link').forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            e.preventDefault();
-            setActiveTab(btn.dataset.tab);
-        });
-    });
-
+    document.querySelectorAll('.nav-link').forEach(btn => { btn.addEventListener('click', (e) => { e.preventDefault(); setActiveTab(btn.dataset.tab); }); });
     setActiveTab('home');
     updateCartUI();
 </script>
 </body>
-    </html>
+</html>
