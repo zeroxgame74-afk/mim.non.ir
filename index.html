@@ -206,7 +206,7 @@
             min-height: 200px;
         }
 
-        /* فیلتر باکس - مرتب و وسط‌چین */
+        /* فیلتر باکس */
         .filter-main-wrapper {
             margin: 30px 0 20px;
         }
@@ -622,8 +622,6 @@
             .nav-flex { flex-direction: column; }
             .nav-links { margin-right: 0; justify-content: center; }
             .hero-text h2 { font-size: 2rem; }
-            .filter-buttons-group { gap: 8px; }
-            .filter-btn { padding: 6px 16px; font-size: 0.8rem; white-space: nowrap; }
         }
     </style>
 </head>
@@ -708,9 +706,10 @@
 <div id="paymentModal" class="payment-modal"><div class="payment-modal-content"><h3><i class="fas fa-credit-card"></i> تکمیل سفارش</h3><div id="paymentDetails" class="payment-detail"></div><button class="close-payment" id="closePaymentBtn">بستن</button></div></div>
 
 <script>
+    // دیتای فونت‌ها - قیمت فونت شفیق به صورت دستی و همیشه تخفیف خورده نمایش داده می‌شود
     const fontsData = [
         { id: 2, name: "فونت منشــور!", category: "persian", price: 360000, oldPrice: 500000, image: "https://uploadkon.ir/uploads/431113_26IMG-20260613-165046-564.jpg", description: "یک فونت خفن به درد طراحی برای | پوستر | کاور | میخوره | با قیمت مناسب از میم نون خریداری کنید!", icon: "fa-crown", hasOffer: true, offerEnds: new Date(Date.now() + 3*24*60*60*1000) },
-        { id: 1, name: "فونت شفیق", category: "persian", price: 120000, oldPrice: 250000, image: "https://cdn.imgurl.ir/uploads/v790100_mim_non.webp", description: "طراحی منحصربه‌فرد، مناسب پروژه‌های لوکس", icon: "fa-star", hasOffer: false }
+        { id: 1, name: "فونت شفیق", category: "persian", price: 120000, oldPrice: 250000, image: "https://cdn.imgurl.ir/uploads/v790100_mim_non.webp", description: "طراحی منحصربه‌فرد، مناسب پروژه‌های لوکس", icon: "fa-star", hasOffer: false, fixedPrice: true }
     ];
 
     function initTimerEnd() {
@@ -728,9 +727,10 @@
         let filtered = filteredFonts ? filteredFonts : fontsData.filter(f => currentFilter === "all" || f.category === currentFilter);
         filtered.sort((a,b) => b.id - a.id);
         container.innerHTML = filtered.map(font => {
-            let isOfferActive = font.hasOffer && font.offerEnds && font.offerEnds > new Date();
-            let displayPrice = isOfferActive ? font.price : font.oldPrice;
-            let displayOldPrice = isOfferActive ? font.oldPrice : null;
+            // برای فونت شفیق همیشه قیمت تخفیف‌خورده (price) و قیمت اصلی خط خورده (oldPrice) نمایش داده شود
+            let isOfferActive = (font.hasOffer && font.offerEnds && font.offerEnds > new Date());
+            let displayPrice = font.price;
+            let displayOldPrice = font.oldPrice;
             let timerHtml = '', offerTagHtml = '';
             if(font.hasOffer) {
                 if(isOfferActive) { timerHtml = `<div class="timer-box" data-id="${font.id}"><i class="fas fa-hourglass-half"></i> <span class="timer-${font.id}"></span></div>`; offerTagHtml = `<div class="offer-tag"><i class="fas fa-gem"></i> پیشنهاد ویژه</div>`; }
@@ -794,4 +794,4 @@
     updateCartUI();
 </script>
 </body>
-                                              </html>
+                    </html>
