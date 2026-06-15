@@ -21,9 +21,14 @@
         ::-webkit-scrollbar-track { background: #1f1f1f; }
         ::-webkit-scrollbar-thumb { background: #FFC800; border-radius: 10px; }
 
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 15px; }
+        .container {
+            max-width: 1400px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-        /* ========== هدر ========== */
+        /* ========== هدر استیکی ========== */
         .navbar {
             background-color: #1f1f1f;
             border-bottom: 2px solid #FFC800;
@@ -230,7 +235,6 @@
         .current-price { font-size: 1.3rem; font-weight: 900; color: #FFC800; }
         .old-price { font-size: 0.7rem; text-decoration: line-through; color: #777; margin-right: 5px; }
         
-        /* باکس پایان تخفیف - جایگزین تایمر */
         .expired-box {
             background: #3a1a1a;
             border-radius: 40px;
@@ -244,11 +248,7 @@
             gap: 8px;
         }
         .expired-box i { color: #ff8888; font-size: 0.8rem; }
-        .expired-box span {
-            color: #ffaaaa;
-            font-size: 0.75rem;
-            font-weight: 700;
-        }
+        .expired-box span { color: #ffaaaa; font-size: 0.75rem; font-weight: 700; }
         
         .card-actions { display: flex; gap: 8px; margin-top: 10px; }
         .btn-buy {
@@ -445,7 +445,6 @@
 <div id="paymentModal" class="payment-modal"><div class="payment-modal-content"><h3><i class="fas fa-credit-card"></i> تکمیل سفارش</h3><div id="paymentDetails" class="payment-detail"></div><button class="close-payment" id="closePaymentBtn">بستن</button></div></div>
 
 <script>
-    // تایمر غیرفعال شد - نمایش پیام پایان تخفیف
     const fontsData = [
         { id: 2, name: "فونت منشــور!", category: "persian", price: 500000, oldPrice: null, image: "https://uploadkon.ir/uploads/431113_26IMG-20260613-165046-564.jpg", description: "یک فونت خفن برای پوستر و کاور", icon: "fa-crown", offerExpired: true },
         { id: 1, name: "فونت شفیق", category: "persian", price: 120000, oldPrice: 250000, image: "https://cdn.imgurl.ir/uploads/v790100_mim_non.webp", description: "طراحی منحصربه‌فرد، مناسب پروژه‌های لوکس", icon: "fa-star", offerExpired: false }
