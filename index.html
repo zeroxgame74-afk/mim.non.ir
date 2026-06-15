@@ -150,7 +150,7 @@
             border-radius: 32px;
             margin: 50px auto;
             border: 1px solid #FFC800;
-            max-width: 500px;
+            max-width: 600px;
             width: 90%;
             box-shadow: 0 5px 20px rgba(0,0,0,0.3);
         }
@@ -735,6 +735,22 @@
             border-top: 2px solid #FFC800;
         }
 
+        .payment-link {
+            display: inline-block;
+            background: #FFC800;
+            color: #121212;
+            padding: 12px 24px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 15px 0;
+            transition: 0.2s;
+        }
+        .payment-link:hover {
+            background: #e6b400;
+            transform: scale(1.02);
+        }
+
         @media (max-width: 850px) {
             .nav-flex {
                 flex-direction: column;
@@ -1110,13 +1126,15 @@
         const totalPrice = cart.reduce((s, i) => s + (i.price * i.quantity), 0);
         const code = generateRandomCode();
         document.getElementById('paymentDetails').innerHTML = `
-            <p><i class="fas fa-phone-alt"></i> <strong>شماره تماس:</strong> ۰۹۱۵۷۹۳۰۵۱۸</p>
             <p><i class="fas fa-shopping-bag"></i> <strong>محصولات:</strong></p>
             <div>${itemsHtml}</div>
             <p><i class="fas fa-wallet"></i> <strong>مبلغ:</strong> ${totalPrice.toLocaleString()} تومان</p>
             <p><i class="fas fa-code"></i> <strong>کد سفارش:</strong></p>
             <div class="random-code">${code}</div>
-            <p><i class="fas fa-info-circle"></i> این کد را به فروشنده بدهید</p>
+            <p><i class="fas fa-info-circle"></i> برای هماهنگی و دریافت فونت، روی دکمه زیر کلیک کنید:</p>
+            <a href="https://eitaa.com/ya_ali_ir" target="_blank" class="payment-link">
+                <i class="fab fa-eitaa"></i> ارسال کد به پشتیبانی
+            </a>
         `;
         document.getElementById('paymentModal').style.display = 'flex';
     }
@@ -1273,9 +1291,42 @@
             dynamicContainer.innerHTML = `
                 <div class="contact-box">
                     <h2><i class="fas fa-phone-alt"></i> تماس با ما</h2>
-                    <div class="contact-item"><div class="label"><i class="fas fa-user-astronaut"></i> سازنده سایت</div><div class="value"><a href="https://eitaa.com/ya_ali_ir" target="_blank"><i class="fab fa-eitaa"></i> @ya_ali_ir</a></div></div>
-                    <div class="contact-item"><div class="label"><i class="fas fa-paper-plane"></i> کانال‌هامون</div><div class="value"><a href="https://eitaa.com/mim_non_marjae_font" target="_blank"><i class="fab fa-eitaa"></i> کانال میم نون</a></div></div>
-                    <div class="contact-note">جهت ارتباط، سوالات و پشتیبانی با ما در ایتا در ارتباط باشید.</div>
+                    <div class="contact-item">
+                        <div class="label">
+                            <i class="fas fa-user-astronaut"></i>
+                            سازنده سایت
+                        </div>
+                        <div class="value">
+                            <a href="https://eitaa.com/ya_ali_ir" target="_blank">
+                                <i class="fab fa-eitaa"></i> @ya_ali_ir
+                            </a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="label">
+                            <i class="fas fa-paper-plane"></i>
+                            کانال ایتا
+                        </div>
+                        <div class="value">
+                            <a href="https://eitaa.com/mim_non_marjae_font" target="_blank">
+                                <i class="fab fa-eitaa"></i> کانال میم نون
+                            </a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="label">
+                            <i class="fas fa-music"></i>
+                            روبیکا
+                        </div>
+                        <div class="value">
+                            <a href="https://rubika.ir/mohamad_hossein_ev18" target="_blank">
+                                <i class="fas fa-video"></i> mohamad_hossein_ev18
+                            </a>
+                        </div>
+                    </div>
+                    <div class="contact-note">
+                        جهت ارتباط، سوالات و پشتیبانی با ما در ایتا یا روبیکا در ارتباط باشید.
+                    </div>
                 </div>
             `;
         } 
