@@ -28,7 +28,7 @@
         .font-desc, .current-price, .old-price, .btn-buy, .btn-preview, .footer-col h4, .footer-col p, .footer-col a,
         .copyright, .modal-content h3, .cart-item, .cart-total, .checkout-btn, .close-modal, .close-cart, .close-payment,
         .random-code, .coming-soon-box h3, .coming-soon-box p, .empty-cart, .stat span, .bestseller-header h2, .bestseller-header p,
-        .expired-box, .expired-box span, .expired-box i, .btn-download {
+        .expired-box, .expired-box span, .expired-box i, .btn-download, .free-tag, .free-price {
             font-family: 'Vazirmatn', 'Tahoma', sans-serif !important;
             font-weight: bold !important;
         }
@@ -378,14 +378,6 @@
             border: 1px solid #FFC800;
             color: #FFC800;
         }
-        .free-tag {
-            background: #2a5a2a20;
-            border-color: #4caf50;
-            color: #4caf50;
-        }
-        .free-tag i {
-            color: #4caf50;
-        }
 
         .font-desc {
             font-size: 0.85rem;
@@ -404,9 +396,12 @@
             color: #FFC800;
         }
         .free-price {
-            color: #4caf50;
+            color: #FFC800;
             font-size: 1.3rem;
             font-weight: 900;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
         }
 
         .old-price {
@@ -459,22 +454,23 @@
         }
 
         .btn-download {
-            background: #4caf50;
+            background: #FFC800;
             border: none;
             padding: 10px 0;
             width: 100%;
             border-radius: 40px;
-            color: #fff;
+            color: #111;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
             font-size: 0.9rem;
+            text-decoration: none;
             transition: 0.2s;
         }
         .btn-download:hover {
-            background: #45a049;
+            background: #e6b400;
             transform: scale(1.02);
         }
 
@@ -1077,4 +1073,4 @@
     updateCartUI();
 </script>
 </body>
-                                  </html>
+</html>
