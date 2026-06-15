@@ -42,6 +42,35 @@
         .nav-link { font-size: 1rem !important; font-weight: 800 !important; }
         .cart-icon { font-weight: 800 !important; }
 
+        /* ========== استایل جدید باکس "به زودی" ========== */
+        .coming-soon-box {
+            text-align: center;
+            padding: 30px 20px;
+            background: #1f1f1f;
+            border-radius: 28px;
+            margin: 60px auto;
+            border: 1px dashed #FFC800;
+            max-width: 400px;
+            width: 90%;
+        }
+        .coming-soon-box i {
+            font-size: 2rem;
+            color: #FFC800;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+        .coming-soon-box h3 {
+            font-size: 1.3rem;
+            color: #FFC800;
+            margin: 10px 0;
+            font-weight: 900;
+        }
+        .coming-soon-box p {
+            font-size: 0.9rem;
+            font-weight: bold;
+            color: #ccc;
+        }
+
         ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-track { background: #1f1f1f; }
         ::-webkit-scrollbar-thumb { background: #FFC800; border-radius: 10px; }
@@ -535,6 +564,14 @@
             .hero-text h2 { font-size: 2rem !important; }
             .hero-text p { font-size: 1rem !important; }
             .font-title { font-size: 1.4rem !important; }
+            .coming-soon-box {
+                max-width: 300px;
+                padding: 20px 15px;
+                margin: 40px auto;
+            }
+            .coming-soon-box i { font-size: 1.5rem; }
+            .coming-soon-box h3 { font-size: 1.1rem; }
+            .coming-soon-box p { font-size: 0.8rem; }
         }
     </style>
 </head>
@@ -672,7 +709,6 @@
         let filtered = filteredFonts ? filteredFonts : fontsData.filter(f => currentFilter === "all" || f.category === currentFilter);
         filtered.sort((a, b) => b.id - a.id);
         container.innerHTML = filtered.map(font => {
-            // باکس تخفیف تمام شده
             let expiredHtml = '';
             if (font.offerExpired === true) {
                 expiredHtml = `<div class="expired-box"><i class="fas fa-clock"></i> <span>مدت تخفیف به پایان رسید</span></div>`;
@@ -910,12 +946,25 @@
                 <div class="products-grid" id="productsGrid"></div>
             `;
             renderProducts([fontsData[0]]);
-        } else if (tabId === 'mimnoon') {
-            if (heroSection) heroSection.style.display = 'none';
-            dynamicContainer.innerHTML = `<div class="coming-soon-box" style="text-align:center; padding:40px; background:#1f1f1f; border-radius:32px; margin:40px auto; border:1px dashed #FFC800; max-width:550px;"><i class="fas fa-users" style="font-size:2.5rem; color:#FFC800;"></i><h3 style="color:#FFC800; margin:15px 0;">گروه میم نون</h3><p>به زودی...</p></div>`;
         } else {
+            // تب‌های دیگر (فونت‌ها، بلاگ، تماس، گروه میم نون) باکس کوچک و مرتب
             if (heroSection) heroSection.style.display = 'none';
-            dynamicContainer.innerHTML = `<div class="coming-soon-box" style="text-align:center; padding:40px; background:#1f1f1f; border-radius:32px; margin:40px auto; border:1px dashed #FFC800; max-width:550px;"><i class="fas fa-tools" style="font-size:2.5rem; color:#FFC800;"></i><h3 style="color:#FFC800; margin:15px 0;">در حال به‌روزرسانی</h3></div>`;
+            
+            let title = "";
+            let icon = "";
+            if (tabId === 'fonts') { title = "فونت‌ها"; icon = "fa-font"; }
+            else if (tabId === 'blog') { title = "بلاگ"; icon = "fa-newspaper"; }
+            else if (tabId === 'contact') { title = "تماس با ما"; icon = "fa-phone-alt"; }
+            else if (tabId === 'mimnoon') { title = "گروه میم نون"; icon = "fa-users"; }
+            else { title = "در حال به‌روزرسانی"; icon = "fa-tools"; }
+            
+            dynamicContainer.innerHTML = `
+                <div class="coming-soon-box">
+                    <i class="fas ${icon}"></i>
+                    <h3>${title}</h3>
+                    <p>به زودی...</p>
+                </div>
+            `;
         }
     }
 
@@ -924,4 +973,4 @@
     updateCartUI();
 </script>
 </body>
-                </html>
+    </html>
