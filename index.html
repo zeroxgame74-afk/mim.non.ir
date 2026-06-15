@@ -28,7 +28,8 @@
         .font-desc, .current-price, .old-price, .btn-buy, .btn-preview, .footer-col h4, .footer-col p, .footer-col a,
         .copyright, .modal-content h3, .cart-item, .cart-total, .checkout-btn, .close-modal, .close-cart, .close-payment,
         .random-code, .coming-soon-box h3, .coming-soon-box p, .empty-cart, .stat span, .bestseller-header h2, .bestseller-header p,
-        .expired-box, .expired-box span, .expired-box i, .btn-download, .free-tag, .free-price, .contact-box, .contact-item {
+        .expired-box, .expired-box span, .expired-box i, .btn-download, .free-tag, .free-price, .contact-box, .contact-item,
+        .blog-post, .blog-title, .blog-meta, .blog-content {
             font-family: 'Vazirmatn', 'Tahoma', sans-serif !important;
             font-weight: bold !important;
         }
@@ -41,6 +42,81 @@
         .filter-btn { font-size: 0.85rem !important; font-weight: 800 !important; }
         .nav-link { font-size: 1rem !important; font-weight: 800 !important; }
         .cart-icon { font-weight: 800 !important; }
+
+        /* ========== استایل باکس بلاگ ========== */
+        .blog-container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        .blog-post {
+            background: #1f1f1f;
+            border-radius: 32px;
+            border: 1px solid #FFC800;
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+        .blog-image {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+        }
+        .blog-content {
+            padding: 25px;
+        }
+        .blog-title {
+            font-size: 1.8rem;
+            color: #FFC800;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .blog-meta {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #3a3a3a;
+            color: #aaa;
+            font-size: 0.8rem;
+        }
+        .blog-meta i {
+            color: #FFC800;
+            margin-left: 5px;
+        }
+        .blog-text {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #d0d0d0;
+        }
+        .blog-text p {
+            margin-bottom: 15px;
+        }
+        .blog-text h4 {
+            color: #FFC800;
+            margin: 20px 0 10px 0;
+            font-size: 1.2rem;
+        }
+        .blog-text ul {
+            margin-right: 20px;
+            margin-bottom: 15px;
+        }
+        .blog-text li {
+            margin-bottom: 8px;
+        }
+        .code-block {
+            background: #0f0f0f;
+            padding: 12px 15px;
+            border-radius: 16px;
+            margin: 15px 0;
+            font-family: monospace;
+            direction: ltr;
+            text-align: left;
+            font-size: 0.85rem;
+            border-right: 3px solid #FFC800;
+            overflow-x: auto;
+        }
 
         /* ========== استایل باکس "به زودی" ========== */
         .coming-soon-box {
@@ -123,11 +199,6 @@
         }
         .contact-item .label i {
             font-size: 1.2rem;
-        }
-        .contact-item .value {
-            display: flex;
-            align-items: center;
-            gap: 8px;
         }
         .contact-item .value a {
             color: #e0e0e0;
@@ -694,27 +765,8 @@
             .hero-text h2 { font-size: 2rem !important; }
             .hero-text p { font-size: 1rem !important; }
             .font-title { font-size: 1.4rem !important; }
-            .coming-soon-box {
-                max-width: 300px;
-                padding: 20px 15px;
-                margin: 40px auto;
-            }
-            .bestseller-header {
-                max-width: 350px;
-                padding: 15px 20px;
-            }
-            .bestseller-header h2 { font-size: 1.3rem; }
-            .bestseller-header p { font-size: 0.75rem; }
-            .bestseller-header i { font-size: 1.4rem; }
-            .contact-box {
-                max-width: 350px;
-                padding: 20px 15px;
-            }
-            .contact-box h2 { font-size: 1.4rem; }
-            .contact-item {
-                flex-direction: column;
-                text-align: center;
-            }
+            .blog-title { font-size: 1.4rem; }
+            .blog-content { padding: 18px; }
         }
     </style>
 </head>
@@ -1138,6 +1190,63 @@
                 <div class="products-grid" id="productsGrid"></div>
             `;
             renderProducts([fontsData[0]]);
+        } else if (tabId === 'blog') {
+            if (heroSection) heroSection.style.display = 'none';
+            dynamicContainer.innerHTML = `
+                <div class="blog-container">
+                    <div class="blog-post">
+                        <img class="blog-image" src="https://cdn.imgurl.ir/uploads/o23882_amozesh_.webp" alt="آموزش نصب فونت" onerror="this.src='https://placehold.co/800x400/2a2a2a/FFC800?text=آموزش+نصب+فونت'">
+                        <div class="blog-content">
+                            <h1 class="blog-title"><i class="fas fa-graduation-cap"></i> آموزش کامل نصب فونت در ویندوز، اندروید و مک</h1>
+                            <div class="blog-meta">
+                                <span><i class="fas fa-calendar-alt"></i> ۲۵ خرداد ۱۴۰۵</span>
+                                <span><i class="fas fa-user"></i> تیم میم نون</span>
+                                <span><i class="fas fa-folder"></i> آموزش</span>
+                            </div>
+                            <div class="blog-text">
+                                <p>سلام دوستان! در این پست قصد داریم به طور کامل و مرحله به مرحله نحوه نصب فونت در سیستمعامل‌های مختلف رو آموزش بدیم. با ما همراه باشید.</p>
+                                
+                                <h4><i class="fas fa-windows"></i> نصب فونت در ویندوز</h4>
+                                <p>برای نصب فونت در ویندوز کافیه این مراحل رو طی کنید:</p>
+                                <ul>
+                                    <li>فایل فونت (با پسوند <strong>.ttf</strong> یا <strong>.otf</strong>) رو دانلود کنید</li>
+                                    <li>روی فایل دانلود شده راست کلیک کرده و گزینه <strong>Install</strong> رو بزنید</li>
+                                    <li>یا فایل رو کپی کنید و در مسیر <strong>C:\Windows\Fonts</strong> پیست کنید</li>
+                                    <li>فونت نصب شد! نرم‌افزار خودتون رو ریستارت کنید تا فونت رو ببینید</li>
+                                </ul>
+                                <div class="code-block">C:\Windows\Fonts</div>
+                                
+                                <h4><i class="fas fa-android"></i> نصب فونت در اندروید</h4>
+                                <ul>
+                                    <li>فایل فونت رو روی گوشی خود دانلود کنید</li>
+                                    <li>از برنامه‌های <strong>iFont</strong> یا <strong>zFont</strong> استفاده کنید</li>
+                                    <li>برنامه رو باز کنید، فونت رو انتخاب کنید و گزینه Install رو بزنید</li>
+                                    <li>گوشی رو ریستارت کنید تا تغییرات اعمال بشه</li>
+                                </ul>
+                                
+                                <h4><i class="fas fa-apple"></i> نصب فونت در مک (macOS)</h4>
+                                <ul>
+                                    <li>فایل فونت رو دانلود کنید</li>
+                                    <li>روی فایل دابل کلیک کنید تا در برنامه Font Book باز بشه</li>
+                                    <li>دکمه <strong>Install Font</strong> رو بزنید</li>
+                                    <li>فونت نصب شد و در تمام برنامه‌ها قابل استفاده هست</li>
+                                </ul>
+                                
+                                <h4><i class="fas fa-lightbulb"></i> ترفندهای عیب‌یابی</h4>
+                                <ul>
+                                    <li>اگه فونت رو نمیبینید، نرم‌افزار رو کامل ببندید و دوباره باز کنید</li>
+                                    <li>مطمئن بشید فایل فونت خراب نباشه (با نصب روی سیستم دیگه تست کنید)</li>
+                                    <li>بعضی از نرم‌افزارها برای نمایش فونت جدید نیاز به ریستارت سیستم دارند</li>
+                                </ul>
+                                
+                                <p style="margin-top: 20px; padding: 12px; background: #FFC80020; border-radius: 16px; text-align: center;">
+                                    <i class="fas fa-question-circle"></i> اگر سوالی دارید، توی بخش تماس با ما مطرح کنید. موفق باشید!
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
         } else if (tabId === 'contact') {
             if (heroSection) heroSection.style.display = 'none';
             dynamicContainer.innerHTML = `
@@ -1176,7 +1285,6 @@
             let title = "";
             let icon = "";
             if (tabId === 'fonts') { title = "فونت‌ها"; icon = "fa-font"; }
-            else if (tabId === 'blog') { title = "بلاگ"; icon = "fa-newspaper"; }
             else if (tabId === 'mimnoon') { title = "گروه میم نون"; icon = "fa-users"; }
             else { title = "در حال به‌روزرسانی"; icon = "fa-tools"; }
             
