@@ -21,7 +21,6 @@
             line-height: 1.5;
         }
 
-        /* اسکرول */
         ::-webkit-scrollbar {
             width: 6px;
         }
@@ -33,7 +32,6 @@
             border-radius: 10px;
         }
 
-        /* کانتینر اصلی */
         .main-container {
             width: 100%;
             max-width: 100%;
@@ -41,7 +39,7 @@
             padding: 0;
         }
 
-        /* ========== هدر استیکی با منوی وسط‌چین و کاملاً ثابت ========== */
+        /* ========== هدر استیکی ========== */
         .navbar {
             background-color: #1f1f1f;
             border-bottom: 2px solid #FFC800;
@@ -137,7 +135,7 @@
             font-size: 0.75rem;
         }
 
-        /* ========== هیرو (بنر) با متن‌های بزرگ و بولد ========== */
+        /* ========== هیرو ========== */
         .hero {
             background: linear-gradient(125deg, #212121 0%, #292929 100%);
             padding: 60px 0;
@@ -287,7 +285,7 @@
             color: #121212;
         }
 
-        /* ========== محصولات - کارت‌ها با توضیحات بولد و درشت ========== */
+        /* ========== محصولات ========== */
         .products-grid {
             display: flex;
             flex-wrap: wrap;
@@ -321,13 +319,14 @@
             padding: 16px 18px 20px;
         }
         .font-title {
-            font-size: 1.4rem;
+            font-size: 1.6rem;
             font-weight: 900;
             color: #FFC800;
             display: flex;
             align-items: center;
             gap: 8px;
             margin-bottom: 10px;
+            letter-spacing: -0.5px;
         }
         .tags-row {
             display: flex;
@@ -336,13 +335,14 @@
             flex-wrap: wrap;
         }
         .font-cat,
-        .offer-tag {
+        .offer-tag,
+        .special-offer {
             display: inline-flex;
             align-items: center;
             gap: 5px;
             padding: 3px 12px;
             border-radius: 30px;
-            font-size: 0.7rem;
+            font-size: 0.75rem;
             font-weight: 800;
         }
         .font-cat {
@@ -355,6 +355,17 @@
             background: #FFC80020;
             border: 1px solid #FFC800;
             color: #FFC800;
+        }
+        /* تگ جدید ویژه با آیکون الماس کاستوم شده */
+        .special-offer {
+            background: linear-gradient(135deg, #FFC800, #ff8800);
+            color: #1a1a1a;
+            border: none;
+            box-shadow: 0 2px 8px rgba(255,200,0,0.3);
+        }
+        .special-offer i {
+            color: #1a1a1a;
+            font-size: 0.7rem;
         }
         .font-desc {
             font-size: 0.85rem;
@@ -456,7 +467,6 @@
             font-weight: bold;
         }
 
-        /* فوتر با متن‌های بولد */
         footer {
             background: #121212;
             margin-top: 40px;
@@ -684,7 +694,7 @@
                 font-size: 1rem;
             }
             .font-title {
-                font-size: 1.2rem;
+                font-size: 1.3rem;
             }
             .current-price {
                 font-size: 1.3rem;
@@ -801,7 +811,8 @@
             image: "https://uploadkon.ir/uploads/431113_26IMG-20260613-165046-564.jpg",
             description: "یک فونت خفن برای پوستر و کاور | طراحی خاص و منحصر به فرد",
             icon: "fa-crown",
-            offerExpired: true
+            offerExpired: true,
+            isSpecial: true  // اضافه کردن تگ ویژه برای منشور
         },
         {
             id: 1,
@@ -812,7 +823,8 @@
             image: "https://cdn.imgurl.ir/uploads/v790100_mim_non.webp",
             description: "طراحی منحصربه‌فرد، مناسب پروژه‌های لوکس و خاص | با کیفیت بالا",
             icon: "fa-star",
-            offerExpired: false
+            offerExpired: false,
+            isSpecial: false
         }
     ];
 
@@ -829,9 +841,16 @@
 
         container.innerHTML = filtered.map(font => {
             let expiredHtml = '';
-            if (font.offerExpired) {
+            if (font.offerExpired && !font.isSpecial) {
                 expiredHtml = `<div class="expired-box"><i class="fas fa-clock"></i> <span>مدت تخفیف به پایان رسید</span></div>`;
             }
+            
+            // ساخت تگ ویژه با آیکون الماس برای فونت منشور
+            let specialTagHtml = '';
+            if (font.isSpecial) {
+                specialTagHtml = `<div class="special-offer"><i class="fas fa-gem"></i> پیشنهاد ویژه</div>`;
+            }
+            
             return `
                 <div class="font-card">
                     <div class="font-preview">
@@ -843,7 +862,8 @@
                         </div>
                         <div class="tags-row">
                             <div class="font-cat"><i class="fas fa-tag"></i> فارسی</div>
-                            ${font.offerExpired ? '' : '<div class="offer-tag"><i class="fas fa-gift"></i> ویژه</div>'}
+                            ${font.offerExpired && !font.isSpecial ? '' : (font.offerExpired ? '' : '<div class="offer-tag"><i class="fas fa-gift"></i> ویژه</div>')}
+                            ${specialTagHtml}
                         </div>
                         <div class="font-desc">
                             <i class="fas fa-info-circle"></i> ${font.description}
@@ -1115,4 +1135,4 @@
     updateCartUI();
 </script>
 </body>
-                </html>
+    </html>
