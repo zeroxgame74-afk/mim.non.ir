@@ -28,7 +28,7 @@
         .font-desc, .current-price, .old-price, .btn-buy, .btn-preview, .footer-col h4, .footer-col p, .footer-col a,
         .copyright, .modal-content h3, .cart-item, .cart-total, .checkout-btn, .close-modal, .close-cart, .close-payment,
         .random-code, .coming-soon-box h3, .coming-soon-box p, .empty-cart, .stat span, .bestseller-header h2, .bestseller-header p,
-        .expired-box, .expired-box span, .expired-box i, .btn-download, .free-tag, .free-price {
+        .expired-box, .expired-box span, .expired-box i, .btn-download, .free-tag, .free-price, .contact-box, .contact-item {
             font-family: 'Vazirmatn', 'Tahoma', sans-serif !important;
             font-weight: bold !important;
         }
@@ -71,7 +71,89 @@
             color: #ccc;
         }
 
-        /* ========== استایل باکس پرفروش‌ها (بزرگتر) ========== */
+        /* ========== استایل باکس تماس ========== */
+        .contact-box {
+            text-align: center;
+            padding: 30px 25px;
+            background: #1f1f1f;
+            border-radius: 32px;
+            margin: 50px auto;
+            border: 1px solid #FFC800;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+        }
+        .contact-box h2 {
+            font-size: 1.8rem;
+            color: #FFC800;
+            margin-bottom: 25px;
+            font-weight: 900;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .contact-box h2 i {
+            font-size: 1.8rem;
+            color: #FFC800;
+        }
+        .contact-item {
+            background: #2a2a2a;
+            border-radius: 60px;
+            padding: 14px 20px;
+            margin: 15px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+            transition: 0.2s;
+            border: 1px solid #FFC80040;
+        }
+        .contact-item:hover {
+            border-color: #FFC800;
+            transform: translateY(-2px);
+        }
+        .contact-item .label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #FFC800;
+            font-size: 1rem;
+        }
+        .contact-item .label i {
+            font-size: 1.2rem;
+        }
+        .contact-item .value {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .contact-item .value a {
+            color: #e0e0e0;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: 0.2s;
+            background: #1f1f1f;
+            padding: 8px 16px;
+            border-radius: 40px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .contact-item .value a:hover {
+            color: #FFC800;
+            background: #1a1a1a;
+        }
+        .contact-note {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px dashed #3a3a3a;
+            font-size: 0.7rem;
+            color: #888;
+        }
+
+        /* ========== استایل باکس پرفروش‌ها ========== */
         .bestseller-header {
             text-align: center;
             margin: 40px auto 30px;
@@ -624,6 +706,15 @@
             .bestseller-header h2 { font-size: 1.3rem; }
             .bestseller-header p { font-size: 0.75rem; }
             .bestseller-header i { font-size: 1.4rem; }
+            .contact-box {
+                max-width: 350px;
+                padding: 20px 15px;
+            }
+            .contact-box h2 { font-size: 1.4rem; }
+            .contact-item {
+                flex-direction: column;
+                text-align: center;
+            }
         }
     </style>
 </head>
@@ -1047,6 +1138,38 @@
                 <div class="products-grid" id="productsGrid"></div>
             `;
             renderProducts([fontsData[0]]);
+        } else if (tabId === 'contact') {
+            if (heroSection) heroSection.style.display = 'none';
+            dynamicContainer.innerHTML = `
+                <div class="contact-box">
+                    <h2><i class="fas fa-phone-alt"></i> تماس با ما</h2>
+                    <div class="contact-item">
+                        <div class="label">
+                            <i class="fas fa-user-astronaut"></i>
+                            سازنده سایت
+                        </div>
+                        <div class="value">
+                            <a href="https://eitaa.com/ya_ali_ir" target="_blank">
+                                <i class="fab fa-eitaa"></i> @ya_ali_ir
+                            </a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="label">
+                            <i class="fas fa-paper-plane"></i>
+                            کانال‌هامون
+                        </div>
+                        <div class="value">
+                            <a href="https://eitaa.com/mim_non_marjae_font" target="_blank">
+                                <i class="fab fa-eitaa"></i> کانال میم نون
+                            </a>
+                        </div>
+                    </div>
+                    <div class="contact-note">
+                        جهت ارتباط، سوالات و پشتیبانی با ما در ایتا در ارتباط باشید.
+                    </div>
+                </div>
+            `;
         } else {
             if (heroSection) heroSection.style.display = 'none';
             
@@ -1054,7 +1177,6 @@
             let icon = "";
             if (tabId === 'fonts') { title = "فونت‌ها"; icon = "fa-font"; }
             else if (tabId === 'blog') { title = "بلاگ"; icon = "fa-newspaper"; }
-            else if (tabId === 'contact') { title = "تماس با ما"; icon = "fa-phone-alt"; }
             else if (tabId === 'mimnoon') { title = "گروه میم نون"; icon = "fa-users"; }
             else { title = "در حال به‌روزرسانی"; icon = "fa-tools"; }
             
@@ -1073,4 +1195,4 @@
     updateCartUI();
 </script>
 </body>
-</html>
+    </html>
