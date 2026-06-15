@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
     <style>
-        /* reset */
         * {
             margin: 0;
             padding: 0;
@@ -15,21 +14,40 @@
         }
 
         body {
-            background: #292929;
+            background-color: #292929;
             font-family: 'Vazirmatn', 'Tahoma', sans-serif;
             font-weight: bold;
             color: #e0e0e0;
             line-height: 1.5;
         }
 
-        /* اسکرول */
+        /* ========== اجبار فونت بُلد برای همه چیز ========== */
+        body, html, div, section, nav, button, span, p, h1, h2, h3, h4, a, li, ul, .nav-link, .cart-icon, .logo-area h1, .logo-area p,
+        .hero-text h2, .hero-text h2 span, .hero-text p, .hero-stats .stat h3, .hero-stats .stat span,
+        .btn-primary, .btn-outline, .filter-label, .filter-btn, .font-title, .font-cat, .offer-tag, .special-offer,
+        .font-desc, .current-price, .old-price, .btn-buy, .btn-preview, .footer-col h4, .footer-col p, .footer-col a,
+        .copyright, .modal-content h3, .cart-item, .cart-total, .checkout-btn, .close-modal, .close-cart, .close-payment,
+        .random-code, .coming-soon-box h3, .coming-soon-box p, .empty-cart, .stat span, .bestseller-header h2, .bestseller-header p,
+        .expired-box, .expired-box span, .expired-box i {
+            font-family: 'Vazirmatn', 'Tahoma', sans-serif !important;
+            font-weight: bold !important;
+        }
+
+        /* درشت‌تر کردن بعضی عناصر خاص */
+        .hero-text h2 { font-size: 3rem !important; font-weight: 900 !important; }
+        .hero-text p { font-size: 1.3rem !important; }
+        .font-title { font-size: 1.8rem !important; font-weight: 900 !important; }
+        .current-price { font-size: 1.5rem !important; font-weight: 900 !important; }
+        .filter-btn { font-size: 0.85rem !important; font-weight: 800 !important; }
+        .nav-link { font-size: 1rem !important; font-weight: 800 !important; }
+        .cart-icon { font-weight: 800 !important; }
+
         ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-track { background: #1f1f1f; }
         ::-webkit-scrollbar-thumb { background: #FFC800; border-radius: 10px; }
 
-        /* هدر sticky */
         .navbar {
-            background: #1f1f1f;
+            background-color: #1f1f1f;
             border-bottom: 2px solid #FFC800;
             padding: 12px 0;
             position: sticky;
@@ -58,7 +76,6 @@
 
         .logo-area h1 {
             font-size: 1.6rem;
-            font-weight: 900;
             background: linear-gradient(135deg, #FFC800 30%, #ffdd55 80%);
             -webkit-background-clip: text;
             background-clip: text;
@@ -67,7 +84,6 @@
 
         .logo-area p {
             font-size: 0.7rem;
-            font-weight: 800;
             color: #ccc;
         }
 
@@ -85,8 +101,6 @@
             gap: 6px;
             color: #f0f0f0;
             text-decoration: none;
-            font-weight: 800;
-            font-size: 1rem;
             cursor: pointer;
             background: none;
             border: none;
@@ -103,7 +117,6 @@
             display: flex;
             align-items: center;
             gap: 8px;
-            font-weight: 800;
             border: 1px solid #FFC80040;
             cursor: pointer;
             font-size: 0.9rem;
@@ -117,13 +130,11 @@
             color: #121212;
             padding: 0 6px;
             border-radius: 20px;
-            font-weight: 900;
             min-width: 22px;
             text-align: center;
             font-size: 0.75rem;
         }
 
-        /* هیرو */
         .hero {
             background: linear-gradient(125deg, #212121 0%, #292929 100%);
             padding: 60px 0;
@@ -137,13 +148,6 @@
             text-align: center;
         }
 
-        .hero-text h2 {
-            font-size: 3rem;
-            font-weight: 900;
-            line-height: 1.2;
-            margin-bottom: 15px;
-        }
-
         .hero-text h2 span {
             color: #FFC800;
             border-bottom: 3px solid #FFC800;
@@ -152,12 +156,11 @@
         }
 
         .hero-text p {
-            font-size: 1.3rem;
             margin-bottom: 25px;
             color: #d0d0d0;
-            font-weight: bold;
             max-width: 750px;
-            margin: 0 auto 25px auto;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .hero-buttons {
@@ -175,7 +178,6 @@
             padding: 12px 32px;
             border-radius: 60px;
             cursor: pointer;
-            font-weight: 800;
             font-size: 1rem;
             display: inline-flex;
             align-items: center;
@@ -189,7 +191,6 @@
             padding: 10px 28px;
             border-radius: 60px;
             cursor: pointer;
-            font-weight: 800;
             font-size: 1rem;
             display: inline-flex;
             align-items: center;
@@ -205,15 +206,8 @@
         .stat h3 {
             color: #FFC800;
             font-size: 1.5rem;
-            font-weight: 900;
         }
 
-        .stat span {
-            font-size: 0.9rem;
-            font-weight: bold;
-        }
-
-        /* فیلتر */
         .filter-wrapper {
             max-width: 1400px;
             margin: 20px auto;
@@ -237,7 +231,6 @@
             gap: 8px;
             color: #FFC800;
             font-size: 1rem;
-            font-weight: 800;
             border-bottom: 1px solid #3a3a3a;
             padding-bottom: 6px;
         }
@@ -259,18 +252,15 @@
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            font-size: 0.85rem;
-            font-weight: 800;
         }
 
-        .filter-btn i { color: #FFC800; }
+        .filter-btn i { color: #FFC800; font-size: 0.8rem; }
         .filter-btn.active, .filter-btn:hover {
             background: #FFC800;
             color: #121212;
         }
         .filter-btn.active i, .filter-btn:hover i { color: #121212; }
 
-        /* محصولات - گرید منظم */
         .products-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -304,10 +294,7 @@
             padding: 16px 18px 20px;
         }
 
-        /* عنوان فونت درشت و بولد */
         .font-title {
-            font-size: 1.8rem;
-            font-weight: 900;
             color: #FFC800;
             display: flex;
             align-items: center;
@@ -329,7 +316,6 @@
             padding: 4px 14px;
             border-radius: 30px;
             font-size: 0.75rem;
-            font-weight: 800;
             background: #FFC80020;
             border: 1px solid #FFC800;
             color: #FFC800;
@@ -337,7 +323,6 @@
 
         .font-desc {
             font-size: 0.85rem;
-            font-weight: bold;
             color: #c0c0c0;
             margin-bottom: 12px;
             padding: 8px 0;
@@ -350,8 +335,6 @@
         }
 
         .current-price {
-            font-size: 1.5rem;
-            font-weight: 900;
             color: #FFC800;
         }
 
@@ -360,9 +343,9 @@
             text-decoration: line-through;
             color: #888;
             margin-right: 8px;
-            font-weight: bold;
         }
 
+        /* استایل باکس تخفیف تمام شده */
         .expired-box {
             background: #3a1a1a;
             border-radius: 40px;
@@ -375,8 +358,14 @@
             justify-content: center;
             gap: 8px;
         }
-
-        .expired-box span { color: #ffaaaa; font-size: 0.8rem; font-weight: 800; }
+        .expired-box i {
+            color: #ff8888;
+            font-size: 0.8rem;
+        }
+        .expired-box span {
+            color: #ffaaaa;
+            font-size: 0.8rem;
+        }
 
         .card-actions {
             display: flex;
@@ -396,7 +385,6 @@
             align-items: center;
             justify-content: center;
             gap: 8px;
-            font-weight: 800;
             font-size: 0.9rem;
         }
 
@@ -440,13 +428,11 @@
             color: #FFC800;
             font-size: 1rem;
             margin-bottom: 10px;
-            font-weight: 900;
         }
 
         .footer-col p, .footer-col a {
             color: #b0b0b0;
             font-size: 0.8rem;
-            font-weight: bold;
             text-decoration: none;
         }
 
@@ -472,12 +458,10 @@
             padding-top: 20px;
             border-top: 1px solid #2c2c2c;
             font-size: 0.75rem;
-            font-weight: bold;
             max-width: 1400px;
             margin: 0 auto;
         }
 
-        /* مودال‌ها */
         .modal, .cart-modal, .payment-modal {
             display: none;
             position: fixed;
@@ -504,55 +488,6 @@
             overflow-y: auto;
         }
 
-        .modal-content h3, .cart-modal-content h3, .payment-modal-content h3 {
-            font-size: 1.3rem;
-            color: #FFC800;
-            margin-bottom: 15px;
-            font-weight: 900;
-        }
-
-        .modal-image {
-            width: 100%;
-            aspect-ratio: 1/1;
-            object-fit: contain;
-            border-radius: 20px;
-            margin: 10px 0;
-        }
-
-        .cart-items-list {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            margin-bottom: 15px;
-        }
-
-        .cart-item {
-            background: #2a2a2a;
-            padding: 12px;
-            border-radius: 18px;
-            border-right: 3px solid #FFC800;
-            text-align: right;
-        }
-
-        .cart-qty-btn {
-            background: #1f1f1f;
-            border: none;
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            color: #FFC800;
-            cursor: pointer;
-            font-weight: bold;
-        }
-
-        .cart-total {
-            text-align: left;
-            padding: 10px 0;
-            font-size: 1rem;
-            border-top: 2px solid #FFC800;
-            font-weight: 800;
-        }
-
         .random-code {
             font-size: 1.3rem;
             background: #FFC800;
@@ -560,7 +495,6 @@
             padding: 6px 20px;
             border-radius: 40px;
             color: #121212;
-            font-weight: 900;
         }
 
         .checkout-btn, .close-modal, .close-cart, .close-payment {
@@ -574,14 +508,20 @@
             margin-top: 12px;
         }
 
-        .coming-soon-box {
-            text-align: center;
-            padding: 40px;
-            background: #1f1f1f;
-            border-radius: 32px;
-            margin: 40px auto;
-            border: 1px dashed #FFC800;
-            max-width: 550px;
+        .cart-item {
+            background: #2a2a2a;
+            padding: 12px;
+            border-radius: 18px;
+            border-right: 3px solid #FFC800;
+            text-align: right;
+            margin-bottom: 10px;
+        }
+
+        .cart-total {
+            text-align: left;
+            padding: 10px 0;
+            font-size: 1rem;
+            border-top: 2px solid #FFC800;
         }
 
         @media (max-width: 850px) {
@@ -593,9 +533,9 @@
             .logo-area { position: static; text-align: center; }
             .cart-icon { position: static; order: 3; }
             .nav-links { order: 2; }
-            .hero-text h2 { font-size: 2rem; }
-            .hero-text p { font-size: 1rem; }
-            .font-title { font-size: 1.4rem; }
+            .hero-text h2 { font-size: 2rem !important; }
+            .hero-text p { font-size: 1rem !important; }
+            .font-title { font-size: 1.4rem !important; }
         }
     </style>
 </head>
@@ -733,14 +673,22 @@
         let filtered = filteredFonts ? filteredFonts : fontsData.filter(f => currentFilter === "all" || f.category === currentFilter);
         filtered.sort((a, b) => b.id - a.id);
         container.innerHTML = filtered.map(font => {
+            // باکس تخفیف تمام شده: برای فونت منشور که offerExpired: true هست، نمایش بده (حتی اگر isSpecial: true باشه)
             let expiredHtml = '';
-            if (font.offerExpired && !font.isSpecial) {
+            if (font.offerExpired === true) {
                 expiredHtml = `<div class="expired-box"><i class="fas fa-clock"></i> <span>مدت تخفیف به پایان رسید</span></div>`;
             }
+            
             let specialTagHtml = '';
             if (font.isSpecial) {
                 specialTagHtml = `<div class="special-offer"><i class="fas fa-gem"></i> پیشنهاد ویژه</div>`;
             }
+            
+            let offerTagHtml = '';
+            if (!font.offerExpired && !font.isSpecial) {
+                offerTagHtml = `<div class="offer-tag"><i class="fas fa-gift"></i> ویژه</div>`;
+            }
+            
             return `
                 <div class="font-card">
                     <div class="font-preview">
@@ -752,7 +700,7 @@
                         </div>
                         <div class="tags-row">
                             <div class="font-cat"><i class="fas fa-tag"></i> فارسی</div>
-                            ${!font.offerExpired && !font.isSpecial ? '<div class="offer-tag"><i class="fas fa-gift"></i> ویژه</div>' : ''}
+                            ${offerTagHtml}
                             ${specialTagHtml}
                         </div>
                         <div class="font-desc">
@@ -819,7 +767,7 @@
     function showToast(msg) {
         const toast = document.createElement('div');
         toast.innerText = msg;
-        toast.style.cssText = 'position:fixed; bottom:20px; right:20px; background:#FFC800; color:#121212; padding:8px 16px; border-radius:40px; font-weight:bold; z-index:9999; font-size:0.85rem';
+        toast.style.cssText = 'position:fixed; bottom:20px; right:20px; background:#FFC800; color:#121212; padding:8px 16px; border-radius:40px; font-weight:bold; z-index:9999; font-size:0.85rem; font-family:Vazirmatn';
         document.body.appendChild(toast);
         setTimeout(() => toast.remove(), 2000);
     }
@@ -834,14 +782,14 @@
         } else {
             itemsDiv.innerHTML = cart.map(item => `
                 <div class="cart-item">
-                    <div class="cart-item-info" style="display:flex; justify-content:space-between; margin-bottom:8px;">
-                        <span class="cart-item-name" style="color:#FFC800; font-weight:800;">${item.name}</span>
+                    <div style="display:flex; justify-content:space-between; margin-bottom:8px;">
+                        <span style="color:#FFC800; font-weight:800;">${item.name}</span>
                         <span>${item.price.toLocaleString()} تومان</span>
                     </div>
-                    <div class="cart-item-quantity" style="display:flex; gap:10px; align-items:center; margin:8px 0;">
-                        <button class="cart-qty-btn" data-id="${item.id}" data-change="-1">-</button>
+                    <div style="display:flex; gap:10px; align-items:center; margin:8px 0;">
+                        <button class="cart-qty-btn" data-id="${item.id}" data-change="-1" style="background:#1f1f1f; border:none; width:28px; height:28px; border-radius:50%; color:#FFC800; cursor:pointer;">-</button>
                         <span>تعداد: ${item.quantity}</span>
-                        <button class="cart-qty-btn" data-id="${item.id}" data-change="1">+</button>
+                        <button class="cart-qty-btn" data-id="${item.id}" data-change="1" style="background:#1f1f1f; border:none; width:28px; height:28px; border-radius:50%; color:#FFC800; cursor:pointer;">+</button>
                     </div>
                     <div>جمع: ${(item.price * item.quantity).toLocaleString()} تومان</div>
                 </div>
@@ -965,10 +913,10 @@
             renderProducts([fontsData[0]]);
         } else if (tabId === 'mimnoon') {
             if (heroSection) heroSection.style.display = 'none';
-            dynamicContainer.innerHTML = `<div class="coming-soon-box"><i class="fas fa-users" style="font-size:2.5rem; color:#FFC800;"></i><h3 style="color:#FFC800; margin:15px 0;">گروه میم نون</h3><p>به زودی...</p></div>`;
+            dynamicContainer.innerHTML = `<div class="coming-soon-box" style="text-align:center; padding:40px; background:#1f1f1f; border-radius:32px; margin:40px auto; border:1px dashed #FFC800; max-width:550px;"><i class="fas fa-users" style="font-size:2.5rem; color:#FFC800;"></i><h3 style="color:#FFC800; margin:15px 0;">گروه میم نون</h3><p>به زودی...</p></div>`;
         } else {
             if (heroSection) heroSection.style.display = 'none';
-            dynamicContainer.innerHTML = `<div class="coming-soon-box"><i class="fas fa-tools" style="font-size:2.5rem; color:#FFC800;"></i><h3 style="color:#FFC800; margin:15px 0;">در حال به‌روزرسانی</h3></div>`;
+            dynamicContainer.innerHTML = `<div class="coming-soon-box" style="text-align:center; padding:40px; background:#1f1f1f; border-radius:32px; margin:40px auto; border:1px dashed #FFC800; max-width:550px;"><i class="fas fa-tools" style="font-size:2.5rem; color:#FFC800;"></i><h3 style="color:#FFC800; margin:15px 0;">در حال به‌روزرسانی</h3></div>`;
         }
     }
 
@@ -977,4 +925,4 @@
     updateCartUI();
 </script>
 </body>
-</html>
+    </html>
