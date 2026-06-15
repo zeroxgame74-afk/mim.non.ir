@@ -42,7 +42,7 @@
         .nav-link { font-size: 1rem !important; font-weight: 800 !important; }
         .cart-icon { font-weight: 800 !important; }
 
-        /* ========== استایل جدید باکس "به زودی" ========== */
+        /* ========== استایل جدید باکس "به زودی" (کوچک و مرتب) ========== */
         .coming-soon-box {
             text-align: center;
             padding: 30px 20px;
@@ -67,6 +67,34 @@
         }
         .coming-soon-box p {
             font-size: 0.9rem;
+            font-weight: bold;
+            color: #ccc;
+        }
+
+        /* ========== استایل جدید باکس پرفروش‌ها (کوچک و مرتب) ========== */
+        .bestseller-header {
+            text-align: center;
+            margin: 30px auto 20px;
+            padding: 12px 20px;
+            background: linear-gradient(135deg, #FFC80020, #1f1f1f);
+            border-radius: 40px;
+            border: 1px solid #FFC800;
+            max-width: 380px;
+            width: 90%;
+        }
+        .bestseller-header i {
+            font-size: 1.2rem;
+            color: #FFC800;
+            margin-bottom: 5px;
+        }
+        .bestseller-header h2 {
+            font-size: 1.2rem;
+            font-weight: 900;
+            color: #FFC800;
+            margin: 5px 0;
+        }
+        .bestseller-header p {
+            font-size: 0.75rem;
             font-weight: bold;
             color: #ccc;
         }
@@ -426,16 +454,6 @@
             font-size: 1rem;
         }
 
-        .bestseller-header {
-            text-align: center;
-            margin: 30px auto 15px;
-            padding: 15px;
-            background: linear-gradient(135deg, #FFC80020, #1f1f1f);
-            border-radius: 50px;
-            border: 1px solid #FFC800;
-            max-width: 550px;
-        }
-
         footer {
             background: #121212;
             margin-top: 40px;
@@ -572,6 +590,12 @@
             .coming-soon-box i { font-size: 1.5rem; }
             .coming-soon-box h3 { font-size: 1.1rem; }
             .coming-soon-box p { font-size: 0.8rem; }
+            .bestseller-header {
+                max-width: 300px;
+                padding: 10px 15px;
+            }
+            .bestseller-header h2 { font-size: 1rem; }
+            .bestseller-header p { font-size: 0.65rem; }
         }
     </style>
 </head>
@@ -936,18 +960,15 @@
         } else if (tabId === 'bestsellers') {
             if (heroSection) heroSection.style.display = 'none';
             dynamicContainer.innerHTML = `
-                <div style="text-align:center; margin:25px auto;">
-                    <div class="bestseller-header">
-                        <i class="fas fa-trophy"></i>
-                        <h2>پرفروش‌ترین فونت‌های میم نون</h2>
-                        <p>محبوب‌ترین انتخاب طراحان حرفه‌ای</p>
-                    </div>
+                <div class="bestseller-header">
+                    <i class="fas fa-trophy"></i>
+                    <h2>پرفروش‌ترین فونت‌های میم نون</h2>
+                    <p>محبوب‌ترین انتخاب طراحان حرفه‌ای</p>
                 </div>
                 <div class="products-grid" id="productsGrid"></div>
             `;
             renderProducts([fontsData[0]]);
         } else {
-            // تب‌های دیگر (فونت‌ها، بلاگ، تماس، گروه میم نون) باکس کوچک و مرتب
             if (heroSection) heroSection.style.display = 'none';
             
             let title = "";
@@ -973,4 +994,4 @@
     updateCartUI();
 </script>
 </body>
-    </html>
+                    </html>
