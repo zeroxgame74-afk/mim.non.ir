@@ -7,402 +7,254 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             background-color: #292929;
             font-family: 'Vazirmatn', 'Tahoma', sans-serif;
             font-weight: bold;
             color: #e0e0e0;
-            line-height: 1.6;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
+            line-height: 1.5;
         }
 
-        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-track { background: #1f1f1f; }
         ::-webkit-scrollbar-thumb { background: #FFC800; border-radius: 10px; }
 
-        .site-container {
-            max-width: 1400px;
-            width: 100%;
-            margin: 0 auto;
-            background-color: #292929;
-        }
-        .container {
-            max-width: 1300px;
-            width: 100%;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 15px; }
 
-        /* هدر - فاصله کمتر */
+        /* ========== هدر ========== */
         .navbar {
             background-color: #1f1f1f;
             border-bottom: 2px solid #FFC800;
-            padding: 12px 0;
-            width: 100%;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            padding: 10px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
         .nav-flex {
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: space-between;
             flex-wrap: wrap;
-            gap: 20px;
-            position: relative;
-        }
-        .logo-area {
-            text-align: center;
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            white-space: nowrap;
-            line-height: 1.2;
+            gap: 15px;
         }
         .logo-area h1 {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             font-weight: 900;
             background: linear-gradient(135deg, #FFC800 30%, #ffdd55 80%);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            font-family: 'Vazirmatn', sans-serif;
-            margin-bottom: 2px;
         }
-        .logo-area p {
-            font-size: 0.7rem;
-            font-weight: 800;
-            color: #ccc;
-            font-family: 'Vazirmatn', sans-serif;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 22px;
-            align-items: center;
-            flex-wrap: wrap;
-            margin-right: auto;
-        }
+        .logo-area p { font-size: 0.65rem; font-weight: 800; color: #ccc; }
+        .nav-links { display: flex; gap: 18px; flex-wrap: wrap; }
         .nav-link {
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 5px;
             color: #f0f0f0;
             text-decoration: none;
             font-weight: 800;
-            font-size: 0.9rem;
-            padding: 4px 0;
-            transition: all 0.2s;
+            font-size: 0.85rem;
             cursor: pointer;
             background: none;
             border: none;
-            font-family: 'Vazirmatn', sans-serif;
         }
-        .nav-link i { color: #FFC800; font-size: 0.9rem; }
+        .nav-link i { color: #FFC800; font-size: 0.85rem; }
         .nav-link:hover, .nav-link.active { color: #FFC800; }
-
         .cart-icon {
             background: #2a2a2a;
-            padding: 6px 16px;
+            padding: 5px 14px;
             border-radius: 40px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
             font-weight: 800;
             border: 1px solid #FFC80040;
             cursor: pointer;
-            font-family: 'Vazirmatn', sans-serif;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
-        .cart-icon i { color: #FFC800; font-size: 1rem; }
+        .cart-icon i { color: #FFC800; }
         #cartCount {
             background: #FFC800;
             color: #121212;
-            padding: 0 6px;
+            padding: 0 5px;
             border-radius: 20px;
             font-weight: 900;
-            min-width: 24px;
+            min-width: 20px;
             text-align: center;
-            font-size: 0.8rem;
+            font-size: 0.7rem;
         }
 
-        /* بنر - فاصله کمتر */
+        /* ========== هیرو ========== */
         .hero {
             background: linear-gradient(125deg, #212121 0%, #292929 100%);
-            padding: 40px 0;
+            padding: 20px 0;
             border-bottom: 1px solid #3a3a3a;
-            width: 100%;
         }
-        .hero-grid {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: space-between;
-            gap: 30px;
-        }
+        .hero-grid { display: flex; flex-wrap: wrap; align-items: center; gap: 20px; }
+        .hero-text { flex: 1; }
         .hero-text h2 {
-            font-size: 2.5rem;
+            font-size: 1.8rem;
             font-weight: 900;
-            line-height: 1.4;
-            margin-bottom: 15px;
-            font-family: 'Vazirmatn', sans-serif;
+            line-height: 1.3;
+            margin-bottom: 8px;
         }
-        .hero-text h2 span {
-            color: #FFC800;
-            border-bottom: 3px dashed #FFC800;
-        }
-        .hero-text p {
-            font-size: 1rem;
-            font-weight: 700;
-            color: #bcbcbc;
-            margin-bottom: 25px;
-            font-family: 'Vazirmatn', sans-serif;
-        }
-        .hero-buttons {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-            margin-bottom: 30px;
-        }
+        .hero-text h2 span { color: #FFC800; border-bottom: 2px dashed #FFC800; }
+        .hero-text p { font-size: 0.85rem; margin-bottom: 12px; color: #bcbcbc; }
+        .hero-buttons { display: flex; gap: 10px; margin-bottom: 15px; flex-wrap: wrap; }
         .btn-primary {
-            background-color: #FFC800;
+            background: #FFC800;
             color: #1f1f1f;
             border: none;
-            padding: 10px 24px;
+            padding: 6px 18px;
             border-radius: 60px;
             cursor: pointer;
+            font-weight: 800;
+            font-size: 0.8rem;
             display: inline-flex;
             align-items: center;
-            gap: 6px;
-            font-weight: 800;
-            font-family: 'Vazirmatn', sans-serif;
-            font-size: 0.9rem;
+            gap: 5px;
         }
         .btn-outline {
             background: transparent;
             border: 2px solid #FFC800;
             color: #FFC800;
-            padding: 8px 22px;
+            padding: 4px 16px;
             border-radius: 60px;
             cursor: pointer;
             font-weight: 800;
-            font-family: 'Vazirmatn', sans-serif;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
         }
-        .hero-stats {
-            display: flex;
-            gap: 30px;
-        }
-        .stat h3 {
-            color: #FFC800;
-            font-size: 1.5rem;
-            font-weight: 900;
-            font-family: 'Vazirmatn', sans-serif;
-        }
-        .hero-image {
-            flex: 1;
-            min-height: 150px;
-        }
+        .hero-stats { display: flex; gap: 20px; }
+        .stat h3 { color: #FFC800; font-size: 1.2rem; font-weight: 900; }
+        .stat span { font-size: 0.7rem; }
 
-        /* فیلتر باکس - فاصله کمتر */
-        .filter-main-wrapper {
-            margin: 20px 0 15px;
-        }
+        /* ========== فیلتر ========== */
+        .filter-wrapper { margin: 15px 0; }
         .filter-box {
             background: #1f1f1f;
-            border-radius: 36px;
-            padding: 16px 24px;
+            border-radius: 30px;
+            padding: 10px 20px;
             border: 1px solid #FFC80040;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            gap: 12px;
-            width: 100%;
-            text-align: center;
+            gap: 8px;
         }
         .filter-label {
-            display: inline-flex;
+            display: flex;
             align-items: center;
-            justify-content: center;
-            gap: 8px;
+            gap: 6px;
             color: #FFC800;
-            font-size: 1rem;
+            font-size: 0.85rem;
             font-weight: 800;
-            font-family: 'Vazirmatn', sans-serif;
             border-bottom: 1px solid #3a3a3a;
-            padding-bottom: 8px;
-            width: auto;
+            padding-bottom: 5px;
         }
-        .filter-buttons-group {
+        .filter-buttons {
             display: flex;
             flex-wrap: wrap;
-            gap: 8px;
+            gap: 6px;
             justify-content: center;
         }
         .filter-btn {
             background: #2a2a2a;
             border: none;
-            padding: 6px 18px;
+            padding: 4px 14px;
             border-radius: 40px;
             color: #e0e0e0;
             cursor: pointer;
             display: inline-flex;
             align-items: center;
-            gap: 6px;
-            transition: 0.2s;
-            font-size: 0.8rem;
+            gap: 5px;
+            font-size: 0.7rem;
             font-weight: 700;
-            font-family: 'Vazirmatn', sans-serif;
-            white-space: nowrap;
         }
-        .filter-btn i { color: #FFC800; font-size: 0.8rem; }
-        .filter-btn.active, .filter-btn:hover {
-            background: #FFC800;
-            color: #121212;
-        }
+        .filter-btn i { color: #FFC800; font-size: 0.7rem; }
+        .filter-btn.active, .filter-btn:hover { background: #FFC800; color: #121212; }
         .filter-btn.active i, .filter-btn:hover i { color: #121212; }
 
-        /* محصولات - فاصله کمتر */
+        /* ========== محصولات ========== */
         .products-grid {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 25px;
-            margin: 25px 0 40px;
+            gap: 20px;
+            margin: 20px 0 30px;
         }
         .font-card {
             background: #1f1f1f;
-            border-radius: 28px;
+            border-radius: 24px;
             overflow: hidden;
-            transition: 0.25s;
             border: 1px solid #2d2d2d;
-            max-width: 340px;
+            max-width: 320px;
             width: 100%;
+            transition: 0.2s;
         }
-        .font-card:hover { transform: translateY(-4px); border-color: #FFC80060; }
-        .font-preview img {
-            width: 100%;
-            aspect-ratio: 1/1;
-            object-fit: cover;
-            display: block;
-        }
-        .font-details { padding: 14px 16px 18px; }
+        .font-card:hover { transform: translateY(-3px); border-color: #FFC80060; }
+        .font-preview img { width: 100%; aspect-ratio: 1/1; object-fit: cover; }
+        .font-details { padding: 10px 12px 14px; }
         .font-title {
-            font-size: 1.4rem;
+            font-size: 1.2rem;
             font-weight: 900;
             color: #FFC800;
-            margin-bottom: 5px;
             display: flex;
             align-items: center;
-            gap: 6px;
-            font-family: 'Vazirmatn', sans-serif;
+            gap: 5px;
+            margin-bottom: 4px;
         }
-        .tags-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-bottom: 10px;
-        }
+        .tags-row { display: flex; gap: 6px; margin-bottom: 6px; flex-wrap: wrap; }
         .font-cat, .offer-tag {
             display: inline-flex;
             align-items: center;
-            gap: 5px;
-            padding: 3px 12px;
+            gap: 4px;
+            padding: 2px 10px;
             border-radius: 30px;
-            font-size: 0.7rem;
+            font-size: 0.6rem;
             font-weight: 700;
-            font-family: 'Vazirmatn', sans-serif;
         }
-        .font-cat {
-            background: #2b2b2b;
-            color: #e0e0e0;
-        }
+        .font-cat { background: #2b2b2b; }
         .font-cat i { color: #FFC800; }
-        .offer-tag {
-            background: #FFC80020;
-            border: 1px solid #FFC800;
-            color: #FFC800;
-        }
-        .offer-tag i { color: #FFC800; }
+        .offer-tag { background: #FFC80020; border: 1px solid #FFC800; color: #FFC800; }
         .font-desc {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            font-size: 0.8rem;
-            font-weight: 600;
+            font-size: 0.7rem;
             color: #bcbcbc;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
             padding: 4px 0;
             border-top: 1px dashed #3a3a3a;
             border-bottom: 1px dashed #3a3a3a;
-            font-family: 'Vazirmatn', sans-serif;
         }
-        .price-wrapper { margin: 10px 0; }
-        .current-price {
-            font-size: 1.5rem;
-            font-weight: 900;
-            color: #FFC800;
-            font-family: 'Vazirmatn', sans-serif;
-        }
-        .old-price {
-            font-size: 0.9rem;
-            text-decoration: line-through;
-            color: #777;
-            margin-right: 8px;
-            font-weight: 600;
-            font-family: 'Vazirmatn', sans-serif;
-        }
-        .timer-box {
-            background: #2a2a2a;
-            border-radius: 50px;
+        .price-wrapper { margin: 6px 0; }
+        .current-price { font-size: 1.3rem; font-weight: 900; color: #FFC800; }
+        .old-price { font-size: 0.7rem; text-decoration: line-through; color: #777; margin-right: 5px; }
+        
+        /* باکس پایان تخفیف - جایگزین تایمر */
+        .expired-box {
+            background: #3a1a1a;
+            border-radius: 40px;
             padding: 6px 12px;
-            margin: 10px 0;
+            margin: 8px 0;
             text-align: center;
-            border: 1px solid #FFC800;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            width: 100%;
-            justify-content: center;
-            font-family: monospace;
-            font-weight: 800;
-        }
-        .timer-box i {
-            color: #FFC800;
-            font-size: 1rem;
-            display: inline-block;
-            animation: floatIcon 1.5s ease-in-out infinite;
-        }
-        @keyframes floatIcon {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-3px); }
-            100% { transform: translateY(0px); }
-        }
-        .timer-box span:last-child {
-            direction: ltr;
-            font-family: monospace;
-            font-weight: 900;
-            color: #FFC800;
-            font-size: 0.85rem;
-        }
-        .card-actions {
+            border: 1px solid #ff5555;
             display: flex;
-            gap: 10px;
-            margin-top: 14px;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
         }
+        .expired-box i { color: #ff8888; font-size: 0.8rem; }
+        .expired-box span {
+            color: #ffaaaa;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+        
+        .card-actions { display: flex; gap: 8px; margin-top: 10px; }
         .btn-buy {
             background: #FFC800;
             border: none;
-            padding: 8px 0;
+            padding: 6px 0;
             width: 100%;
             border-radius: 40px;
             color: #111;
@@ -410,15 +262,14 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 6px;
+            gap: 5px;
             font-weight: 800;
-            font-family: 'Vazirmatn', sans-serif;
-            font-size: 0.85rem;
+            font-size: 0.75rem;
         }
         .btn-preview {
             background: #2c2c2c;
             border: none;
-            width: 40px;
+            width: 34px;
             border-radius: 40px;
             color: #FFC800;
             cursor: pointer;
@@ -426,81 +277,44 @@
 
         .bestseller-header {
             text-align: center;
-            margin: 20px 0 15px;
-            padding: 15px;
+            margin: 15px 0 10px;
+            padding: 10px;
             background: linear-gradient(135deg, #FFC80020, #1f1f1f);
-            border-radius: 50px;
+            border-radius: 40px;
             border: 1px solid #FFC800;
         }
-        .bestseller-header i {
-            font-size: 1.5rem;
-            color: #FFC800;
-            margin-bottom: 5px;
-        }
-        .bestseller-header h2 {
-            font-size: 1.5rem;
-            font-weight: 900;
-            color: #FFC800;
-            font-family: 'Vazirmatn', sans-serif;
-        }
-        .bestseller-header p {
-            font-size: 0.8rem;
-        }
+        .bestseller-header i { font-size: 1.2rem; color: #FFC800; }
+        .bestseller-header h2 { font-size: 1.2rem; font-weight: 900; color: #FFC800; }
 
         footer {
             background: #121212;
-            margin-top: 40px;
-            padding: 30px 0 20px;
+            margin-top: 30px;
+            padding: 20px 0 15px;
             border-top: 2px solid #FFC800;
-            width: 100%;
         }
         .footer-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            margin-bottom: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+            margin-bottom: 15px;
         }
-        .footer-col h4 {
-            color: #FFC800;
-            margin-bottom: 12px;
-            font-size: 1.1rem;
-            font-weight: 900;
-            font-family: 'Vazirmatn', sans-serif;
-        }
-        .footer-col p, .footer-col a {
-            color: #b0b0b0;
-            text-decoration: none;
-            line-height: 1.8;
-            font-weight: 600;
-            font-size: 0.8rem;
-            font-family: 'Vazirmatn', sans-serif;
-        }
-        .social-icons {
-            display: flex;
-            gap: 12px;
-            margin-top: 10px;
-        }
+        .footer-col h4 { color: #FFC800; font-size: 0.9rem; margin-bottom: 6px; }
+        .footer-col p, .footer-col a { color: #b0b0b0; font-size: 0.65rem; text-decoration: none; line-height: 1.6; }
+        .social-icons { display: flex; gap: 8px; margin-top: 6px; }
         .social-icons a {
             background: #222;
-            width: 32px;
-            height: 32px;
+            width: 26px;
+            height: 26px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: #FFC800;
-            font-size: 1rem;
+            font-size: 0.8rem;
         }
-        .copyright {
-            text-align: center;
-            padding-top: 15px;
-            border-top: 1px solid #2c2c2c;
-            font-size: 0.7rem;
-            font-weight: 700;
-            color: #ccc;
-            font-family: 'Vazirmatn', sans-serif;
-        }
+        .copyright { text-align: center; padding-top: 10px; border-top: 1px solid #2c2c2c; font-size: 0.6rem; color: #ccc; }
 
+        /* مودال‌ها */
         .modal, .cart-modal, .payment-modal {
             display: none;
             position: fixed;
@@ -514,133 +328,48 @@
         }
         .modal-content, .cart-modal-content, .payment-modal-content {
             background: #1e1e1e;
-            max-width: 480px;
+            max-width: 420px;
             width: 90%;
-            border-radius: 40px;
-            padding: 25px;
+            border-radius: 32px;
+            padding: 20px;
             text-align: center;
             border: 2px solid #FFC800;
             max-height: 80vh;
             overflow-y: auto;
-            font-family: 'Vazirmatn', sans-serif;
         }
-        .modal-content h3, .cart-modal-content h3, .payment-modal-content h3 {
-            font-size: 1.5rem;
-            font-weight: 900;
-            color: #FFC800;
-        }
-        .modal-image {
-            width: 100%;
-            aspect-ratio: 1/1;
-            object-fit: contain;
-            border-radius: 20px;
-            margin: 10px 0;
-        }
-        .cart-items-list {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            margin-bottom: 15px;
-        }
-        .cart-item {
-            background: #2a2a2a;
-            padding: 12px;
-            border-radius: 20px;
-            text-align: right;
-            border-right: 3px solid #FFC800;
-        }
-        .cart-item-info {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 6px;
-            flex-wrap: wrap;
-        }
-        .cart-item-name { color: #FFC800; font-weight: bold; font-size: 0.9rem; }
-        .cart-item-quantity {
-            display: flex;
-            gap: 10px;
-            align-items: center;
-            margin: 6px 0;
-        }
-        .cart-qty-btn {
-            background: #1f1f1f;
-            border: none;
-            width: 26px;
-            height: 26px;
-            border-radius: 50%;
-            color: #FFC800;
-            cursor: pointer;
-            font-weight: bold;
-        }
-        .cart-total {
-            text-align: left;
-            padding: 10px 0;
-            font-size: 1.1rem;
-            border-top: 2px solid #FFC800;
-        }
-        .payment-detail {
-            background: #2a2a2a;
-            padding: 16px;
-            border-radius: 24px;
-            text-align: right;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-        .random-code {
-            font-size: 1.6rem;
-            font-weight: 900;
-            background: #FFC800;
-            display: inline-block;
-            padding: 4px 20px;
-            border-radius: 40px;
-            color: #121212;
-            letter-spacing: 2px;
-        }
+        .modal-content h3, .cart-modal-content h3, .payment-modal-content h3 { font-size: 1.2rem; color: #FFC800; }
+        .modal-image { width: 100%; aspect-ratio: 1/1; object-fit: contain; border-radius: 16px; margin: 10px 0; }
+        .cart-items-list { display: flex; flex-direction: column; gap: 8px; margin-bottom: 12px; }
+        .cart-item { background: #2a2a2a; padding: 8px; border-radius: 16px; border-right: 3px solid #FFC800; }
+        .cart-item-info { display: flex; justify-content: space-between; margin-bottom: 4px; flex-wrap: wrap; }
+        .cart-item-name { color: #FFC800; font-size: 0.8rem; }
+        .cart-item-quantity { display: flex; gap: 6px; align-items: center; margin: 4px 0; }
+        .cart-qty-btn { background: #1f1f1f; border: none; width: 22px; height: 22px; border-radius: 50%; color: #FFC800; cursor: pointer; }
+        .cart-total { text-align: left; padding: 6px 0; font-size: 0.9rem; border-top: 2px solid #FFC800; }
+        .payment-detail { background: #2a2a2a; padding: 12px; border-radius: 16px; text-align: right; }
+        .random-code { font-size: 1.2rem; background: #FFC800; display: inline-block; padding: 2px 14px; border-radius: 40px; color: #121212; }
         .checkout-btn, .close-modal, .close-cart, .close-payment {
             background: #FFC800;
             border: none;
-            padding: 10px;
+            padding: 6px;
             border-radius: 40px;
             font-weight: 800;
             cursor: pointer;
             width: 100%;
-            margin-top: 12px;
-            font-family: 'Vazirmatn', sans-serif;
+            margin-top: 8px;
         }
-        .coming-soon-box {
-            text-align: center;
-            padding: 30px 20px;
-            background: #1f1f1f;
-            border-radius: 30px;
-            margin: 30px 0;
-            border: 1px dashed #FFC800;
-        }
-        .coming-soon-box h3 {
-            font-weight: 900;
-            color: #FFC800;
-            margin: 10px 0 5px;
-            font-family: 'Vazirmatn', sans-serif;
-        }
-        .empty-cart {
-            text-align: center;
-            padding: 25px;
-            color: #aaa;
-            font-family: 'Vazirmatn', sans-serif;
-        }
+        .coming-soon-box { text-align: center; padding: 25px; background: #1f1f1f; border-radius: 28px; margin: 20px 0; border: 1px dashed #FFC800; }
+        .empty-cart { text-align: center; padding: 15px; color: #aaa; font-size: 0.8rem; }
 
         @media (max-width: 850px) {
-            .logo-area { position: static; transform: none; margin-bottom: 8px; white-space: normal; }
-            .nav-flex { flex-direction: column; gap: 12px; }
-            .nav-links { margin-right: 0; justify-content: center; }
-            .hero-text h2 { font-size: 1.8rem; }
-            .hero { padding: 25px 0; }
+            .nav-flex { flex-direction: column; }
+            .hero-text h2 { font-size: 1.3rem; }
         }
     </style>
 </head>
 <body>
 
-<div class="site-container">
+<div class="container">
     <nav class="navbar">
         <div class="container nav-flex">
             <div class="logo-area">
@@ -665,10 +394,10 @@
 
     <main id="mainContent">
         <section class="hero" id="heroSection">
-            <div class="container hero-grid">
+            <div class="hero-grid">
                 <div class="hero-text">
                     <h2>فونت‌های حرفه‌ای و<br><span>منحصر به‌فرد برای طراحان</span></h2>
-                    <p>مجموعه‌ای از بهترین فونت‌های فارسی و لاتین با کیفیت بالا، مجوز قانونی و طراحی مدرن.</p>
+                    <p>مجموعه‌ای از بهترین فونت‌های فارسی و لاتین با کیفیت بالا</p>
                     <div class="hero-buttons">
                         <button class="btn-primary" id="shopNowBtn"><i class="fas fa-arrow-down"></i> مشاهده فونت‌ها</button>
                         <button class="btn-outline" id="sampleTypeBtn"><i class="fas fa-play-circle"></i> نمونه تایپ‌فیس</button>
@@ -679,38 +408,35 @@
                         <div class="stat"><h3>⭐ ۴.۹</h3><span>رضایت بالا</span></div>
                     </div>
                 </div>
-                <div class="hero-image"></div>
             </div>
         </section>
 
-        <div class="container" id="dynamicContent"></div>
+        <div id="dynamicContent"></div>
     </main>
 
     <footer>
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <h4>mim.non.ir</h4>
-                    <p>فروشگاه تخصصی فونت با گارانتی اصالت</p>
-                    <div class="social-icons">
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-telegram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-                <div class="footer-col">
-                    <h4>دسترسی سریع</h4>
-                    <p><a href="#">فهرست فونت‌ها</a></p>
-                    <p><a href="#">حریم خصوصی</a></p>
-                </div>
-                <div class="footer-col">
-                    <h4>تماس با ما</h4>
-                    <p><i class="fas fa-envelope"></i> support@mim.non.ir</p>
-                    <p><i class="fas fa-phone-alt"></i> ۰۲۱-۱۲۳۴۵۶۷۸</p>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>mim.non.ir</h4>
+                <p>فروشگاه تخصصی فونت</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-telegram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
                 </div>
             </div>
-            <div class="copyright">mim.non.ir 2026 | تمامی حقوق میم نون محفوظ است</div>
+            <div class="footer-col">
+                <h4>دسترسی سریع</h4>
+                <p><a href="#">فهرست فونت‌ها</a></p>
+                <p><a href="#">حریم خصوصی</a></p>
+            </div>
+            <div class="footer-col">
+                <h4>تماس با ما</h4>
+                <p><i class="fas fa-envelope"></i> support@mim.non.ir</p>
+                <p><i class="fas fa-phone-alt"></i> ۰۲۱-۱۲۳۴۵۶۷۸</p>
+            </div>
         </div>
+        <div class="copyright">mim.non.ir 2026 | تمامی حقوق میم نون محفوظ است</div>
     </footer>
 </div>
 
@@ -719,19 +445,13 @@
 <div id="paymentModal" class="payment-modal"><div class="payment-modal-content"><h3><i class="fas fa-credit-card"></i> تکمیل سفارش</h3><div id="paymentDetails" class="payment-detail"></div><button class="close-payment" id="closePaymentBtn">بستن</button></div></div>
 
 <script>
+    // تایمر غیرفعال شد - نمایش پیام پایان تخفیف
     const fontsData = [
-        { id: 2, name: "فونت منشــور!", category: "persian", price: 360000, oldPrice: 500000, image: "https://uploadkon.ir/uploads/431113_26IMG-20260613-165046-564.jpg", description: "یک فونت خفن به درد طراحی برای | پوستر | کاور | میخوره | با قیمت مناسب از میم نون خریداری کنید!", icon: "fa-crown", hasOffer: true, offerEnds: new Date(Date.now() + 3*24*60*60*1000) },
-        { id: 1, name: "فونت شفیق", category: "persian", price: 120000, oldPrice: 250000, image: "https://cdn.imgurl.ir/uploads/v790100_mim_non.webp", description: "طراحی منحصربه‌فرد، مناسب پروژه‌های لوکس", icon: "fa-star", hasOffer: false }
+        { id: 2, name: "فونت منشــور!", category: "persian", price: 500000, oldPrice: null, image: "https://uploadkon.ir/uploads/431113_26IMG-20260613-165046-564.jpg", description: "یک فونت خفن برای پوستر و کاور", icon: "fa-crown", offerExpired: true },
+        { id: 1, name: "فونت شفیق", category: "persian", price: 120000, oldPrice: 250000, image: "https://cdn.imgurl.ir/uploads/v790100_mim_non.webp", description: "طراحی منحصربه‌فرد، مناسب پروژه‌های لوکس", icon: "fa-star", offerExpired: false }
     ];
 
-    function initTimerEnd() {
-        const stored = localStorage.getItem('mimnon_timer_end');
-        if(stored) { let endTime = new Date(parseInt(stored)); if(endTime > new Date()) fontsData[0].offerEnds = endTime; else { fontsData[0].hasOffer = false; localStorage.removeItem('mimnon_timer_end'); } }
-        else if(fontsData[0].hasOffer) localStorage.setItem('mimnon_timer_end', fontsData[0].offerEnds.getTime());
-    }
-    initTimerEnd();
-
-    let cart = [], currentFilter = "all", timerInterval = null;
+    let cart = [], currentFilter = "all";
 
     function renderProducts(filteredFonts = null) {
         const container = document.getElementById("productsGrid");
@@ -739,32 +459,13 @@
         let filtered = filteredFonts ? filteredFonts : fontsData.filter(f => currentFilter === "all" || f.category === currentFilter);
         filtered.sort((a,b) => b.id - a.id);
         container.innerHTML = filtered.map(font => {
-            let isOfferActive = font.hasOffer && font.offerEnds && font.offerEnds > new Date();
-            let displayPrice = font.price;
-            let displayOldPrice = font.oldPrice;
-            let timerHtml = '', offerTagHtml = '';
-            if(font.hasOffer) {
-                if(isOfferActive) { timerHtml = `<div class="timer-box" data-id="${font.id}"><i class="fas fa-hourglass-half"></i> <span class="timer-${font.id}"></span></div>`; offerTagHtml = `<div class="offer-tag"><i class="fas fa-gem"></i> پیشنهاد ویژه</div>`; }
-                else offerTagHtml = `<div class="offer-tag" style="background:#2a2a2a; color:#888; border-color:#555;"><i class="fas fa-clock"></i> پیشنهاد به پایان رسید</div>`;
+            let timerHtml = '';
+            if(font.offerExpired) {
+                timerHtml = `<div class="expired-box"><i class="fas fa-clock"></i> <span>مدت تخفیف به پایان رسید</span></div>`;
             }
-            return `<div class="font-card"><div class="font-preview"><img src="${font.image}" onerror="this.src='https://placehold.co/600x600/2a2a2a/FFC800?text=Font'"></div><div class="font-details"><div class="font-title"><i class="fas ${font.icon}"></i> ${font.name}</div><div class="tags-row"><div class="font-cat"><i class="fas fa-tag"></i> فارسی</div>${offerTagHtml}</div><div class="font-desc"><i class="fas fa-info-circle"></i> ${font.description}</div><div class="price-wrapper"><span class="current-price">${displayPrice.toLocaleString()} تومان</span>${displayOldPrice ? `<span class="old-price">${displayOldPrice.toLocaleString()} تومان</span>` : ''}</div>${timerHtml}<div class="card-actions"><button class="btn-buy" data-id="${font.id}" data-name="${font.name}" data-price="${displayPrice}"><i class="fas fa-shopping-bag"></i> خرید</button><button class="btn-preview" data-image="${font.image}" data-name="${font.name}"><i class="fas fa-eye"></i></button></div></div></div>`;
+            return `<div class="font-card"><div class="font-preview"><img src="${font.image}" onerror="this.src='https://placehold.co/600x600/2a2a2a/FFC800?text=Font'"></div><div class="font-details"><div class="font-title"><i class="fas ${font.icon}"></i> ${font.name}</div><div class="tags-row"><div class="font-cat"><i class="fas fa-tag"></i> فارسی</div></div><div class="font-desc"><i class="fas fa-info-circle"></i> ${font.description}</div><div class="price-wrapper"><span class="current-price">${font.price.toLocaleString()} تومان</span>${font.oldPrice ? `<span class="old-price">${font.oldPrice.toLocaleString()} تومان</span>` : ''}</div>${timerHtml}<div class="card-actions"><button class="btn-buy" data-id="${font.id}" data-name="${font.name}" data-price="${font.price}"><i class="fas fa-shopping-bag"></i> خرید</button><button class="btn-preview" data-image="${font.image}" data-name="${font.name}"><i class="fas fa-eye"></i></button></div></div></div>`;
         }).join("");
-        attachProductEvents(); if(filteredFonts === null) startTimers();
-    }
-
-    function startTimers() {
-        if(timerInterval) clearInterval(timerInterval);
-        timerInterval = setInterval(() => {
-            fontsData.forEach(font => {
-                if(font.hasOffer && font.offerEnds) {
-                    let diff = font.offerEnds - new Date(), el = document.querySelector(`.timer-${font.id}`);
-                    if(!el) return;
-                    if(diff <= 0) { if(font.hasOffer) { font.hasOffer = false; localStorage.removeItem('mimnon_timer_end'); renderProducts(); } return; }
-                    let days = Math.floor(diff / (1000*60*60*24)), hours = Math.floor((diff % 86400000) / 3600000), mins = Math.floor((diff % 3600000) / 60000), secs = Math.floor((diff % 60000) / 1000);
-                    el.innerText = `${days}d ${hours}h ${mins}m ${secs}s`;
-                }
-            });
-        }, 1000);
+        attachProductEvents();
     }
 
     function attachProductEvents() {
@@ -773,13 +474,13 @@
     }
     function buyHandler(e) { let btn = e.currentTarget; addToCart({ id: parseInt(btn.dataset.id), name: btn.dataset.name, price: parseInt(btn.dataset.price) }); }
     function previewHandler(e) { let btn = e.currentTarget; openModal(btn.dataset.image, btn.dataset.name); }
-    function addToCart(item) { let exist = cart.find(i => i.id === item.id); if(exist) exist.quantity++; else cart.push({ ...item, quantity: 1 }); updateCartUI(); showToast(`${item.name} به سبد اضافه شد 🛒`); }
+    function addToCart(item) { let exist = cart.find(i => i.id === item.id); if(exist) exist.quantity++; else cart.push({ ...item, quantity: 1 }); updateCartUI(); showToast(`${item.name} به سبد اضافه شد`); }
     function updateCartUI() { document.getElementById('cartCount').innerText = cart.reduce((s,i)=> s + i.quantity, 0); }
-    function showToast(msg) { let t = document.createElement('div'); t.innerText = msg; t.style.cssText = 'position:fixed; bottom:20px; right:20px; background:#FFC800; color:#121212; padding:8px 16px; border-radius:40px; font-weight:bold; z-index:9999; font-family:Vazirmatn; font-size:0.8rem'; document.body.appendChild(t); setTimeout(() => t.remove(), 2000); }
+    function showToast(msg) { let t = document.createElement('div'); t.innerText = msg; t.style.cssText = 'position:fixed; bottom:20px; right:20px; background:#FFC800; color:#121212; padding:5px 12px; border-radius:40px; font-weight:bold; z-index:9999; font-size:0.7rem'; document.body.appendChild(t); setTimeout(() => t.remove(), 2000); }
     function openCartModal() { let cartModal = document.getElementById('cartModal'), itemsDiv = document.getElementById('cartItemsList'), totalDiv = document.getElementById('cartTotal'); if(!cart.length) { itemsDiv.innerHTML = '<div class="empty-cart">سبد خرید خالی است</div>'; totalDiv.innerHTML = ''; } else { itemsDiv.innerHTML = cart.map(i => `<div class="cart-item"><div class="cart-item-info"><span class="cart-item-name">${i.name}</span><span>${i.price.toLocaleString()} تومان</span></div><div class="cart-item-quantity"><button class="cart-qty-btn" data-id="${i.id}" data-change="-1">-</button><span>تعداد: ${i.quantity}</span><button class="cart-qty-btn" data-id="${i.id}" data-change="1">+</button></div><div>جمع: ${(i.price*i.quantity).toLocaleString()} تومان</div></div>`).join(''); totalDiv.innerHTML = `مجموع سبد: <span>${cart.reduce((s,i)=> s + (i.price*i.quantity),0).toLocaleString()} تومان</span>`; document.querySelectorAll('.cart-qty-btn').forEach(btn => { btn.addEventListener('click', () => { let id = parseInt(btn.dataset.id), change = parseInt(btn.dataset.change), itm = cart.find(i=>i.id===id); if(itm) { itm.quantity += change; if(itm.quantity<=0) cart = cart.filter(i=>i.id!==id); updateCartUI(); openCartModal(); } }); }); } cartModal.style.display = 'flex'; }
     function generateRandomCode() { return Math.floor(100 + Math.random() * 900).toString(); }
-    function showPaymentModal() { if(!cart.length) { alert('سبد خرید خالی'); return; } let itemsHtml = cart.map(i=>`<p><i class="fas fa-font"></i> ${i.name} (تعداد: ${i.quantity})</p>`).join(''); let totalPrice = cart.reduce((s,i)=> s + (i.price*i.quantity),0); let code = generateRandomCode(); document.getElementById('paymentDetails').innerHTML = `<p><i class="fas fa-phone-alt"></i> <strong>شماره تماس:</strong> ۰۹۱۵۷۹۳۰۵۱۸</p><p><i class="fas fa-shopping-bag"></i> <strong>محصولات:</strong></p><div style="margin-right:20px">${itemsHtml}</div><p><i class="fas fa-wallet"></i> <strong>مبلغ:</strong> ${totalPrice.toLocaleString()} تومان</p><p><i class="fas fa-code"></i> <strong>کد سفارش:</strong></p><div class="random-code">${code}</div><p><i class="fas fa-info-circle"></i> این کد را به فروشنده بدهید</p>`; document.getElementById('paymentModal').style.display = 'flex'; }
-    function clearCartAndClosePayment() { cart = []; updateCartUI(); document.getElementById('paymentModal').style.display = 'none'; showToast('✅ سفارش ثبت شد، سبد خالی شد'); }
+    function showPaymentModal() { if(!cart.length) { alert('سبد خرید خالی'); return; } let itemsHtml = cart.map(i=>`<p><i class="fas fa-font"></i> ${i.name} (${i.quantity})</p>`).join(''); let totalPrice = cart.reduce((s,i)=> s + (i.price*i.quantity),0); let code = generateRandomCode(); document.getElementById('paymentDetails').innerHTML = `<p><i class="fas fa-phone-alt"></i> <strong>شماره تماس:</strong> ۰۹۱۵۷۹۳۰۵۱۸</p><p><i class="fas fa-shopping-bag"></i> <strong>محصولات:</strong></p><div>${itemsHtml}</div><p><i class="fas fa-wallet"></i> <strong>مبلغ:</strong> ${totalPrice.toLocaleString()} تومان</p><p><i class="fas fa-code"></i> <strong>کد سفارش:</strong></p><div class="random-code">${code}</div><p><i class="fas fa-info-circle"></i> این کد را به فروشنده بدهید</p>`; document.getElementById('paymentModal').style.display = 'flex'; }
+    function clearCartAndClosePayment() { cart = []; updateCartUI(); document.getElementById('paymentModal').style.display = 'none'; showToast('سفارش ثبت شد'); }
     const modal = document.getElementById('fontModal'), modalImage = document.getElementById('modalImage');
     function openModal(img, name) { modalImage.src = img; modalImage.alt = name; modal.style.display = 'flex'; }
     document.getElementById('closeModalBtn').onclick = () => modal.style.display = 'none';
@@ -795,10 +496,10 @@
     const dynamicContainer = document.getElementById('dynamicContent'), heroSection = document.getElementById('heroSection');
     function setActiveTab(tabId) {
         document.querySelectorAll('.nav-link').forEach(btn => { if(btn.dataset.tab === tabId) btn.classList.add('active'); else btn.classList.remove('active'); });
-        if(tabId === 'home') { if(heroSection) heroSection.style.display = ''; dynamicContainer.innerHTML = `<div class="filter-main-wrapper"><div class="filter-box"><div class="filter-label"><i class="fas fa-filter"></i> دسته‌بندی فونت:</div><div class="filter-buttons-group" id="filterButtonsGroup"><button class="filter-btn active" data-filter="all"><i class="fas fa-border-all"></i> همه</button><button class="filter-btn" data-filter="persian"><i class="fas fa-language"></i> فارسی</button><button class="filter-btn" data-filter="latin"><i class="fas fa-font"></i> انگلیسی</button><button class="filter-btn" data-filter="symbol"><i class="fas fa-hashtag"></i> سمبل</button><button class="filter-btn" data-filter="handwritten"><i class="fas fa-pen-fancy"></i> دست‌نویس</button><button class="filter-btn" data-filter="display"><i class="fas fa-tv"></i> نمایشی</button></div></div></div><div class="products-grid" id="productsGrid"></div>`; renderProducts(); initFilters(); }
+        if(tabId === 'home') { if(heroSection) heroSection.style.display = 'block'; dynamicContainer.innerHTML = `<div class="filter-wrapper"><div class="filter-box"><div class="filter-label"><i class="fas fa-filter"></i> دسته‌بندی فونت:</div><div class="filter-buttons" id="filterButtonsGroup"><button class="filter-btn active" data-filter="all"><i class="fas fa-border-all"></i> همه</button><button class="filter-btn" data-filter="persian"><i class="fas fa-language"></i> فارسی</button><button class="filter-btn" data-filter="latin"><i class="fas fa-font"></i> انگلیسی</button><button class="filter-btn" data-filter="symbol"><i class="fas fa-hashtag"></i> سمبل</button><button class="filter-btn" data-filter="handwritten"><i class="fas fa-pen-fancy"></i> دست‌نویس</button><button class="filter-btn" data-filter="display"><i class="fas fa-tv"></i> نمایشی</button></div></div></div><div class="products-grid" id="productsGrid"></div>`; renderProducts(); initFilters(); }
         else if(tabId === 'bestsellers') { if(heroSection) heroSection.style.display = 'none'; dynamicContainer.innerHTML = `<div class="bestseller-header"><i class="fas fa-trophy"></i><h2>پرفروش‌ترین فونت‌های میم نون</h2><p>محبوب‌ترین انتخاب طراحان حرفه‌ای</p></div><div class="products-grid" id="productsGrid"></div>`; renderProducts([fontsData[1]]); }
-        else if(tabId === 'mimnoon') { if(heroSection) heroSection.style.display = 'none'; dynamicContainer.innerHTML = `<div class="coming-soon-box"><i class="fas fa-users"></i><h3>گروه میم نون</h3><p>به زودی...</p><p style="font-size:0.75rem;">با امکانات ویژه و تازه‌های دنیای فونت</p></div>`; }
-        else { if(heroSection) heroSection.style.display = 'none'; dynamicContainer.innerHTML = `<div class="coming-soon-box"><i class="fas fa-tools"></i><h3>در حال به‌روزرسانی</h3><p>به زودی محتوای این بخش قرار می‌گیرد</p></div>`; }
+        else if(tabId === 'mimnoon') { if(heroSection) heroSection.style.display = 'none'; dynamicContainer.innerHTML = `<div class="coming-soon-box"><i class="fas fa-users"></i><h3>گروه میم نون</h3><p>به زودی...</p></div>`; }
+        else { if(heroSection) heroSection.style.display = 'none'; dynamicContainer.innerHTML = `<div class="coming-soon-box"><i class="fas fa-tools"></i><h3>در حال به‌روزرسانی</h3></div>`; }
     }
     document.querySelectorAll('.nav-link').forEach(btn => { btn.addEventListener('click', (e) => { e.preventDefault(); setActiveTab(btn.dataset.tab); }); });
     setActiveTab('home');
