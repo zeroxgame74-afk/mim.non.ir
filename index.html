@@ -21,7 +21,6 @@
             line-height: 1.5;
         }
 
-        /* ========== اجبار فونت بُلد برای همه چیز ========== */
         body, html, div, section, nav, button, span, p, h1, h2, h3, h4, a, li, ul, .nav-link, .cart-icon, .logo-area h1, .logo-area p,
         .hero-text h2, .hero-text h2 span, .hero-text p, .hero-stats .stat h3, .hero-stats .stat span,
         .btn-primary, .btn-outline, .filter-label, .filter-btn, .font-title, .font-cat, .offer-tag, .special-offer,
@@ -34,16 +33,14 @@
             font-weight: bold !important;
         }
 
-        /* درشت‌تر کردن بعضی عناصر خاص */
         .hero-text h2 { font-size: 3rem !important; font-weight: 900 !important; }
         .hero-text p { font-size: 1.3rem !important; }
         .font-title { font-size: 1.8rem !important; font-weight: 900 !important; }
         .current-price { font-size: 1.5rem !important; font-weight: 900 !important; }
-        .filter-btn { font-size: 0.85rem !important; font-weight: 800 !important; }
+        .filter-btn { font-size: 0.85rem !important; font-weight: 800 !important; padding: 8px 20px !important; }
         .nav-link { font-size: 1rem !important; font-weight: 800 !important; }
         .cart-icon { font-weight: 800 !important; }
 
-        /* ========== استایل باکس بلاگ ========== */
         .blog-container {
             max-width: 900px;
             margin: 40px auto;
@@ -118,7 +115,6 @@
             overflow-x: auto;
         }
 
-        /* ========== استایل باکس "به زودی" ========== */
         .coming-soon-box {
             text-align: center;
             padding: 30px 20px;
@@ -147,7 +143,6 @@
             color: #ccc;
         }
 
-        /* ========== استایل باکس تماس ========== */
         .contact-box {
             text-align: center;
             padding: 30px 25px;
@@ -168,10 +163,6 @@
             align-items: center;
             justify-content: center;
             gap: 10px;
-        }
-        .contact-box h2 i {
-            font-size: 1.8rem;
-            color: #FFC800;
         }
         .contact-item {
             background: #2a2a2a;
@@ -197,9 +188,6 @@
             color: #FFC800;
             font-size: 1rem;
         }
-        .contact-item .label i {
-            font-size: 1.2rem;
-        }
         .contact-item .value a {
             color: #e0e0e0;
             text-decoration: none;
@@ -224,7 +212,6 @@
             color: #888;
         }
 
-        /* ========== استایل باکس پرفروش‌ها ========== */
         .bestseller-header {
             text-align: center;
             margin: 40px auto 30px;
@@ -246,11 +233,6 @@
             font-weight: 900;
             color: #FFC800;
             margin: 10px 0;
-        }
-        .bestseller-header p {
-            font-size: 0.9rem;
-            font-weight: bold;
-            color: #ccc;
         }
 
         ::-webkit-scrollbar { width: 6px; }
@@ -846,7 +828,7 @@
 <div id="fontModal" class="modal">
     <div class="modal-content">
         <h3><i class="fas fa-eye"></i> پیش‌نمایش فونت</h3>
-        <img id="modalImage" class="modal-image">
+        <img id="modalImage" style="width:100%; border-radius:16px; margin-top:15px;">
         <button class="close-modal" id="closeModalBtn">بستن</button>
     </div>
 </div>
@@ -915,12 +897,38 @@
 
     let cart = [];
     let currentFilter = "all";
+    let currentPriceFilter = "all";
 
-    function renderProducts(filteredFonts = null) {
+    function filterByPrice(font, filterType) {
+        if(filterType === "all") return true;
+        if(filterType === "expensive") return font.price > 300000;
+        if(filterType === "cheap") return font.price > 0 && font.price < 100000;
+        if(filterType === "economic") return font.price >= 100000 && font.price <= 300000;
+        if(filterType === "special") return font.isSpecial === true;
+        if(filterType === "free") return font.isFree === true;
+        return true;
+    }
+
+    function renderProducts(filteredFonts = null, isPriceFilterPage = false) {
         const container = document.getElementById("productsGrid");
         if (!container) return;
-        let filtered = filteredFonts ? filteredFonts : fontsData.filter(f => currentFilter === "all" || f.category === currentFilter);
+        
+        let filtered = filteredFonts ? filteredFonts : fontsData.filter(f => {
+            if(currentFilter === "all") return true;
+            return f.category === currentFilter;
+        });
+        
+        if(isPriceFilterPage && currentPriceFilter !== "all") {
+            filtered = filtered.filter(f => filterByPrice(f, currentPriceFilter));
+        }
+        
         filtered.sort((a, b) => b.id - a.id);
+        
+        if(filtered.length === 0) {
+            container.innerHTML = `<div style="text-align:center; padding:60px; background:#1f1f1f; border-radius:32px;"><i class="fas fa-search" style="font-size:2rem; color:#FFC800;"></i><p style="margin-top:15px;">هیچ فونتی با این قیمت پیدا نشد!</p></div>`;
+            return;
+        }
+        
         container.innerHTML = filtered.map(font => {
             let expiredHtml = '';
             if (font.offerExpired === true && !font.isFree) {
@@ -939,7 +947,7 @@
             
             let freeTagHtml = '';
             if (font.isFree) {
-                freeTagHtml = `<div class="free-tag"><i class="fas fa-gem"></i> رایگان</div>`;
+                freeTagHtml = `<div class="free-tag"><i class="fas fa-gift"></i> رایگان</div>`;
             }
             
             let priceHtml = '';
@@ -1141,31 +1149,44 @@
     document.getElementById('sampleTypeBtn')?.addEventListener('click', () => openModal(fontsData[0].image, fontsData[0].name));
     document.getElementById('shopNowBtn')?.addEventListener('click', () => document.querySelector('.products-grid')?.scrollIntoView({ behavior: 'smooth' }));
 
-    function initFilters() {
-        document.querySelectorAll('#filterButtonsGroup .filter-btn').forEach(btn => {
+    function initHomeFilters() {
+        document.querySelectorAll('#homeFilterButtons .filter-btn').forEach(btn => {
             btn.addEventListener('click', () => {
-                document.querySelectorAll('#filterButtonsGroup .filter-btn').forEach(b => b.classList.remove('active'));
+                document.querySelectorAll('#homeFilterButtons .filter-btn').forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
                 currentFilter = btn.dataset.filter;
-                renderProducts();
+                renderProducts(null, false);
+            });
+        });
+    }
+
+    function initFontsPriceFilters() {
+        document.querySelectorAll('#priceFilterButtons .filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('#priceFilterButtons .filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                currentPriceFilter = btn.dataset.pricefilter;
+                renderProducts(null, true);
             });
         });
     }
 
     const dynamicContainer = document.getElementById('dynamicContent');
     const heroSection = document.getElementById('heroSection');
+    
     function setActiveTab(tabId) {
         document.querySelectorAll('.nav-link').forEach(btn => {
             if (btn.dataset.tab === tabId) btn.classList.add('active');
             else btn.classList.remove('active');
         });
+        
         if (tabId === 'home') {
             if (heroSection) heroSection.style.display = 'block';
             dynamicContainer.innerHTML = `
                 <div class="filter-wrapper">
                     <div class="filter-box">
                         <div class="filter-label"><i class="fas fa-filter"></i> دسته‌بندی فونت:</div>
-                        <div class="filter-buttons" id="filterButtonsGroup">
+                        <div class="filter-buttons" id="homeFilterButtons">
                             <button class="filter-btn active" data-filter="all"><i class="fas fa-border-all"></i> همه</button>
                             <button class="filter-btn" data-filter="persian"><i class="fas fa-language"></i> فارسی</button>
                             <button class="filter-btn" data-filter="latin"><i class="fas fa-font"></i> انگلیسی</button>
@@ -1177,9 +1198,35 @@
                 </div>
                 <div class="products-grid" id="productsGrid"></div>
             `;
-            renderProducts();
-            initFilters();
-        } else if (tabId === 'bestsellers') {
+            currentFilter = "all";
+            currentPriceFilter = "all";
+            renderProducts(null, false);
+            initHomeFilters();
+        } 
+        else if (tabId === 'fonts') {
+            if (heroSection) heroSection.style.display = 'none';
+            dynamicContainer.innerHTML = `
+                <div class="filter-wrapper">
+                    <div class="filter-box">
+                        <div class="filter-label"><i class="fas fa-coins"></i> فیلتر بر اساس قیمت:</div>
+                        <div class="filter-buttons" id="priceFilterButtons">
+                            <button class="filter-btn active" data-pricefilter="all"><i class="fas fa-border-all"></i> همه</button>
+                            <button class="filter-btn" data-pricefilter="expensive"><i class="fas fa-gem"></i> گران</button>
+                            <button class="filter-btn" data-pricefilter="cheap"><i class="fas fa-rocket"></i> ارزون</button>
+                            <button class="filter-btn" data-pricefilter="economic"><i class="fas fa-bolt"></i> اقتصادی</button>
+                            <button class="filter-btn" data-pricefilter="special"><i class="fas fa-star"></i> پیشنهاد ویژه</button>
+                            <button class="filter-btn" data-pricefilter="free"><i class="fas fa-gift"></i> رایگان</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="products-grid" id="productsGrid"></div>
+            `;
+            currentFilter = "all";
+            currentPriceFilter = "all";
+            renderProducts(null, true);
+            initFontsPriceFilters();
+        }
+        else if (tabId === 'bestsellers') {
             if (heroSection) heroSection.style.display = 'none';
             dynamicContainer.innerHTML = `
                 <div class="bestseller-header">
@@ -1189,8 +1236,9 @@
                 </div>
                 <div class="products-grid" id="productsGrid"></div>
             `;
-            renderProducts([fontsData[0]]);
-        } else if (tabId === 'blog') {
+            renderProducts([fontsData[0]], false);
+        } 
+        else if (tabId === 'blog') {
             if (heroSection) heroSection.style.display = 'none';
             dynamicContainer.innerHTML = `
                 <div class="blog-container">
@@ -1205,96 +1253,38 @@
                             </div>
                             <div class="blog-text">
                                 <p>سلام دوستان! در این پست قصد داریم به طور کامل و مرحله به مرحله نحوه نصب فونت در سیستمعامل‌های مختلف رو آموزش بدیم. با ما همراه باشید.</p>
-                                
                                 <h4><i class="fas fa-windows"></i> نصب فونت در ویندوز</h4>
                                 <p>برای نصب فونت در ویندوز کافیه این مراحل رو طی کنید:</p>
-                                <ul>
-                                    <li>فایل فونت (با پسوند <strong>.ttf</strong> یا <strong>.otf</strong>) رو دانلود کنید</li>
-                                    <li>روی فایل دانلود شده راست کلیک کرده و گزینه <strong>Install</strong> رو بزنید</li>
-                                    <li>یا فایل رو کپی کنید و در مسیر <strong>C:\Windows\Fonts</strong> پیست کنید</li>
-                                    <li>فونت نصب شد! نرم‌افزار خودتون رو ریستارت کنید تا فونت رو ببینید</li>
-                                </ul>
-                                <div class="code-block">C:\Windows\Fonts</div>
-                                
+                                <ul><li>فایل فونت (با پسوند <strong>.ttf</strong> یا <strong>.otf</strong>) رو دانلود کنید</li><li>روی فایل دانلود شده راست کلیک کرده و گزینه <strong>Install</strong> رو بزنید</li><li>یا فایل رو کپی کنید و در مسیر <strong>C:\\Windows\\Fonts</strong> پیست کنید</li><li>فونت نصب شد! نرم‌افزار خودتون رو ریستارت کنید تا فونت رو ببینید</li></ul>
+                                <div class="code-block">C:\\Windows\\Fonts</div>
                                 <h4><i class="fas fa-android"></i> نصب فونت در اندروید</h4>
-                                <ul>
-                                    <li>فایل فونت رو روی گوشی خود دانلود کنید</li>
-                                    <li>از برنامه‌های <strong>iFont</strong> یا <strong>zFont</strong> استفاده کنید</li>
-                                    <li>برنامه رو باز کنید، فونت رو انتخاب کنید و گزینه Install رو بزنید</li>
-                                    <li>گوشی رو ریستارت کنید تا تغییرات اعمال بشه</li>
-                                </ul>
-                                
+                                <ul><li>فایل فونت رو روی گوشی خود دانلود کنید</li><li>از برنامه‌های <strong>iFont</strong> یا <strong>zFont</strong> استفاده کنید</li><li>برنامه رو باز کنید، فونت رو انتخاب کنید و گزینه Install رو بزنید</li><li>گوشی رو ریستارت کنید تا تغییرات اعمال بشه</li></ul>
                                 <h4><i class="fas fa-apple"></i> نصب فونت در مک (macOS)</h4>
-                                <ul>
-                                    <li>فایل فونت رو دانلود کنید</li>
-                                    <li>روی فایل دابل کلیک کنید تا در برنامه Font Book باز بشه</li>
-                                    <li>دکمه <strong>Install Font</strong> رو بزنید</li>
-                                    <li>فونت نصب شد و در تمام برنامه‌ها قابل استفاده هست</li>
-                                </ul>
-                                
-                                <h4><i class="fas fa-lightbulb"></i> ترفندهای عیب‌یابی</h4>
-                                <ul>
-                                    <li>اگه فونت رو نمیبینید، نرم‌افزار رو کامل ببندید و دوباره باز کنید</li>
-                                    <li>مطمئن بشید فایل فونت خراب نباشه (با نصب روی سیستم دیگه تست کنید)</li>
-                                    <li>بعضی از نرم‌افزارها برای نمایش فونت جدید نیاز به ریستارت سیستم دارند</li>
-                                </ul>
-                                
-                                <p style="margin-top: 20px; padding: 12px; background: #FFC80020; border-radius: 16px; text-align: center;">
-                                    <i class="fas fa-question-circle"></i> اگر سوالی دارید، توی بخش تماس با ما مطرح کنید. موفق باشید!
-                                </p>
+                                <ul><li>فایل فونت رو دانلود کنید</li><li>روی فایل دابل کلیک کنید تا در برنامه Font Book باز بشه</li><li>دکمه <strong>Install Font</strong> رو بزنید</li><li>فونت نصب شد و در تمام برنامه‌ها قابل استفاده هست</li></ul>
+                                <p style="margin-top:20px; padding:12px; background:#FFC80020; border-radius:16px; text-align:center;"><i class="fas fa-question-circle"></i> اگر سوالی دارید، توی بخش تماس با ما مطرح کنید.</p>
                             </div>
                         </div>
                     </div>
                 </div>
             `;
-        } else if (tabId === 'contact') {
+        } 
+        else if (tabId === 'contact') {
             if (heroSection) heroSection.style.display = 'none';
             dynamicContainer.innerHTML = `
                 <div class="contact-box">
                     <h2><i class="fas fa-phone-alt"></i> تماس با ما</h2>
-                    <div class="contact-item">
-                        <div class="label">
-                            <i class="fas fa-user-astronaut"></i>
-                            سازنده سایت
-                        </div>
-                        <div class="value">
-                            <a href="https://eitaa.com/ya_ali_ir" target="_blank">
-                                <i class="fab fa-eitaa"></i> @ya_ali_ir
-                            </a>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="label">
-                            <i class="fas fa-paper-plane"></i>
-                            کانال‌هامون
-                        </div>
-                        <div class="value">
-                            <a href="https://eitaa.com/mim_non_marjae_font" target="_blank">
-                                <i class="fab fa-eitaa"></i> کانال میم نون
-                            </a>
-                        </div>
-                    </div>
-                    <div class="contact-note">
-                        جهت ارتباط، سوالات و پشتیبانی با ما در ایتا در ارتباط باشید.
-                    </div>
+                    <div class="contact-item"><div class="label"><i class="fas fa-user-astronaut"></i> سازنده سایت</div><div class="value"><a href="https://eitaa.com/ya_ali_ir" target="_blank"><i class="fab fa-eitaa"></i> @ya_ali_ir</a></div></div>
+                    <div class="contact-item"><div class="label"><i class="fas fa-paper-plane"></i> کانال‌هامون</div><div class="value"><a href="https://eitaa.com/mim_non_marjae_font" target="_blank"><i class="fab fa-eitaa"></i> کانال میم نون</a></div></div>
+                    <div class="contact-note">جهت ارتباط، سوالات و پشتیبانی با ما در ایتا در ارتباط باشید.</div>
                 </div>
             `;
-        } else {
+        } 
+        else {
             if (heroSection) heroSection.style.display = 'none';
-            
-            let title = "";
-            let icon = "";
-            if (tabId === 'fonts') { title = "فونت‌ها"; icon = "fa-font"; }
-            else if (tabId === 'mimnoon') { title = "گروه میم نون"; icon = "fa-users"; }
+            let title = "", icon = "";
+            if (tabId === 'mimnoon') { title = "گروه میم نون"; icon = "fa-users"; }
             else { title = "در حال به‌روزرسانی"; icon = "fa-tools"; }
-            
-            dynamicContainer.innerHTML = `
-                <div class="coming-soon-box">
-                    <i class="fas ${icon}"></i>
-                    <h3>${title}</h3>
-                    <p>به زودی...</p>
-                </div>
-            `;
+            dynamicContainer.innerHTML = `<div class="coming-soon-box"><i class="fas ${icon}"></i><h3>${title}</h3><p>به زودی...</p></div>`;
         }
     }
 
@@ -1303,4 +1293,4 @@
     updateCartUI();
 </script>
 </body>
-    </html>
+                        </html>
