@@ -345,7 +345,6 @@
             margin-right: 8px;
         }
 
-        /* استایل باکس تخفیف تمام شده */
         .expired-box {
             background: #3a1a1a;
             border-radius: 40px;
@@ -654,8 +653,8 @@
             id: 2,
             name: "فونت منشــور!",
             category: "persian",
-            price: 500000,
-            oldPrice: null,
+            price: 360000,
+            oldPrice: 500000,
             image: "https://uploadkon.ir/uploads/431113_26IMG-20260613-165046-564.jpg",
             description: "یک فونت خفن برای پوستر و کاور | طراحی خاص و منحصر به فرد",
             icon: "fa-crown",
@@ -673,7 +672,7 @@
         let filtered = filteredFonts ? filteredFonts : fontsData.filter(f => currentFilter === "all" || f.category === currentFilter);
         filtered.sort((a, b) => b.id - a.id);
         container.innerHTML = filtered.map(font => {
-            // باکس تخفیف تمام شده: برای فونت منشور که offerExpired: true هست، نمایش بده (حتی اگر isSpecial: true باشه)
+            // باکس تخفیف تمام شده
             let expiredHtml = '';
             if (font.offerExpired === true) {
                 expiredHtml = `<div class="expired-box"><i class="fas fa-clock"></i> <span>مدت تخفیف به پایان رسید</span></div>`;
@@ -925,4 +924,4 @@
     updateCartUI();
 </script>
 </body>
-    </html>
+                </html>
