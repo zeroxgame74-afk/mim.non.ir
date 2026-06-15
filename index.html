@@ -21,7 +21,6 @@
             line-height: 1.5;
         }
 
-        /* ========== اجبار فونت بُلد برای همه چیز ========== */
         body, html, div, section, nav, button, span, p, h1, h2, h3, h4, a, li, ul, .nav-link, .cart-icon, .logo-area h1, .logo-area p,
         .hero-text h2, .hero-text h2 span, .hero-text p, .hero-stats .stat h3, .hero-stats .stat span,
         .btn-primary, .btn-outline, .filter-label, .filter-btn, .font-title, .font-cat, .offer-tag, .special-offer,
@@ -34,7 +33,6 @@
             font-weight: bold !important;
         }
 
-        /* درشت‌تر کردن بعضی عناصر خاص */
         .hero-text h2 { font-size: 3rem !important; font-weight: 900 !important; }
         .hero-text p { font-size: 1.3rem !important; }
         .font-title { font-size: 1.8rem !important; font-weight: 900 !important; }
@@ -43,7 +41,135 @@
         .nav-link { font-size: 1rem !important; font-weight: 800 !important; }
         .cart-icon { font-weight: 800 !important; }
 
-        /* ========== استایل باکس بلاگ ========== */
+        .filter-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+        }
+        .filter-btn i {
+            margin-left: 5px;
+        }
+
+        .coming-soon-box {
+            text-align: center;
+            padding: 30px 20px;
+            background: #1f1f1f;
+            border-radius: 28px;
+            margin: 60px auto;
+            border: 1px dashed #FFC800;
+            max-width: 400px;
+            width: 90%;
+        }
+        .coming-soon-box i {
+            font-size: 2rem;
+            color: #FFC800;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+        .coming-soon-box h3 {
+            font-size: 1.3rem;
+            color: #FFC800;
+            margin: 10px 0;
+            font-weight: 900;
+        }
+        .coming-soon-box p {
+            font-size: 0.9rem;
+            font-weight: bold;
+            color: #ccc;
+        }
+
+        .contact-box {
+            text-align: center;
+            padding: 30px 25px;
+            background: #1f1f1f;
+            border-radius: 32px;
+            margin: 50px auto;
+            border: 1px solid #FFC800;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+        }
+        .contact-box h2 {
+            font-size: 1.8rem;
+            color: #FFC800;
+            margin-bottom: 25px;
+            font-weight: 900;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .contact-item {
+            background: #2a2a2a;
+            border-radius: 60px;
+            padding: 14px 20px;
+            margin: 15px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+            transition: 0.2s;
+            border: 1px solid #FFC80040;
+        }
+        .contact-item:hover {
+            border-color: #FFC800;
+            transform: translateY(-2px);
+        }
+        .contact-item .label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #FFC800;
+            font-size: 1rem;
+        }
+        .contact-item .value a {
+            color: #e0e0e0;
+            text-decoration: none;
+            font-size: 0.9rem;
+            background: #1f1f1f;
+            padding: 8px 16px;
+            border-radius: 40px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .contact-item .value a:hover {
+            color: #FFC800;
+            background: #1a1a1a;
+        }
+        .contact-note {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px dashed #3a3a3a;
+            font-size: 0.7rem;
+            color: #888;
+        }
+
+        .bestseller-header {
+            text-align: center;
+            margin: 40px auto 30px;
+            padding: 20px 30px;
+            background: linear-gradient(135deg, #FFC80020, #1f1f1f);
+            border-radius: 50px;
+            border: 2px solid #FFC800;
+            max-width: 500px;
+            width: 90%;
+        }
+        .bestseller-header i {
+            font-size: 1.8rem;
+            color: #FFC800;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+        .bestseller-header h2 {
+            font-size: 1.6rem;
+            font-weight: 900;
+            color: #FFC800;
+            margin: 10px 0;
+        }
+
         .blog-container {
             max-width: 900px;
             margin: 40px auto;
@@ -54,7 +180,6 @@
             border-radius: 32px;
             border: 1px solid #FFC800;
             overflow: hidden;
-            margin-bottom: 30px;
         }
         .blog-image {
             width: 100%;
@@ -102,9 +227,6 @@
             margin-right: 20px;
             margin-bottom: 15px;
         }
-        .blog-text li {
-            margin-bottom: 8px;
-        }
         .code-block {
             background: #0f0f0f;
             padding: 12px 15px;
@@ -116,141 +238,6 @@
             font-size: 0.85rem;
             border-right: 3px solid #FFC800;
             overflow-x: auto;
-        }
-
-        /* ========== استایل باکس "به زودی" ========== */
-        .coming-soon-box {
-            text-align: center;
-            padding: 30px 20px;
-            background: #1f1f1f;
-            border-radius: 28px;
-            margin: 60px auto;
-            border: 1px dashed #FFC800;
-            max-width: 400px;
-            width: 90%;
-        }
-        .coming-soon-box i {
-            font-size: 2rem;
-            color: #FFC800;
-            margin-bottom: 10px;
-            display: inline-block;
-        }
-        .coming-soon-box h3 {
-            font-size: 1.3rem;
-            color: #FFC800;
-            margin: 10px 0;
-            font-weight: 900;
-        }
-        .coming-soon-box p {
-            font-size: 0.9rem;
-            font-weight: bold;
-            color: #ccc;
-        }
-
-        /* ========== استایل باکس تماس ========== */
-        .contact-box {
-            text-align: center;
-            padding: 30px 25px;
-            background: #1f1f1f;
-            border-radius: 32px;
-            margin: 50px auto;
-            border: 1px solid #FFC800;
-            max-width: 500px;
-            width: 90%;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-        }
-        .contact-box h2 {
-            font-size: 1.8rem;
-            color: #FFC800;
-            margin-bottom: 25px;
-            font-weight: 900;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
-        .contact-box h2 i {
-            font-size: 1.8rem;
-            color: #FFC800;
-        }
-        .contact-item {
-            background: #2a2a2a;
-            border-radius: 60px;
-            padding: 14px 20px;
-            margin: 15px 0;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 12px;
-            transition: 0.2s;
-            border: 1px solid #FFC80040;
-        }
-        .contact-item:hover {
-            border-color: #FFC800;
-            transform: translateY(-2px);
-        }
-        .contact-item .label {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: #FFC800;
-            font-size: 1rem;
-        }
-        .contact-item .label i {
-            font-size: 1.2rem;
-        }
-        .contact-item .value a {
-            color: #e0e0e0;
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: 0.2s;
-            background: #1f1f1f;
-            padding: 8px 16px;
-            border-radius: 40px;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-        }
-        .contact-item .value a:hover {
-            color: #FFC800;
-            background: #1a1a1a;
-        }
-        .contact-note {
-            margin-top: 20px;
-            padding-top: 15px;
-            border-top: 1px dashed #3a3a3a;
-            font-size: 0.7rem;
-            color: #888;
-        }
-
-        /* ========== استایل باکس پرفروش‌ها ========== */
-        .bestseller-header {
-            text-align: center;
-            margin: 40px auto 30px;
-            padding: 20px 30px;
-            background: linear-gradient(135deg, #FFC80020, #1f1f1f);
-            border-radius: 50px;
-            border: 2px solid #FFC800;
-            max-width: 500px;
-            width: 90%;
-        }
-        .bestseller-header i {
-            font-size: 1.8rem;
-            color: #FFC800;
-            margin-bottom: 10px;
-            display: inline-block;
-        }
-        .bestseller-header h2 {
-            font-size: 1.6rem;
-            font-weight: 900;
-            color: #FFC800;
-            margin: 10px 0;
-        }
-        .bestseller-header p {
-            font-size: 0.9rem;
-            font-weight: bold;
-            color: #ccc;
         }
 
         ::-webkit-scrollbar { width: 6px; }
@@ -284,7 +271,6 @@
             right: 20px;
             text-align: right;
         }
-
         .logo-area h1 {
             font-size: 1.6rem;
             background: linear-gradient(135deg, #FFC800 30%, #ffdd55 80%);
@@ -292,7 +278,6 @@
             background-clip: text;
             color: transparent;
         }
-
         .logo-area p {
             font-size: 0.7rem;
             color: #ccc;
@@ -317,7 +302,6 @@
             border: none;
             transition: 0.2s;
         }
-
         .nav-link i { color: #FFC800; font-size: 0.95rem; }
         .nav-link:hover, .nav-link.active { color: #FFC800; }
 
@@ -334,7 +318,6 @@
             position: absolute;
             left: 20px;
         }
-
         .cart-icon i { color: #FFC800; font-size: 1rem; }
         #cartCount {
             background: #FFC800;
@@ -351,21 +334,18 @@
             padding: 60px 0;
             border-bottom: 1px solid #3a3a3a;
         }
-
         .hero-grid {
             max-width: 1400px;
             margin: 0 auto;
             padding: 0 20px;
             text-align: center;
         }
-
         .hero-text h2 span {
             color: #FFC800;
             border-bottom: 3px solid #FFC800;
             display: inline-block;
             padding-bottom: 5px;
         }
-
         .hero-text p {
             margin-bottom: 25px;
             color: #d0d0d0;
@@ -373,7 +353,6 @@
             margin-left: auto;
             margin-right: auto;
         }
-
         .hero-buttons {
             display: flex;
             gap: 18px;
@@ -381,7 +360,6 @@
             flex-wrap: wrap;
             justify-content: center;
         }
-
         .btn-primary {
             background: #FFC800;
             color: #1f1f1f;
@@ -394,7 +372,6 @@
             align-items: center;
             gap: 8px;
         }
-
         .btn-outline {
             background: transparent;
             border: 2px solid #FFC800;
@@ -407,13 +384,11 @@
             align-items: center;
             gap: 8px;
         }
-
         .hero-stats {
             display: flex;
             gap: 35px;
             justify-content: center;
         }
-
         .stat h3 {
             color: #FFC800;
             font-size: 1.5rem;
@@ -424,7 +399,6 @@
             margin: 20px auto;
             padding: 0 20px;
         }
-
         .filter-box {
             background: #1f1f1f;
             border-radius: 40px;
@@ -435,7 +409,6 @@
             align-items: center;
             gap: 10px;
         }
-
         .filter-label {
             display: flex;
             align-items: center;
@@ -445,32 +418,6 @@
             border-bottom: 1px solid #3a3a3a;
             padding-bottom: 6px;
         }
-
-        .filter-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            justify-content: center;
-        }
-
-        .filter-btn {
-            background: #2a2a2a;
-            border: none;
-            padding: 6px 18px;
-            border-radius: 40px;
-            color: #e0e0e0;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .filter-btn i { color: #FFC800; font-size: 0.8rem; }
-        .filter-btn.active, .filter-btn:hover {
-            background: #FFC800;
-            color: #121212;
-        }
-        .filter-btn.active i, .filter-btn:hover i { color: #121212; }
 
         .products-grid {
             display: grid;
@@ -488,23 +435,19 @@
             border: 1px solid #2d2d2d;
             transition: 0.2s;
         }
-
         .font-card:hover {
             transform: translateY(-5px);
             border-color: #FFC80080;
             box-shadow: 0 10px 25px rgba(0,0,0,0.3);
         }
-
         .font-preview img {
             width: 100%;
             aspect-ratio: 1/1;
             object-fit: cover;
         }
-
         .font-details {
             padding: 16px 18px 20px;
         }
-
         .font-title {
             color: #FFC800;
             display: flex;
@@ -512,14 +455,12 @@
             gap: 10px;
             margin-bottom: 12px;
         }
-
         .tags-row {
             display: flex;
             gap: 10px;
             margin-bottom: 12px;
             flex-wrap: wrap;
         }
-
         .font-cat, .offer-tag, .special-offer, .free-tag {
             display: inline-flex;
             align-items: center;
@@ -531,7 +472,6 @@
             border: 1px solid #FFC800;
             color: #FFC800;
         }
-
         .font-desc {
             font-size: 0.85rem;
             color: #c0c0c0;
@@ -540,11 +480,9 @@
             border-top: 1px dashed #3a3a3a;
             border-bottom: 1px dashed #3a3a3a;
         }
-
         .price-wrapper {
             margin: 10px 0;
         }
-
         .current-price {
             color: #FFC800;
         }
@@ -556,14 +494,12 @@
             align-items: center;
             gap: 6px;
         }
-
         .old-price {
             font-size: 0.85rem;
             text-decoration: line-through;
             color: #888;
             margin-right: 8px;
         }
-
         .expired-box {
             background: #3a1a1a;
             border-radius: 40px;
@@ -576,21 +512,13 @@
             justify-content: center;
             gap: 8px;
         }
-        .expired-box i {
-            color: #ff8888;
-            font-size: 0.8rem;
-        }
-        .expired-box span {
-            color: #ffaaaa;
-            font-size: 0.8rem;
-        }
-
+        .expired-box i { color: #ff8888; font-size: 0.8rem; }
+        .expired-box span { color: #ffaaaa; font-size: 0.8rem; }
         .card-actions {
             display: flex;
             gap: 10px;
             margin-top: 12px;
         }
-
         .btn-buy {
             background: #FFC800;
             border: none;
@@ -605,7 +533,6 @@
             gap: 8px;
             font-size: 0.9rem;
         }
-
         .btn-download {
             background: #FFC800;
             border: none;
@@ -620,13 +547,11 @@
             gap: 8px;
             font-size: 0.9rem;
             text-decoration: none;
-            transition: 0.2s;
         }
         .btn-download:hover {
             background: #e6b400;
             transform: scale(1.02);
         }
-
         .btn-preview {
             background: #2c2c2c;
             border: none;
@@ -643,7 +568,6 @@
             padding: 30px 0 25px;
             border-top: 2px solid #FFC800;
         }
-
         .footer-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -652,25 +576,21 @@
             margin: 0 auto;
             padding: 0 20px 25px;
         }
-
         .footer-col h4 {
             color: #FFC800;
             font-size: 1rem;
             margin-bottom: 10px;
         }
-
         .footer-col p, .footer-col a {
             color: #b0b0b0;
             font-size: 0.8rem;
             text-decoration: none;
         }
-
         .social-icons {
             display: flex;
             gap: 10px;
             margin-top: 10px;
         }
-
         .social-icons a {
             background: #222;
             width: 30px;
@@ -681,7 +601,6 @@
             justify-content: center;
             color: #FFC800;
         }
-
         .copyright {
             text-align: center;
             padding-top: 20px;
@@ -704,7 +623,6 @@
             justify-content: center;
             z-index: 2000;
         }
-
         .modal-content, .cart-modal-content, .payment-modal-content {
             background: #1e1e1e;
             max-width: 420px;
@@ -716,7 +634,6 @@
             max-height: 80vh;
             overflow-y: auto;
         }
-
         .random-code {
             font-size: 1.3rem;
             background: #FFC800;
@@ -725,7 +642,6 @@
             border-radius: 40px;
             color: #121212;
         }
-
         .checkout-btn, .close-modal, .close-cart, .close-payment {
             background: #FFC800;
             border: none;
@@ -736,7 +652,6 @@
             width: 100%;
             margin-top: 12px;
         }
-
         .cart-item {
             background: #2a2a2a;
             padding: 12px;
@@ -745,7 +660,6 @@
             text-align: right;
             margin-bottom: 10px;
         }
-
         .cart-total {
             text-align: left;
             padding: 10px 0;
@@ -766,7 +680,6 @@
             .hero-text p { font-size: 1rem !important; }
             .font-title { font-size: 1.4rem !important; }
             .blog-title { font-size: 1.4rem; }
-            .blog-content { padding: 18px; }
         }
     </style>
 </head>
@@ -916,11 +829,26 @@
     let cart = [];
     let currentFilter = "all";
 
-    function renderProducts(filteredFonts = null) {
+    function getFilteredFonts() {
+        if (currentFilter === "all") return fontsData;
+        if (currentFilter === "cheap") return fontsData.filter(f => f.price > 0 && f.price < 200000);
+        if (currentFilter === "economic") return fontsData.filter(f => f.price >= 200000 && f.price <= 300000);
+        if (currentFilter === "expensive") return fontsData.filter(f => f.price > 300000);
+        if (currentFilter === "special") return fontsData.filter(f => f.isSpecial === true);
+        return fontsData;
+    }
+
+    function renderProducts() {
         const container = document.getElementById("productsGrid");
         if (!container) return;
-        let filtered = filteredFonts ? filteredFonts : fontsData.filter(f => currentFilter === "all" || f.category === currentFilter);
+        let filtered = getFilteredFonts();
         filtered.sort((a, b) => b.id - a.id);
+        
+        if (filtered.length === 0) {
+            container.innerHTML = `<div style="text-align:center; padding:50px; background:#1f1f1f; border-radius:28px; grid-column:1/-1;">هیچ فونتی با این دسته‌بندی یافت نشد</div>`;
+            return;
+        }
+        
         container.innerHTML = filtered.map(font => {
             let expiredHtml = '';
             if (font.offerExpired === true && !font.isFree) {
@@ -1154,11 +1082,13 @@
 
     const dynamicContainer = document.getElementById('dynamicContent');
     const heroSection = document.getElementById('heroSection');
+    
     function setActiveTab(tabId) {
         document.querySelectorAll('.nav-link').forEach(btn => {
             if (btn.dataset.tab === tabId) btn.classList.add('active');
             else btn.classList.remove('active');
         });
+        
         if (tabId === 'home') {
             if (heroSection) heroSection.style.display = 'block';
             dynamicContainer.innerHTML = `
@@ -1167,11 +1097,10 @@
                         <div class="filter-label"><i class="fas fa-filter"></i> دسته‌بندی فونت:</div>
                         <div class="filter-buttons" id="filterButtonsGroup">
                             <button class="filter-btn active" data-filter="all"><i class="fas fa-border-all"></i> همه</button>
-                            <button class="filter-btn" data-filter="persian"><i class="fas fa-language"></i> فارسی</button>
-                            <button class="filter-btn" data-filter="latin"><i class="fas fa-font"></i> انگلیسی</button>
-                            <button class="filter-btn" data-filter="symbol"><i class="fas fa-hashtag"></i> سمبل</button>
-                            <button class="filter-btn" data-filter="handwritten"><i class="fas fa-pen-fancy"></i> دست‌نویس</button>
-                            <button class="filter-btn" data-filter="display"><i class="fas fa-tv"></i> نمایشی</button>
+                            <button class="filter-btn" data-filter="cheap"><i class="fas fa-coins"></i> ارزون</button>
+                            <button class="filter-btn" data-filter="economic"><i class="fas fa-basket-shopping"></i> اقتصادی</button>
+                            <button class="filter-btn" data-filter="expensive"><i class="fas fa-gem"></i> گران</button>
+                            <button class="filter-btn" data-filter="special"><i class="fas fa-crown"></i> پیشنهاد ویژه</button>
                         </div>
                     </div>
                 </div>
@@ -1189,7 +1118,26 @@
                 </div>
                 <div class="products-grid" id="productsGrid"></div>
             `;
-            renderProducts([fontsData[0]]);
+            setTimeout(() => {
+                const container = document.getElementById("productsGrid");
+                if (container) {
+                    container.innerHTML = `
+                        <div class="font-card">
+                            <div class="font-preview">
+                                <img src="${fontsData[0].image}" alt="${fontsData[0].name}" onerror="this.src='https://placehold.co/600x600/2a2a2a/FFC800?text=Font'">
+                            </div>
+                            <div class="font-details">
+                                <div class="font-title"><i class="fas ${fontsData[0].icon}"></i> ${fontsData[0].name}</div>
+                                <div class="tags-row"><div class="font-cat"><i class="fas fa-tag"></i> فارسی</div><div class="offer-tag"><i class="fas fa-gift"></i> ویژه</div></div>
+                                <div class="font-desc"><i class="fas fa-info-circle"></i> ${fontsData[0].description}</div>
+                                <div class="price-wrapper"><span class="current-price">${fontsData[0].price.toLocaleString()} تومان</span><span class="old-price">${fontsData[0].oldPrice.toLocaleString()} تومان</span></div>
+                                <div class="card-actions"><button class="btn-buy" data-id="${fontsData[0].id}" data-name="${fontsData[0].name}" data-price="${fontsData[0].price}"><i class="fas fa-shopping-bag"></i> خرید</button><button class="btn-preview" data-image="${fontsData[0].image}" data-name="${fontsData[0].name}"><i class="fas fa-eye"></i></button></div>
+                            </div>
+                        </div>
+                    `;
+                    attachProductEvents();
+                }
+            }, 10);
         } else if (tabId === 'blog') {
             if (heroSection) heroSection.style.display = 'none';
             dynamicContainer.innerHTML = `
@@ -1205,43 +1153,15 @@
                             </div>
                             <div class="blog-text">
                                 <p>سلام دوستان! در این پست قصد داریم به طور کامل و مرحله به مرحله نحوه نصب فونت در سیستمعامل‌های مختلف رو آموزش بدیم. با ما همراه باشید.</p>
-                                
                                 <h4><i class="fas fa-windows"></i> نصب فونت در ویندوز</h4>
                                 <p>برای نصب فونت در ویندوز کافیه این مراحل رو طی کنید:</p>
-                                <ul>
-                                    <li>فایل فونت (با پسوند <strong>.ttf</strong> یا <strong>.otf</strong>) رو دانلود کنید</li>
-                                    <li>روی فایل دانلود شده راست کلیک کرده و گزینه <strong>Install</strong> رو بزنید</li>
-                                    <li>یا فایل رو کپی کنید و در مسیر <strong>C:\Windows\Fonts</strong> پیست کنید</li>
-                                    <li>فونت نصب شد! نرم‌افزار خودتون رو ریستارت کنید تا فونت رو ببینید</li>
-                                </ul>
+                                <ul><li>فایل فونت (با پسوند <strong>.ttf</strong> یا <strong>.otf</strong>) رو دانلود کنید</li><li>روی فایل دانلود شده راست کلیک کرده و گزینه <strong>Install</strong> رو بزنید</li><li>یا فایل رو کپی کنید و در مسیر <strong>C:\Windows\Fonts</strong> پیست کنید</li><li>فونت نصب شد! نرم‌افزار خودتون رو ریستارت کنید تا فونت رو ببینید</li></ul>
                                 <div class="code-block">C:\Windows\Fonts</div>
-                                
                                 <h4><i class="fas fa-android"></i> نصب فونت در اندروید</h4>
-                                <ul>
-                                    <li>فایل فونت رو روی گوشی خود دانلود کنید</li>
-                                    <li>از برنامه‌های <strong>iFont</strong> یا <strong>zFont</strong> استفاده کنید</li>
-                                    <li>برنامه رو باز کنید، فونت رو انتخاب کنید و گزینه Install رو بزنید</li>
-                                    <li>گوشی رو ریستارت کنید تا تغییرات اعمال بشه</li>
-                                </ul>
-                                
+                                <ul><li>فایل فونت رو روی گوشی خود دانلود کنید</li><li>از برنامه‌های <strong>iFont</strong> یا <strong>zFont</strong> استفاده کنید</li><li>برنامه رو باز کنید، فونت رو انتخاب کنید و گزینه Install رو بزنید</li><li>گوشی رو ریستارت کنید تا تغییرات اعمال بشه</li></ul>
                                 <h4><i class="fas fa-apple"></i> نصب فونت در مک (macOS)</h4>
-                                <ul>
-                                    <li>فایل فونت رو دانلود کنید</li>
-                                    <li>روی فایل دابل کلیک کنید تا در برنامه Font Book باز بشه</li>
-                                    <li>دکمه <strong>Install Font</strong> رو بزنید</li>
-                                    <li>فونت نصب شد و در تمام برنامه‌ها قابل استفاده هست</li>
-                                </ul>
-                                
-                                <h4><i class="fas fa-lightbulb"></i> ترفندهای عیب‌یابی</h4>
-                                <ul>
-                                    <li>اگه فونت رو نمیبینید، نرم‌افزار رو کامل ببندید و دوباره باز کنید</li>
-                                    <li>مطمئن بشید فایل فونت خراب نباشه (با نصب روی سیستم دیگه تست کنید)</li>
-                                    <li>بعضی از نرم‌افزارها برای نمایش فونت جدید نیاز به ریستارت سیستم دارند</li>
-                                </ul>
-                                
-                                <p style="margin-top: 20px; padding: 12px; background: #FFC80020; border-radius: 16px; text-align: center;">
-                                    <i class="fas fa-question-circle"></i> اگر سوالی دارید، توی بخش تماس با ما مطرح کنید. موفق باشید!
-                                </p>
+                                <ul><li>فایل فونت رو دانلود کنید</li><li>روی فایل دابل کلیک کنید تا در برنامه Font Book باز بشه</li><li>دکمه <strong>Install Font</strong> رو بزنید</li><li>فونت نصب شد و در تمام برنامه‌ها قابل استفاده هست</li></ul>
+                                <p style="margin-top:20px;padding:12px;background:#FFC80020;border-radius:16px;text-align:center;"><i class="fas fa-question-circle"></i> اگر سوالی دارید، توی بخش تماس با ما مطرح کنید. موفق باشید!</p>
                             </div>
                         </div>
                     </div>
@@ -1252,49 +1172,18 @@
             dynamicContainer.innerHTML = `
                 <div class="contact-box">
                     <h2><i class="fas fa-phone-alt"></i> تماس با ما</h2>
-                    <div class="contact-item">
-                        <div class="label">
-                            <i class="fas fa-user-astronaut"></i>
-                            سازنده سایت
-                        </div>
-                        <div class="value">
-                            <a href="https://eitaa.com/ya_ali_ir" target="_blank">
-                                <i class="fab fa-eitaa"></i> @ya_ali_ir
-                            </a>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="label">
-                            <i class="fas fa-paper-plane"></i>
-                            کانال‌هامون
-                        </div>
-                        <div class="value">
-                            <a href="https://eitaa.com/mim_non_marjae_font" target="_blank">
-                                <i class="fab fa-eitaa"></i> کانال میم نون
-                            </a>
-                        </div>
-                    </div>
-                    <div class="contact-note">
-                        جهت ارتباط، سوالات و پشتیبانی با ما در ایتا در ارتباط باشید.
-                    </div>
+                    <div class="contact-item"><div class="label"><i class="fas fa-user-astronaut"></i> سازنده سایت</div><div class="value"><a href="https://eitaa.com/ya_ali_ir" target="_blank"><i class="fab fa-eitaa"></i> @ya_ali_ir</a></div></div>
+                    <div class="contact-item"><div class="label"><i class="fas fa-paper-plane"></i> کانال‌هامون</div><div class="value"><a href="https://eitaa.com/mim_non_marjae_font" target="_blank"><i class="fab fa-eitaa"></i> کانال میم نون</a></div></div>
+                    <div class="contact-note">جهت ارتباط، سوالات و پشتیبانی با ما در ایتا در ارتباط باشید.</div>
                 </div>
             `;
         } else {
             if (heroSection) heroSection.style.display = 'none';
-            
-            let title = "";
-            let icon = "";
+            let title = "", icon = "";
             if (tabId === 'fonts') { title = "فونت‌ها"; icon = "fa-font"; }
             else if (tabId === 'mimnoon') { title = "گروه میم نون"; icon = "fa-users"; }
             else { title = "در حال به‌روزرسانی"; icon = "fa-tools"; }
-            
-            dynamicContainer.innerHTML = `
-                <div class="coming-soon-box">
-                    <i class="fas ${icon}"></i>
-                    <h3>${title}</h3>
-                    <p>به زودی...</p>
-                </div>
-            `;
+            dynamicContainer.innerHTML = `<div class="coming-soon-box"><i class="fas ${icon}"></i><h3>${title}</h3><p>به زودی...</p></div>`;
         }
     }
 
@@ -1303,4 +1192,4 @@
     updateCartUI();
 </script>
 </body>
-    </html>
+            </html>
