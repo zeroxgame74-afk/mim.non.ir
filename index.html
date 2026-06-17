@@ -150,7 +150,7 @@
             border-radius: 32px;
             margin: 50px auto;
             border: 1px solid #FFC800;
-            max-width: 600px;
+            max-width: 700px;
             width: 90%;
             box-shadow: 0 5px 20px rgba(0,0,0,0.3);
         }
@@ -164,11 +164,16 @@
             justify-content: center;
             gap: 10px;
         }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
         .contact-item {
             background: #2a2a2a;
             border-radius: 60px;
             padding: 14px 20px;
-            margin: 15px 0;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -176,6 +181,7 @@
             gap: 12px;
             transition: 0.2s;
             border: 1px solid #FFC80040;
+            margin: 0;
         }
         .contact-item:hover {
             border-color: #FFC800;
@@ -186,19 +192,19 @@
             align-items: center;
             gap: 10px;
             color: #FFC800;
-            font-size: 1rem;
+            font-size: 0.9rem;
         }
         .contact-item .label i {
-            font-size: 1.1rem;
+            font-size: 1rem;
             color: #FFC800;
         }
         .contact-item .value a {
             color: #e0e0e0;
             text-decoration: none;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             transition: 0.2s;
             background: #1f1f1f;
-            padding: 8px 16px;
+            padding: 6px 14px;
             border-radius: 40px;
             display: inline-flex;
             align-items: center;
@@ -208,12 +214,21 @@
             color: #FFC800;
             background: #1a1a1a;
         }
+        .contact-item-full {
+            grid-column: 1 / -1;
+        }
         .contact-note {
             margin-top: 20px;
             padding-top: 15px;
             border-top: 1px dashed #3a3a3a;
             font-size: 0.7rem;
             color: #888;
+        }
+
+        @media (max-width: 600px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         .bestseller-header {
@@ -1321,18 +1336,31 @@
             dynamicContainer.innerHTML = `
                 <div class="contact-box">
                     <h2><i class="fas fa-phone-alt"></i> تماس با ما</h2>
-                    <div class="contact-item">
-                        <div class="label">
-                            <i class="fas fa-user-astronaut"></i>
-                            سازنده سایت
+                    <div class="contact-grid">
+                        <div class="contact-item">
+                            <div class="label">
+                                <i class="fas fa-user-astronaut"></i>
+                                سازنده سایت
+                            </div>
+                            <div class="value">
+                                <a href="https://eitaa.com/ya_ali_ir" target="_blank">
+                                    <i class="fab fa-eitaa"></i> @ya_ali_ir
+                                </a>
+                            </div>
                         </div>
-                        <div class="value">
-                            <a href="https://eitaa.com/ya_ali_ir" target="_blank">
-                                <i class="fab fa-eitaa"></i> @ya_ali_ir
-                            </a>
+                        <div class="contact-item">
+                            <div class="label">
+                                <i class="fas fa-user-astronaut"></i>
+                                سازنده سایت (اکانت دوم)
+                            </div>
+                            <div class="value">
+                                <a href="https://rubika.ir/mohamad_hossein_ev18" target="_blank">
+                                    <i class="fas fa-video"></i> mohamad_hossein_ev18
+                                </a>
+                            </div>
                         </div>
                     </div>
-                    <div class="contact-item">
+                    <div class="contact-item contact-item-full">
                         <div class="label">
                             <i class="fas fa-paper-plane"></i>
                             کانال ایتا
@@ -1340,17 +1368,6 @@
                         <div class="value">
                             <a href="https://eitaa.com/mim_non_marjae_font" target="_blank">
                                 <i class="fab fa-eitaa"></i> کانال میم نون
-                            </a>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="label">
-                            <i class="fas fa-user-astronaut"></i>
-                            سازنده سایت (اکانت دوم)
-                        </div>
-                        <div class="value">
-                            <a href="https://rubika.ir/mohamad_hossein_ev18" target="_blank">
-                                <i class="fas fa-video"></i> mohamad_hossein_ev18
                             </a>
                         </div>
                     </div>
