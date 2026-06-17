@@ -41,6 +41,36 @@
         .nav-link { font-size: 1rem !important; font-weight: 800 !important; }
         .cart-icon { font-weight: 800 !important; }
 
+        /* ===== محافظت از عکس فونت ===== */
+        .font-preview {
+            position: relative;
+            overflow: hidden;
+        }
+        .font-preview img {
+            pointer-events: none;
+            user-select: none;
+            -webkit-user-drag: none;
+            width: 100%;
+            aspect-ratio: 1/1;
+            object-fit: cover;
+        }
+        .font-preview::after {
+            content: "mim.non.ir";
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background: rgba(0,0,0,0.7);
+            color: #FFC800;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.6rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            opacity: 0.5;
+            pointer-events: none;
+        }
+        /* ============================= */
+
         .blog-container {
             max-width: 900px;
             margin: 40px auto;
@@ -499,10 +529,32 @@
             box-shadow: 0 10px 25px rgba(0,0,0,0.3);
         }
 
+        .font-preview {
+            position: relative;
+            overflow: hidden;
+        }
         .font-preview img {
+            pointer-events: none;
+            user-select: none;
+            -webkit-user-drag: none;
             width: 100%;
             aspect-ratio: 1/1;
             object-fit: cover;
+        }
+        .font-preview::after {
+            content: "mim.non.ir";
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background: rgba(0,0,0,0.7);
+            color: #FFC800;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.6rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            opacity: 0.5;
+            pointer-events: none;
         }
 
         .font-details {
@@ -830,7 +882,7 @@
                         <button class="btn-outline" id="sampleTypeBtn"><i class="fas fa-play-circle"></i> نمونه تایپ‌فیس</button>
                     </div>
                     <div class="hero-stats">
-                        <div class="stat"><h3>۴+</h3><span>فونت حرفه‌ای</span></div>
+                        <div class="stat"><h3>۵+</h3><span>فونت حرفه‌ای</span></div>
                         <div class="stat"><h3>۱۵۷</h3><span>طراح راضی</span></div>
                         <div class="stat"><h3>⭐ ۴.۸</h3><span>رضایت بالا</span></div>
                     </div>
@@ -947,6 +999,20 @@
             isSpecial: false,
             isFree: true,
             downloadLink: "https://cdn.imgurl.ir/uploads/a32949_font_negar_mim.non_ir1.rar"
+        },
+        {
+            id: 5,
+            name: "فونت مــربــع!",
+            category: "persian",
+            price: 383000,
+            oldPrice: 698000,
+            image: "https://cdn.imgurl.ir/uploads/i816776_Negar_1781736178838.jpg",
+            description: "مربع یک فونت جدید خوانا از ترکیب فونت های کوفی و ایرانی است که با طراحی «حسن منصوری و شهرزاده اکبری» تهیه و تنظیم شده! و الان راحت با قیمت مناسب برای خرید اماده است!",
+            icon: "fa-crown",
+            offerExpired: false,
+            isSpecial: true,
+            isFree: false,
+            downloadLink: null
         }
     ];
 
@@ -1387,4 +1453,4 @@
     updateCartUI();
 </script>
 </body>
-    </html>
+</html>
